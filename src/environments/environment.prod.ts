@@ -3,7 +3,7 @@ export const environment = {
   
   // LIVE PROD ENDPOINTS
   streamAPI: 'https://animet-stream-api.onrender.com/',
-   apiUrl: 'https://animet-server-v2-na.herokuapp.com/', 
+   apiUrl: 'https://main-server.animet.site/', 
   /* apiUrl: 'https://beta-animet-server-v2-na.herokuapp.com/',  */
   baseUrl: 'https://animet.tv/',
 
