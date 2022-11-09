@@ -1,0 +1,46 @@
+<div class="main">
+    <div class="avatar-wp-wrapper"> </div>
+
+    <div class="avatar-wrapper">
+        <div>
+            <img matTooltip="Copy channel" class="avatar-img" (click)="channelCopy()"
+                onerror="this.src='assets/logo/animet-tv_chibi_1.webp'"
+                src="https://img.animet.site/file/animettv-avatars/{{_USER_STATS?.avatarFileName }}" alt="avatar">
+        </div>
+
+        <div class="user-details">
+            <div class="email">{{_USER_STATS?.email}}</div>
+        </div>
+
+        <div class="stats-wrapper" fxLayout="column" fxLayout.xs="row wrap" fxLayoutGap.xs="10px" fxLayoutAlign.xs="center space-between" fxLayoutGap="25px" fxLayoutGap.xs="15px">
+            <div class="stat-item" fxLayoutAlign="center center" fxLayout="column">
+                <div class="stat-data">{{_USER_STATS?.watching}}</div>
+                <div class="stat-label">Watching</div>
+            </div>
+
+            <div class="stat-item" fxLayoutAlign="center center" fxLayout="column">
+                <div class="stat-data">{{_USER_STATS?.plan_to_watch}}</div>
+                <div class="stat-label">Plan to Watch</div>
+            </div>
+
+            <div class="stat-item" fxLayoutAlign="center center" fxLayout="column">
+                <div class="stat-data">{{_USER_STATS?.completed}}</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item" fxLayoutAlign="center center" fxLayout="column">
+                <div class="stat-data">{{ _USER_STATS?.channelViews }}</div>
+                <div class="stat-label">Channel Views</div>
+            </div>
+            <div class="line-breaker"></div>
+            <div (click)="channelCopy()" matTooltip="Copy" matRipple class="stat-item" fxLayoutAlign="center center"
+                fxLayout="column" style="cursor: pointer;">
+                <div class="stat-data" fxLayoutAlign="center center" style="cursor: pointer;">
+                    <mat-icon>link</mat-icon>&nbsp;
+                    <label style="cursor: pointer;">Channel</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

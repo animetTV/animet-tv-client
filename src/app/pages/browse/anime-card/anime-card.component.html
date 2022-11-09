@@ -1,0 +1,22 @@
+<div 
+    class="card animate__animated animate__fadeIn animate__faster"
+    (click)="setAnime()"
+    id="search_result_item"
+    >
+    <div id='show_bg_2'></div>
+    <div *ngIf="isRecentlyAdded === true"
+    class="card-overlay"
+    >
+    <span class="episode-number">EP {{ floorNumber(EpisodeNumber) }}</span>
+    </div>
+    <div fxLayout="column">
+        <img 
+        class="img" 
+        [src]="ImageSrc"
+        alt="anime-cover">
+    
+        <div class="title-wrapper">
+            <div class="title">{{Title}}</div>
+        </div>
+    </div>
+</div>

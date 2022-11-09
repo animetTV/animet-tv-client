@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Edit Profile</h2>
+<mat-dialog-content class="mat-typography" fxLayout="column">
+  <div fxLayoutAlign="center center" *ngIf="isUploading | async" fxLayout="column" fxFlex="70%">
+    <mat-spinner></mat-spinner>
+    <h4 style="text-align: center; line-height: 1.7">
+      Uploading 🚀 . . .
+    </h4>
+  </div>
+
+  <div class="item">
+    <div class="title">Change profile image</div>
+    <label class="custom-file-upload">
+      <input  class="choose-file" #fileUpload id="fileInput" name="file" type="file" ([value])="(fName)"
+        (change)="fileChanged($event)" />
+    </label>
+    <button mat-flat-button color="accent" (click)="uploadFile()">
+      Upload File
+    </button>
+  </div>
+  <div class="item">
+    <div class="title">Profile status</div>
+    <button mat-flat-button class="status-btn" color="accent" (click)="openShareList()">
+      Change profile status
+    </button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,61 @@
+<div class="heading" mat-dialog-title fxLayout="row" fxLayoutGap="10px">
+  Chrome browser detected! &nbsp;
+  <div fxLayoutAlign="center center">
+    <img matTooltip="Browser" 
+      src="assets/logo/chrome_logo.webp" alt="chrome logo"  
+      loading="lazy" 
+      width="25"
+      fxLayoutAlign="start center" 
+  />
+  </div>
+  <div fxLayoutAlign="center center">
+    <img matTooltip="Brave" 
+      src="assets/logo/brave_logo.webp" alt="chrome logo"  
+      loading="lazy" 
+      width="25"
+      fxLayoutAlign="start center" 
+  />
+  </div>
+  <div fxLayoutAlign="center center">
+    <img matTooltip="Edge" 
+      src="assets/logo/edge_logo.webp" alt="chrome logo"  
+      loading="lazy" 
+      width="25"
+      fxLayoutAlign="start center" 
+  />
+  </div>
+</div>
+<mat-dialog-content class="mat-typography" fxLayout="column">
+  <div class="section">
+    <div class="heading-title" fxLayout="row" fxLayoutGap="10px" fxLayout="row"><span>Our players</span> <mat-icon fxLayoutAlign="center">play_circle_filled</mat-icon> <span>will not play on your browser unless.</span>
+    </div>
+    
+  </div>
+  
+  <div class="section">
+    <div class="heading-title">Edite Chrome settings</div>
+    <div>
+      <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="25px" class="card">
+          <div class="steps" fxLayout="column">
+              <div style="font-size: 1.2em; margin: 10px auto; width: 450px;">Edite chrome setting copy past url -> Download PDFs or Use Firefox or a mobile device.</div>
+              <kbd style="margin: 15px auto; background-color: white; color: #121212; padding: 2px 8px; font-size: 1.2rem; border-radius: 3px;">chrome://settings/content/pdfDocuments</kbd>
+          </div>
+          <img src="https://i.imgur.com/Xsdqn20.gif" loading="lazy" alt="how to fix player emebed detect">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="heading-title">Or use FireFox or any MOBILE device</div>
+    <h3>AnimetTV we are against any popup ads so to protect our users, external players won't play on chromium unless you do the following.</h3>
+    <h3>Sincerly AnimetTV Team.</h3>
+  </div>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="close-btn">
+  <button color="accent" mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-dialog-actions>

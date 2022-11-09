@@ -1,0 +1,436 @@
+@import "../app/@theme/styles/theme.scss";
+$thetransition: all 0.15s cubic-bezier(0.5, 0.25, 0, 0.75) 0s;
+$background-grey: #1C1C1C;
+$text-grey: #C4C4C4;
+$background: #111111;
+$hot-pink: #F70B53;
+
+main {
+  /* background: url("https://img.animet.site/file/animettv-avatars/other/xmas-bg-black.png")
+    repeat; */
+  background-color: $background;
+}
+
+.hide {
+  display: none;
+}
+
+.global-progress-bar {
+  z-index: 10;
+  position: fixed;
+}
+
+/* NAVBAR =====  */
+.sidenav-container {
+}
+
+.sidenav {
+  margin-top: 54px;
+  width: 100%;
+  background-color: $background;
+}
+
+.mat-toolbar {
+  background: inherit;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-button {
+  position: fixed;
+  right: 15px;
+  bottom: 18px;
+}
+.container {
+}
+
+.ui-switch-buttons {
+  padding-left: 20px;
+}
+
+.navbar-content {
+  z-index: 10;
+  position: absolute;
+  transition: $thetransition;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+
+  transition: $thetransition;
+  //background: $dark-bg-lighter-5 !important;
+}
+
+
+.avatarBtn {
+  cursor: pointer;
+  border: none;
+  padding: 8px 10px;
+  mat-icon {
+    font-size: 2em;
+  }
+}
+
+#search-icon {
+  margin: 0 15px;
+}
+
+.btn {
+  transition: $thetransition;
+}
+
+.btn:hover {
+  color: #f70b53;
+}
+
+mat-list-item {
+  padding: 20px;
+}
+
+a:hover {
+  mat-icon {
+    color: #f70b53 !important;
+  }
+}
+
+label {
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: bolder;
+}
+
+.nsfw-btn {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+
+.search-form {
+  margin-top: 10px;
+  cursor: pointer;
+}
+.searchbar {
+  font-size: 0.7rem;
+  mat-form-field {
+    width: 100%;
+  }
+  #search-label {
+    font-size: medium;
+  }
+}
+
+.mat-toolbar {
+  transition: none;
+}
+
+.logo {
+  width: 100%;
+  max-height: 64px;
+  max-width: 200px;
+  padding: 8px 5px;
+  transition: $thetransition;
+  user-select: none;
+}
+.logo:hover {
+  background-color: $dark-bg-lighter-10;
+}
+
+#toolbarTitle {
+  height: 50px;
+  cursor: pointer;
+  transition: $thetransition;
+}
+#toolbarTitle:hover {
+  background-color: $dark-bg-lighter-10;
+}
+
+.login-join-btn {
+  background-color: $dark-bg-lighter-5;
+  border-radius: 3px;
+}
+
+.login-join-btn > span {
+  font-weight: bolder;
+}
+
+#hamburger {
+  display: none;
+}
+
+.nav-item-wrapper {
+  height: 100%;
+  margin-left: 24px;
+}
+
+.nav-item {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  padding: 16px, 18px !important;
+  mat-icon {
+    border-bottom: 2px solid transparent;
+  }
+  label {
+    transition: $thetransition;
+    border-bottom: 2px solid transparent;
+  }
+}
+
+.nav-item:hover,
+.nav-item:focus {
+  label {
+    border-bottom: 2px solid #f72765e7;
+  }
+}
+
+.nav-item > label {
+  font-weight: bolder;
+}
+.noselect {
+  user-select: none;
+}
+
+.beta {
+  background-color: #000000e7;
+  border-radius: 7px;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+.higlight {
+  color: #0b79f7;
+}
+.highlight-pink{
+  color: $hot-pink;
+}
+
+.icon {
+  padding: 10px 5px;
+  font-size: 1.7rem;
+}
+
+.ad-toggle-wrapper > mat-icon {
+  font-size: 2em;
+  margin: 0 1rem;
+}
+
+.nav-icon {
+  font-weight: bolder;
+}
+
+#avatar-image {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  margin-right: 8px;
+}
+
+.avatar-short-name {
+  padding-left: 1ch;
+  max-width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#navbar {
+  background-color: $background;
+}
+@media only screen and (max-width: 1366px) {
+
+
+  #faq {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .sub-header {
+    color: #757575;
+  }
+  .mat-list-base .mat-list-item,
+  .mat-list-base .mat-list-option {
+    height: 36px;
+  }
+  .mat-list-base {
+    padding-top: 0;
+  }
+  label {
+    font-size: 0.8rem;
+  }
+  .logo {
+    cursor: pointer;
+    width: 110px;
+  }
+  #hamburger {
+    display: block;
+  }
+  .tmp-msg {
+    display: none;
+  }
+
+  .search-form {
+    margin-top: 5px;
+    font-size: 8px;
+  }
+  .searchbar {
+    mat-form-field {
+      height: 5px;
+    }
+
+    #search-label {
+      font-size: 1rem;
+    }
+  }
+
+  .icon {
+    font-size: 1.6rem !important;
+    padding: 10px 5px;
+  }
+
+  .login-join-btn {
+    background-color: inherit;
+  }
+
+  .ad-toggle-wrapper > mat-icon {
+    font-size: 1.5em;
+    //margin: 0 0.5rem;
+  }
+  #search-icon {
+    margin: 0px;
+  }
+
+  #avatar-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+  }
+
+  .search-btn {
+    margin-right: 2px;
+    padding: 0 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .icon {
+    font-weight: bolder;
+  }
+
+  .sidenav {
+    padding: 0 4px;
+  }
+  #avatar-sidenav-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    margin-right: 8px;
+    border: 2px solid $text-grey;
+  }
+  .user-container {
+    border-top: 3px solid $hot-pink;
+    color: $text-grey;
+  }
+
+  .quick-nav {
+    background-color: $background-grey;
+    padding: 10px 0;
+    margin: 13px auto;
+    .quick-nav-item {
+      color: $text-grey;
+    }
+  }
+
+  .quick-nav-ai {
+    margin: 4px auto;
+    width: 300px;
+    .quick-nav-ai-card {
+      width: 100%;
+      border-radius: 3px;
+      padding: 20px 80px;
+      margin: 2px 0;
+      background-color: $background-grey;
+    }
+    .heading {
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .quick-nav-auth {
+    margin: 10px auto;
+    .quick-nav-auth-card {
+      border-radius: 3px;
+      padding: 15px 40px;
+      margin: 3px 5px;
+      background-color: $background-grey;
+    }
+    .heading {
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .season-search-container {
+    #gobtn{
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+      margin-bottom: 1.25rem;
+    }
+    margin: 15px auto;
+    .search-inputs {
+      margin: 4px 5px;
+    }
+    .search-inputs>mat-form-field {
+      font-size: 0.8rem;
+      width: 30%;
+    }
+  }
+
+  .genre-container {
+    margin: 10px auto;
+    .heading-container {
+      
+    }
+    .heading-container>.heading {
+      margin: 5px 8px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .genre-comp {
+      margin: 3px;
+    }
+
+    .mat-chip-list-wrapper {
+      margin: 2px!important;
+    }
+  }
+
+}
+
+
+// Moto G4
+@media only screen and (max-width: 375px) {
+  .logo {
+    width: 120px;
+  }
+}
+
+// iPhone 5/SE
+@media only screen and (max-width: 320px) {
+  .logo {
+    width: 90px;
+  }
+}
+

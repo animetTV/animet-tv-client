@@ -1,0 +1,87 @@
+.main-view {
+    flex: 1;
+    margin: 5px auto;
+    max-width: 100rem;
+  }
+  
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+#alphabetical {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 14px;
+    button {
+        margin: 3px;
+        font-weight: 500;
+    }
+    button:hover {
+        background: #f30639;
+    }
+}
+  
+#listplace {
+    width: 75%;
+    margin: 25px auto;
+}
+
+.filter {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 15px;
+    .fitler-type {
+        width: 150px;
+    }
+}
+
+td {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+tr:hover {
+    background-color: #f30639;
+    cursor: pointer;
+}
+
+.detail {
+    .count {
+        font-weight: 500;
+    }
+}
+
+.highlight {
+    color: #f30639;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+    td {
+        font-size: 0.85rem;
+    }
+    #listplace {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    #alphabetical {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 14px;
+        button {
+            margin: 2px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+        
+    }
+}

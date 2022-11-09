@@ -1,0 +1,155 @@
+@import '../../@theme/styles/theme.scss';
+
+/* .wp {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    background-image: url("https://frosty-snyder-1df076.netlify.app/other/animet_logo.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ */
+.container {
+    color: white;
+    min-height:100vh;
+    max-width:100%;
+    position: relative;
+    overflow:hidden;
+  
+
+    .title {
+        font-size: 2em;
+        font-weight: bolder;
+        margin-bottom: 15px;
+    }
+
+    .nav {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 100%;
+        z-index: 5;
+    }
+
+    .logo {
+        cursor: pointer;
+    }
+}
+
+.form-wrapper {
+    background: #1e1e1ebb;
+    backdrop-filter: blur( 4.0px );
+    border-radius: 20px;
+    width: 500px;
+    height: 450px;
+    opacity: 60%;
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+::placeholder {
+    color: #1f1f1f67;
+}
+.regular-form {
+    max-width: 400px;
+    .form-item {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .input-item {
+        padding: 10px ;
+        margin: 2px;
+        font-size:1.5em;
+        font-weight: bold;
+        color: #1E1E1E;
+        outline: none!important;
+        outline-color: rgb(48,50,57);
+        border-radius: 5px;
+        border: 2px solid #f70b5200;
+    }
+    .input-item:focus, .input-item:hover {
+        border: 2px solid #F70B53;
+        box-shadow: 0 0 5px #F70B53;
+    }
+
+    input:focus {
+        outline-offset: 0;
+    }
+
+    .sing-in-btn {
+        width: 100%;
+        margin: 1rem auto;
+    }
+    .sing-in-btn > button {
+        width : 100%;
+        min-height: 3.5em;
+        font-weight: bold;
+        font-size: 1em;
+    }
+
+    .join-link {
+        
+        cursor: pointer;
+        font-size: 14px;
+    }
+}
+
+.divder-wrapper {
+    .divder {
+        border-top: solid #3B3F47;
+        width: 150px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+.buffer {
+    position: absolute;
+    background-color: $dark-bg-lighter-10;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    z-index: 5;
+
+    #status-txt {
+        margin-top: 20px;
+        position: relative;
+        width: 100%;
+        font-style: italic;
+        font-weight: 600;
+    }
+}
+.forgot-link {
+    cursor: pointer;
+    padding: 2px ;
+    margin: 4px 2px;
+    font-size:0.85em;
+    font-weight: 500;
+    color: #007FFF ;
+}
+  
+@media only screen and (max-width: 600px) { 
+    .regular-form {
+        .input-item  {
+            font-size: 1.2em;
+        }
+    }
+    .buffer {
+        height: 70%;
+        width: 100%;
+    }
+    .nav {
+        left: 0%;
+    }
+
+    .container {
+        width: 98%;
+        margin-left: 1%;
+    }
+
+    .divder {
+        width: 110px!important;  
+    }
+}

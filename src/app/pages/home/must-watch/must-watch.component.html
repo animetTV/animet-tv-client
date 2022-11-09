@@ -1,0 +1,39 @@
+<div class="main">
+    <!-- TMP Design -->
+    <!-- <div class="chip-selection">   
+        <mat-chip-list aria-label="Must Watch Selection">
+           <mat-chip 
+           *ngFor="let item of MustWatch | slice:0: showChipAmount"
+          (click)="scroll(); setSelection(item.type)"
+          class="animate__animated animate__fadeIn animate__faster"
+          >{{ item.type }}</mat-chip>
+            <mat-chip (click)="showAllChips()" *ngIf="showChipAmount < 11">
+                <mat-icon>unfold_more</mat-icon>
+            </mat-chip>
+            <mat-chip (click)="minimizeChips()" *ngIf="showChipAmount > 11"> 
+                <mat-icon>unfold_less</mat-icon>
+            </mat-chip>
+
+        </mat-chip-list>
+    </div> -->
+
+    <!-- <div *ngFor="let item of SelectedMustWatchs | async">
+        <app-regular-carousel id="target" [ANIME]="item.animes " [CarouselTitle]="item.type"></app-regular-carousel>
+    </div> -->
+    <mat-tab-group color="accent" animationDuration="200">
+        <div *ngFor="let item of SelectedMustWatchs | async; trackBy:trackBy">
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <div class="tab-lable" matTooltip="{{ item.type}}">
+                        {{ item.type}}
+                    </div>
+                </ng-template>
+                <app-regular-carousel 
+                    id="target" 
+                    [ANIME]="item.animes" 
+                    [CarouselTitle]="item.type">
+                </app-regular-carousel>
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+</div>

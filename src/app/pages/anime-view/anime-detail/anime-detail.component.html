@@ -1,0 +1,131 @@
+<div class="main-wrapper" fxLayout="column">
+  <div class="main" fxLayout="column">
+    <div class="default" fxLayout="column" fxFlex="70%" fxFlex.xs="90%">
+      <!-- <div class="top-nav" fxLayout="row" fxLayoutAlign="space-between">
+        <button
+          class="nav-btn"
+          fxLayoutAlign="start center"
+          mat-button
+          (click)="goBack()"
+          matTooltip="Go Back"
+        >
+          <mat-icon [inline]="true">arrow_back</mat-icon>
+        </button>
+      </div> -->
+
+      <div *ngIf="is404 | async" class="is404">
+        😭 Sorry we have not indexed this Anime yet or Anime has not been released! 404. <br />
+        <span style="font-size: medium; font-style: oblique">
+          ( please report an anime request or a bug report on our
+          <a class="link" target="_blank" [href]="'https://discord.gg/nNY94AqFtK'">discord server</a>
+          )
+        </span>
+        <div>
+          <img src="assets/logo/animet-tv_chibi_1.webp" alt="animet.tv chibi" width="200" />
+        </div>
+      </div>
+
+      <div *ngIf="(isLoaded | async) === false" class="buffer section" fxLayout="column" fxLayoutAlign="center center">
+        <mat-spinner color="accent"></mat-spinner>
+        <div id="status-txt" fxLayoutAlign="center"></div>
+        <h3>Hang on Tight . . .</h3>
+      </div>
+    </div>
+
+    <div *ngIf="isLoaded | async" class="anime-detail-card" fxLayout="row" fxLayout.xs="column"
+      fxLayoutAlign="start space-evenly">
+      <div class="anime-img" fxLayout="column" fxLayoutAlign="start center">
+        <img [src]="getSantizeUrl((selectedAnime | async)?.img)"
+          onerror="this.src='assets/placeholder/404notfound.jpg';" alt="anime cover" />
+      </div>
+      <div class="anime-content" fxFlex="60%" fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="space-evenly">
+        <div class="anime-title">{{ (selectedAnime | async)?.title }}</div>
+        <div fxLayout="row">
+<!--           <div *ngIf="isMobile" fxLayoutAlign="center center" (click)="showAllSynopsis()">
+            <mat-icon class="expand-btn" [inline]="true">unfold_more</mat-icon>
+          </div> -->
+          <p *ngIf="isMobile" class="anime-synopsis item" [matTooltipPosition]="toolTipPosition" id="anime-synopsis">
+            {{ (selectedAnime | async)?.synopsis }}
+          </p>
+          <p *ngIf="isMobile === false" class="anime-synopsis item" matTooltip="{{ toolTipText }}"
+          [matTooltipPosition]="toolTipPosition" id="anime-synopsis" (click)="showAllSynopsis()">
+          {{ (selectedAnime | async)?.synopsis }}
+        </p>
+      </div>
+      <div class="more-detail" fxLayout="row wrap" fxLayoutGap="10px">
+        <div>{{(selectedAnime | async)?.relased }}</div>
+        <div>{{(selectedAnime | async)?.status }}</div>
+
+      </div>
+        <mat-chip-list >
+          <mat-chip *ngFor="let genere of selectedAnimeGenere | async" (click)="setGenre(genere)">{{ genere }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div fxLayoutAlign="start center" fxLayoutAlign.xs="center center" fxLayout="column wrap" fxLayout.xs="row wrap">
+        <button class="nav-btn" mat-button matTooltip="Add to Plan to Watch" (click)="addToPlanToWatch()" >
+          <mat-icon [inline]="true" id="reply-icon">playlist_add</mat-icon>
+          <div style="font-size: 14px; font-weight: 500;"> ADD</div>
+        </button>
+        <button class="nav-btn" mat-button matTooltip="Share" (click)="shareCurrentLink()" >
+          <mat-icon [inline]="true" id="reply-icon">reply</mat-icon>
+          <div style="font-size: 14px; font-weight: 500;"> SHARE</div>
+        </button>
+
+      </div>
+    </div>
+    <div fxFlex="40%" *ngIf="isLoaded | async" fxLayoutAlign="center center" fxLayout="row" class="sub-nav-btn">
+      <!-- <button *ngIf="isUser | async" class="nav-btn" mat-button matTooltip="Add to Plan to Watch"
+        (click)="addToPlanToWatch(selectedAnime)">
+        <mat-icon [inline]="true">playlist_add</mat-icon>
+      </button> -->
+      <!-- <button
+        mat-button
+        *ngIf="(isUser | async) == false"
+        class="nav-btn"
+        matTooltip="Add to Plan to Watch"
+        (click)="
+          snackbarMessage(
+            'Join AnimetTV to start keeping track of your anime',
+            2800
+          )
+        "
+        [routerLink]="['/signup']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon [inline]="true">playlist_add</mat-icon>
+      </button> -->
+    </div>
+    <!--  <div 
+            class="anime-btn-card" 
+            fxLayoutAlign="center"
+            *ngIf="(isLoaded | async)"  >
+            <div fxLayoutGap="20px" fxLayout="row" fxLayoutAlign="space-between center">
+                <button 
+                   *ngIf="(disableBtn | async) === false"
+                    class="btn watch-btn"
+                    mat-raised-button
+                    color="primary"
+                    (click)="watchAnime()"
+                    >
+                    <mat-icon>play_circle</mat-icon>
+                    &nbsp; Watch
+                </button>
+                <div (click)="btnDisabledMsg()">
+                    <button 
+                       *ngIf="(disableBtn | async)"
+                        class="btn watch-btn"
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="true"
+                        >
+                        <mat-icon>play_circle</mat-icon>
+                        &nbsp; Watch
+                    </button>
+                </div>
+    
+            </div>
+    
+        </div> -->
+  </div>
+</div>

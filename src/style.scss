@@ -1,0 +1,435 @@
+@import "./app/@theme/styles/theme.scss";
+@import "~swiper/swiper-bundle";
+@import "~ngx-sharebuttons/themes/circles/circles-dark-theme";
+$primary: #f70b53;
+$thetransition: all 0.1s cubic-bezier(0.5, 0.25, 0, 0.75) 0s;
+
+* {
+  text-decoration: none;
+}
+
+html {
+  min-height: calc(100% + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+  env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+html,
+body {
+  margin: 0;
+  background-color: $dark-background;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  touch-action: manipulation; // ios double zoom
+  cursor: url("./assets/placeholder/cursor-auto.png"), auto;
+}
+
+// cutom cursor 
+button,a,img, .slider, .slide-content, 
+.swiper-pagination-bullet, .nav-item,
+.nav-item>label, mat-chip, .overlay, mat-icon,
+.mat-button-wrapper, mat-card, span, video, iframe
+,td, .mat-form-field-wrapper, #fileInput, .mat-tab-label,
+.Clickzone {
+  cursor: url("./assets/placeholder/cursor-pointer.png"), pointer!important;
+}
+button:active,:active:active, .slider:active, 
+.slide-content:active, .swiper-pagination-bullet:active,
+.nav-item:active,.nav-item>label:active, .mat-chip:active,
+.overlay:active, mat-icon:active, mat-card:active, video:active
+iframe:active, td:active, #fileInput:active, .mat-tab-label:active, .Clickzone:active{
+  cursor: url("./assets/placeholder/cursor-pointer-clicked.png"), pointer;
+}
+
+iframe:hover {
+  cursor: url("./assets/placeholder/cursor-pointer-clicked.png"), pointer;
+}
+
+.anime-title, .message, input, .details>div, .result-title {
+  cursor: url("./assets/placeholder/cursor-text.png"), text;
+}
+.anime-title:active, .message:active, .details>div:active, .result-title:active {
+  cursor: url("./assets/placeholder/cursor-text.png"), text;
+}
+
+::selection {
+  color: #f4f4f4;
+  background-color: #F62852;
+}
+
+// removed defaults 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+:root {
+  --swiper-navigation-size: 56px;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #121212;
+}
+::-webkit-scrollbar {
+  width: 9px;
+  background-color: #121212;
+}
+::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  background-color: #f4f4f4;
+}
+
+.app-full-bleed-dialog .mat-dialog-container {
+  padding: 0;
+}
+
+/* prevent ios double tap zoom */
+/* button {
+  touch-action: manipulation;
+} */
+
+/* snackbar overrides */
+.mat-snack-bar-container {
+  text-align: center;
+}
+
+.mat-simple-snackbar {
+  display: inline-block !important;
+}
+
+/* outline overrides */
+img:focus,
+input:focus,
+input:active,
+input:hover {
+  outline: none !important;
+}
+input:focus,
+input:active,
+input:hover {
+  outline: none !important;
+  box-shadow: none;
+}
+
+// tooltip override
+.mat-tooltip {
+  font-size: 14px !important;
+}
+
+// custom pagination style overrides on /browse
+
+.my-pagination .ngx-pagination .current {
+  background-color: $primary;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+  transition: 0.22s ease-in;
+  font-weight: bold;
+}
+
+.ngx-pagination a,
+.ngx-pagination button {
+  color: #f4f4f4 !important;
+  font-weight: bold;
+  font-size: 1.35rem;
+}
+.ngx-pagination a:hover,
+.ngx-pagination button:hover {
+  background-color: $dark-background !important;
+  color: $primary !important;
+}
+
+.ngx-pagination > li {
+  margin: 5px;
+  padding: 3px;
+  background-color: $dark-background;
+  border-radius: 5px !important;
+}
+
+.drag-scroll-content {
+  width: 100% !important;
+  overflow-y: hidden !important;
+}
+
+.drag-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+// swiper js nav button override
+.swiper-pagination-bullet {
+  padding: 6px;
+  background-color: #f4f4f4;
+}
+@media only screen and (max-width: 600px) {
+  .mat-form-field-wrapper {
+    padding-bottom: 1rem;
+  }
+
+  .my-pagination .ngx-pagination .current {
+    background-color: $primary;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.15s ease-in;
+    font-weight: bold;
+  }
+
+  .ngx-pagination a,
+  .ngx-pagination button {
+    font-size: medium !important;
+  }
+
+  .ngx-pagination > li {
+    margin: 10px;
+    padding: 1px;
+    background-color: $dark-background;
+  }
+
+  ::-webkit-scrollbar {
+    width: 1px;
+    background-color: #121212;
+  }
+
+  .swiper-pagination-bullet {
+    padding: 2px;
+  }
+}
+
+// mat-chip override
+.mat-chip-list-wrapper input.mat-input-element,
+.mat-chip-list-wrapper .mat-standard-chip {
+  padding: 5px !important;
+  margin: 3px!important;
+}
+.mat-chip-list-wrapper {
+  margin: 2px!important;
+}
+
+// navbar
+.mat-list-item {
+  margin: 0.25rem;
+}
+
+.mat-drawer-inner-container {
+  overflow-x: hidden !important;
+}
+
+.hide {
+  position: fixed;
+  visibility: hidden;
+  color: white;
+}
+
+// useragent style override
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #121212 inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+
+// highlight none
+.disable-select {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+// plyr module controls color override
+// progress bar
+
+:root {
+  --plyr-control-icon-size: 20px;
+  --plyr-color-main: #f70b53;
+  --plyr-audio-controls-background: #f70b53;
+  --plyr-progress-loading-size: 30px;
+  --plyr-progress-loading-background: #f70b53;
+  --plyr-range-thumb-height: 20px;
+  --plyr-range-track-height: 6px;
+  --plyr-font-size-small: 16px;
+  --plyr-font-size-large: 30px;
+  --plyr-font-size-xlarge: 21px;
+}
+
+// hide picture in picture btn
+/* .plyr__controls > button:nth-child(7) {
+  display: none;
+} */
+
+.plyr--video {
+  border-radius: 15px;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.showBadge {
+  visibility: visible;
+}
+
+.wp {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+/* toolbar */
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  padding: 0 10px !important;
+}
+
+/* quick access padding tmp fix  */
+#home
+  > div:nth-child(2)
+  > app-quick-access
+  > div
+  > div
+  > div:nth-child(1)
+  > mat-card
+  > div
+  > mat-card-header
+  > div
+  > mat-card-subtitle {
+  margin-bottom: 0px !important;
+}
+
+/* swiperjs */
+.swiper-button-prev {
+  left: 15px;
+}
+.swiper-button-next {
+  right: 15px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  font-weight: bolder;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
+
+.jw-svg-icon-watermark {
+  //display: none!important;
+}
+
+#player {
+  border-radius: 15px !important;
+}
+
+/* material override */
+.mat-raised-button,
+.mat-stroked-button {
+  border-radius: 10px !important;
+}
+
+.mat-raised-button {
+  user-select: none;
+}
+
+// plyr
+.plyr {
+  height: 100vh;
+  min-height: 100%;
+}
+
+// nav drawer
+.mat-drawer-shown {
+  background-color: rgb(66, 66, 66, 0.6) !important;
+}
+
+//chatbro
+.chatbro_header_minimized_movable {
+  transform: rotate(-90deg);
+}
+
+// global specific css
+.rating {
+  opacity: 0.9;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  background: #27282eec;
+  border-bottom-right-radius: 3px;
+  color: white;
+
+
+  padding: 0 5px;
+  mat-icon {
+    font-size: 0.85rem;
+    color: #d8ae10;
+  }
+}
+
+.anime-cover-overlay {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+
+.mat-tab-label {
+  padding: 0 35px!important;
+  min-width: 35px!important;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  .rating {
+    padding: 0 5px 2px 7px;
+    font-size: 0.65rem;
+  }
+  /* .anime-cover-overlay {
+    position: relative;
+    left: 50%;
+    margin-left: -50px;
+  } */
+
+  #player {
+    border-radius: 0 !important;
+  }
+
+  .mat-tab-label {
+    padding: 0 10px!important;
+    min-width: 25px!important;
+  }
+  
+}
+
+// global specific css end
+
+// custom spinner
+@-webkit-keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@-moz-keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.spinner{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1003;overflow:hidden}.spinner div:first-child{display:block;position:relative;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;transform:translate3d(0,0,0);animation:spin 2s linear infinite;box-shadow:0 3px 3px 0 #e21153}.spinner div:first-child:after,.spinner div:first-child:before{content:"";position:absolute;border-radius:50%}.spinner div:first-child:before{top:5px;left:5px;right:5px;bottom:5px;box-shadow:0 3px 3px 0 #fff;-webkit-animation:spin 3s linear infinite;animation:spin 3s linear infinite}.spinner div:first-child:after{top:15px;left:15px;right:15px;bottom:15px;box-shadow:0 3px 3px 0 #f60b38;animation:spin 1.5s linear infinite}.loadig-text{color:#fff}
+
+// horiz line
+.horz-line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidenav {
+  background-color: #111111;
+}

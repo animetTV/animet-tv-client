@@ -1,0 +1,55 @@
+<div class="anime-results">
+    <div class="scroll-buttons" fxLayout="row" fxLayoutAlign="space-between">
+        <div class="center-items" fxLayout="row" fxLayoutGap="10px">
+            <div class="list-name">{{ ListName }}</div>
+        </div>
+        <div *ngIf="(isHandset$ | async) === false" fxLayoutGap="5px" class="nav-btn">
+            <button role="button" mat-raised-button (click)="moveLeft()">
+                <mat-icon aria-label="Navigate">keyboard_arrow_left</mat-icon>
+            </button>
+            <button role="button" mat-raised-button (click)="moveRight()">
+                <mat-icon aria-label="Navigate">keyboard_arrow_right</mat-icon>
+            </button>
+        </div>
+    </div>
+    <drag-scroll #nav [snap-duration]="150" [drag-scroll-y-disabled]="true">
+        <div drag-scroll-item class="anime-card" *ngFor="let anime of List">
+            <img class="anime-cover" src="{{ anime.img_url }}"
+                onerror="this.src='assets/placeholder/404notfound.jpg';" />
+            <div class="overlay" fxLayoutAlign="center space-evenly" fxLayout="column" fxLayoutGap="30px">
+                <!-- <div *ngIf="isContinueWatch === false" fxLayoutAlign="center center" fxLayoutGap="35px">
+                <mat-icon 
+                 fxFlex="25%"
+                class="overlay-btn" 
+                [inline]="true"
+                matTooltip="Remove"
+                (click)="removeItemFromList(anime)"
+                >delete</mat-icon>
+                <mat-icon 
+                 fxFlex="25%"
+                *ngIf="isFinishedBtn" 
+                class="overlay-btn" 
+                [inline]="true"
+                matTooltip="Finished"
+                (click)="moveItemToCompleted(anime)"
+                >done</mat-icon>
+                <mat-icon 
+                 fxFlex="25%"
+                *ngIf="!isFinishedBtn" 
+                class="overlay-btn" 
+                [inline]="true"
+                matTooltip="Move to Plan to Watch"
+                (click)="moveItemToPlanToWatch(anime)"
+                >undo</mat-icon>
+            </div> -->
+                <div fxLayoutAlign="center center">
+                    <mat-icon class="overlay-btn" id="play-icon" [inline]="true" fxFlex="35%" matTooltip="Watch"
+                        (click)="setAnime(anime.title)" [routerLink]="[ '/video' ]" routerLinkActive="active">
+                        play_circle_filled</mat-icon>
+                </div>
+            </div>
+
+            <div class="anime-title">{{ anime.title }}</div>
+        </div>
+    </drag-scroll>
+</div>

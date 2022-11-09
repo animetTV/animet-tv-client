@@ -1,0 +1,123 @@
+<div class="main-view">
+    <div class="adv-wrapper" fxLayoutAlign="center">
+        <div *ngIf="(isHandset$ | async) === false" fxLayoutAlign="center">
+            <ng-adsense [adClient]="'ca-pub-6890066986315850'" [adSlot]="4272829140" [display]="'inline-block'"
+                [width]="728" [height]="110"></ng-adsense>
+        </div>
+
+        <div *ngIf="(isHandset$ | async)" fxLayoutAlign="center">
+            <ng-adsense [adSlot]="8789808590" [display]="'inline-block'" [height]="60"></ng-adsense>
+        </div>
+
+
+    </div>
+    <div class="container" fxLayout="column" fxLayoutAlign="center" fxLayoutGap="90px" fxLayoutGap.xs="40px">
+        <div class="browse-nav" fxLayout="column" fxLayoutAlign="space-between" fxLayoutAlign.xs="space-between">
+            <div class="searchbar-wrapper" fxLayoutAlign="center center">
+                <div class="btn searchbar" fxFlex="75%" fxFlex.xs="85%">
+
+                    <form class="search-form" autocomplete="off">
+                        <mat-form-field appearance="legacy">
+                            <mat-label id="search-label" fxLayout="row">
+                                <mat-icon class="search_icon">search</mat-icon>
+                                Search
+                            </mat-label>
+                            <input #animeInput (keyup)="0" matInput name="Master Search"
+                                (keydown.enter)="searchCurrentVal()" [formControl]="animeCtrl" id="searchbar"
+                                [(value)]="currnetSearchTerm" placeholder="Search by title" (focus)="onFocuse()"
+                                type="search">
+                            <!-- <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option 
+                                (onSelectionChange)="animeInput.value != undefined" 
+                                *ngFor="let anime of filteredAnimes | async" 
+                                [value]="anime.name"
+                                >
+                                <div  
+                                [routerLink]="[ '/video:anime.title' ]" routerLinkActive="active"
+                                >
+                                {{ anime.title }}</div>         
+                            </mat-option>
+                            </mat-autocomplete> -->
+                        </mat-form-field>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="result" fxLayout="column" fxLayoutAlign="space-between">
+            <div class="filters" fxLayout="row" fxLayoutGap="20px" fxLayoutGap.xs="8px" fxLayoutAlign="center center"
+                *ngIf="showPagination | async">
+                <div (click)="setFilter('recently_added')" class="filter-btn" id="recently_added"
+                    fxLayoutAlign="center center">
+                    <div class="icon">
+                        <mat-icon [inline]="true">new_releases</mat-icon> &nbsp;
+                    </div>
+                    <span *ngIf="(isHandset$ | async) === false">New Eps</span>
+                    <span *ngIf="isHandset$ | async">New</span>
+                </div>
+                <div (click)="setFilter('trending')" class="filter-btn" id="trending" fxLayoutAlign="center center">
+                    <div class="icon">
+                        <mat-icon [inline]="true">trending_up</mat-icon> &nbsp;
+                    </div>
+                    <span *ngIf="(isHandset$ | async) === false">Popular</span>
+                    <span *ngIf="isHandset$ | async">Popu</span>
+                </div>
+                <div aria-hidden="true" (click)="setFilter('alltime_popular')" class="filter-btn" id="alltime_popular"
+                    fxLayoutAlign="center center">
+                    <div class="icon">
+                        <mat-icon [inline]="true">arrow_upward</mat-icon> &nbsp;
+                    </div>
+                    Top
+                </div>
+                <!-- <div 
+                    mat-button
+                    (click)="setFilter('upcoming')"
+                    class="filter-btn" 
+                    id="upcoming" 
+                    fxLayoutAlign="center center"
+                    >
+                    <div class="icon">
+                        <mat-icon [inline]="true">upcoming</mat-icon> &nbsp;
+                    </div>
+                    <span *ngIf="(isHandset$ | async) === false">Upcoming</span>
+                    <span *ngIf="isHandset$ | async">Soon</span>
+                </div> -->
+            </div>
+            <div class="pagination" *ngIf="showPagination | async" fxLayoutAlign="center">
+                <pagination-controls [maxSize]="maxSize" class="my-pagination" (pageChange)="pageNumber = $event"
+                    [responsive]="true"></pagination-controls>
+            </div>
+            <div class="buffer" fxLayoutAlign="center center" *ngIf="(isLoaded | async)">
+                <mat-spinner color="accent"></mat-spinner>
+            </div>
+
+            <div fxLayout="row wrap" fxLayoutGap="8px" class="result-container" fxLayoutGap.xs="5px"
+                fxLayoutGap.lt-md="25px" fxLayoutAlign="center">
+                <app-anime-card
+                    *ngFor="let anime of (animes | async) | paginate: { itemsPerPage: 20, currentPage: pageNumber }"
+                    [ImageSrc]="anime?.img_url" [Title]="anime?.title" [Id]="anime?.id"
+                    [EpisodeNumber]="anime?.episodeNumber">
+
+                </app-anime-card>
+
+                <div *ngIf="isShowMore | async" fxLayoutAlign="center center">
+                    <div fxLayout="column" class="card animate__animated animate__fadeIn animate__fast"
+                        (click)="searchCurrentVal()" fxLayoutAlign="center center">
+                        <div class="more_card" fxLayoutAlign="center center">
+                            <mat-icon [inline]="true">more_horiz</mat-icon>
+                        </div>
+                        <div class="more_title">more</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pagination" *ngIf="showPagination | async" fxLayoutAlign="center">
+                <pagination-controls (click)="scrollToTop()" [maxSize]="maxSize" class="my-pagination"
+                    (pageChange)="pageNumber = $event" [responsive]="true"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

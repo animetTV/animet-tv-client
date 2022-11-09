@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="title" fxLayoutAlign="center">{{ShareContainerTitle}}</div>
+    <share-buttons 
+        mat-dialog-close    
+        [theme]="'circles-dark'"
+        [include]="['copy','sms','whatsapp','facebook','twitter','email','telegram','vk','messenger','linkedin','pinterest','reddit','tumblr','mix','viber','xing','line','print']"
+        [exclude]="['linkedin','tumblr','print','xing','mix','viber']"
+        [show]="6"
+        [showText]="true"
+        [size]="8"
+        [url]="ShareLink"
+        [title]="ShareTitle"
+        [description]="ShareTitle"
+        [image]="'https://raw.githubusercontent.com/animet-tv/animet-tv-assets/main/animet-tv_chibi_1.png'"
+        [tags]="'Watch,anime,online,animetTV'"
+    ></share-buttons>
+</div>

@@ -1,0 +1,5 @@
+<mat-dialog-content>
+    <mat-chip-list >
+        <mat-chip [mat-dialog-close]="true" *ngFor="let genre of genres" (click)="setGenre(genre)">{{genre}}</mat-chip>
+    </mat-chip-list>
+</mat-dialog-content>

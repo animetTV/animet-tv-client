@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="anime-results">
+    <div class="scroll-buttons" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center"
+      fxLayoutGap.xs="20px" fxLayoutAlign.xs="space-between">
+      <div fxLayoutAlign="start">
+        <!-- <div class="title-wrapper" *ngIf="(isHandset$ | async) === false">
+          <div class="title" fxLayout="column">
+            <div fxLayoutAlign="start" class="title-name" id="title-name">
+              Popular this season
+            </div>
+            <div *ngIf="(isHandset$ | async) === false" fxLayoutAlign="start" fxLayoutAlign.xs="center"
+              class="sub-title">
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div *ngIf="(isHandset$ | async) === false" fxLayoutAlign="end" fxLayoutGap="5px"
+        fxLayoutAlign.xs="space-between">
+        <button mat-button role="button" (click)="setBrowse()">
+          <label style="font-weight: bold;">More</label>
+          <!-- <mat-icon aria-label="More">more_horiz</mat-icon> -->
+        </button>
+
+        <!-- <div fxLayoutGap="5px" class="nav-btn">
+          <button role="button" mat-raised-button (click)="moveLeft()">
+            <mat-icon aria-label="Navigate">keyboard_arrow_left</mat-icon>
+          </button>
+          <button role="button" mat-raised-button (click)="moveRight()">
+            <mat-icon aria-label="Navigate">keyboard_arrow_right</mat-icon>
+          </button>
+        </div> -->
+      </div>
+    </div>
+    <div class="buffer" fxLayoutAlign="center center" *ngIf="(isLoaded | async) === false">
+      <mat-spinner color="accent"></mat-spinner>
+    </div>
+
+
+    <div class="overflow-x-hidden grid" fxLayout="row wrap" fxLayoutAlign="start space-evenly" >
+      <div class="anime-card grid" *ngFor="let anime of TRENDING_ANIME; trackBy:trackBy" (click)="setAnime(anime)">
+        <div class="anime-cover-overlay">
+          <span class="rating" fxFlexx="row" fxLayoutAlign="center center">
+            <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
+          </span>
+        </div>
+        <img class="anime-cover" [lazyLoad]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg'"
+          alt="anime cover" />
+        <div class="anime-title">{{ anime.title }}</div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

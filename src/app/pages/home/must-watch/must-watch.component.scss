@@ -1,0 +1,51 @@
+@import "../../../@theme/styles/theme.scss";
+
+$primary-color: #eb1e5be7;
+$dark-color: #27282e5e;
+$dark-background: #44464C;
+
+.main {
+  margin: 1rem 0;
+}
+
+.chip-selection {
+    padding: 1.5rem 1rem;
+}
+
+mat-chip {
+    cursor: pointer;
+    font-size: 1.35rem;
+    transition: .22s ease-in;
+}
+
+mat-chip:hover {
+    color: $primary-color;
+}
+
+// chip margin padd overrides
+mat-chip {
+    padding: 8px 14px !important;
+}
+
+.mat-chip-list-wrapper input.mat-input-element, .mat-chip-list-wrapper .mat-standard-chip {
+    margin: 100px;
+}
+
+.tab-lable {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: $light-text;
+  }
+// Small devices (landscape phones, 576px and up)
+@media only screen and (max-width: 600px) {
+    .tab-lable {
+        font-size: 0.85rem;
+    }
+    .main {
+        min-width: 330px;
+    }
+
+    mat-chip {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,71 @@
+$primary-color: #f72765e7;
+$green: #46C646;
+
+.header {
+    .link-icon {
+        color:  $primary-color;
+        border-radius: 50%;
+        font-size: 28px;
+    }
+
+    .title  {
+        font-size: 20px;
+    }
+}
+
+.content {
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+.form-field {
+    width: 90%;
+
+    input {
+        width: 100%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: 0.11s ease-in-out;
+    cursor: pointer;
+}
+
+a:hover {
+    color: $primary-color;
+}
+
+.dialog-btns {
+    width: 100%;
+    
+}
+
+.list-status {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.lists-status-txt {
+    font-size: 12px;
+
+    .public {
+        color: $green;
+        ui-switch {
+            color: $green;
+        }
+    }
+
+    .private {
+        color: $primary-color;
+        ui-switch {
+            switchColor: $primary-color;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .form-field {
+        width: 80%!important;
+    }
+}

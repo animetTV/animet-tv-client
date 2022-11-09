@@ -1,0 +1,80 @@
+<div class="main-view animate__animated animate__fadeIn animate__fast" fxLayout="column">
+  <div id="alphabetical">
+    <button mat-raised-button (click)="show('#')">#</button>
+    <button mat-raised-button id="default" (click)="show('A')">A</button>
+    <button mat-raised-button (click)="show('B')">B</button>
+    <button mat-raised-button (click)="show('C')">C</button>
+    <button mat-raised-button (click)="show('D')">D</button>
+    <button mat-raised-button (click)="show('E')">E</button>
+    <button mat-raised-button (click)="show('F')">F</button>
+    <button mat-raised-button (click)="show('G')">G</button>
+    <button mat-raised-button (click)="show('H')">H</button>
+    <button mat-raised-button (click)="show('I')">I</button>
+    <button mat-raised-button (click)="show('J')">J</button>
+    <button mat-raised-button (click)="show('K')">K</button>
+    <button mat-raised-button (click)="show('L')">L</button>
+    <button mat-raised-button (click)="show('M')">M</button>
+    <button mat-raised-button (click)="show('N')">N</button>
+    <button mat-raised-button (click)="show('O')">O</button>
+    <button mat-raised-button (click)="show('P')">P</button>
+    <button mat-raised-button (click)="show('Q')">Q</button>
+    <button mat-raised-button (click)="show('R')">R</button>
+    <button mat-raised-button (click)="show('S')">S</button>
+    <button mat-raised-button (click)="show('T')">T</button>
+    <button mat-raised-button (click)="show('U')">U</button>
+    <button mat-raised-button (click)="show('V')">V</button>
+    <button mat-raised-button (click)="show('W')">W</button>
+    <button mat-raised-button (click)="show('X')">X</button>
+    <button mat-raised-button (click)="show('Y')">Y</button>
+    <button mat-raised-button (click)="show('Z')">Z</button>
+  </div>
+  <div class="filter" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-around start ">
+    <div class="fitler-type">
+      <mat-form-field appearance="outline">
+        <mat-label>Sub/Dub</mat-label>
+        <mat-select (selectionChange)="typeChange($event)" value="sub" [disabled]="checked">
+          <mat-option value="sub">Sub</mat-option>
+          <mat-option value="dub">Dub</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="detail" fxLayoutAlign="space-around" fxLayout="column" fxLayoutGap="7px">
+      <mat-checkbox [checked]="checked" (change)="onChange($event); false" matTooltip="Show crunchyroll titles">CR only</mat-checkbox>
+      <div class="count" fxLayout="row" matTooltip="Total indexed availalble titles">DataBase: &nbsp;<div
+          class="highlight">{{totalTitles}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="buffer" fxLayoutAlign="center center" *ngIf="(isLoaded | async) === false">
+    <mat-spinner color="accent"></mat-spinner>
+  </div>
+  <div id="listplace">
+    <!-- </table> -->
+
+    <!-- <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input (click)="onFilterSelect()" matInput (keyup)="applyFilter($event)" placeholder="Ex. naruto" #input>
+          </mat-form-field> -->
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element" (click)="setAnime(element.title)"> {{element.title}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <!--  <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr> -->
+    </table>
+
+    <div style="color: grey; margin: 2rem auto;" fxLayoutAlign="center">CR titles have only show when SUB selected!</div>
+  </div>
+
+</div>

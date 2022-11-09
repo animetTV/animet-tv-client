@@ -1,0 +1,65 @@
+<div class="container" *ngIf="showContent | async">
+    <div class="anime-results"> 
+        <div 
+            class="scroll-buttons" 
+            fxLayout="row" 
+            fxLayout.xs="column" 
+            fxLayoutAlign="space-between center" 
+            fxLayoutGap.xs="20px" 
+            fxLayoutAlign.xs="space-between"
+        
+        >
+            <div fxLayoutAlign="start">
+                <div class="title-wrapper">
+                    <div class="title" fxLayout="column">
+                        <div fxLayoutAlign="start" class="title-name" id="title-name">Continue Watching</div>
+                    </div>
+                </div>  
+            </div>
+
+            <!-- <div fxLayoutAlign="end"  fxLayoutGap="10px" fxLayoutAlign.xs="space-between" >
+                <div></div>
+                <div fxLayoutGap="5px" class="nav-btn">
+                    <button mat-raised-button (click)="moveLeft()" >
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </button>
+                    <button mat-raised-button (click)="moveRight()">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+            </div> -->
+        </div>
+        <div class="buffer" fxLayoutAlign="center center" *ngIf="(isLoaded | async) === false  ">
+            <mat-spinner></mat-spinner>
+        </div>
+        <drag-scroll 
+            #nav 
+            [snap-duration]="180"
+            [drag-scroll-y-disabled]="true"
+            >
+            <div drag-scroll-item class="anime-card" *ngFor="let anime of CONTINUE_WATCHING" >
+                <div class="remove-btn" (click)="removeItemFromContinueWatching(anime.animeTitle)">
+                    <mat-icon  [inline]="true" color="primary" matTooltip="Remove">cancel</mat-icon>
+                </div>
+                <div class="anime-cover-overlay">
+                    <span class="episode-number">EP {{ anime.episodeNumber }}</span>
+                    <span class="sub-icon" *ngIf="anime.type">DUB</span>
+                    <span class="sub-icon" *ngIf="anime.type === false">SUB</span>
+                </div>
+                <img 
+                    class="anime-cover"
+                    [src]="anime.img_url"
+                    onerror="this.src='assets/placeholder/404notfound.jpg';"
+                    (click)="setAnime(anime)"
+                    />
+                    <!-- <div fxFlex="100%" class="progress_bar">
+                        <mat-progress-bar mode="determine" value="40"></mat-progress-bar>
+                    </div> -->
+                <div class="anime-title"  >{{ anime.animeTitle }}</div>
+            </div>
+        </drag-scroll>
+    </div>
+
+</div>
+
+

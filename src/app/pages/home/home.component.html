@@ -1,0 +1,168 @@
+<div class="wrapper home" id="home">
+  <!-- <div *ngIf="showBannerMessage | async " class="pwaContainer" id="pwaContainer" 
+  matTooltip="tap to close"
+    fxLayoutAlign="space-evenly center" 
+    fxLayout="row"
+    (click)="minimizePWAcontainer()"
+    >
+      <button id="pwaButton" (click)="addToHomeScreen()" mat-raised-button color="accent">Install App</button>
+  </div> -->
+
+  <swiper class="swiperjs" [slidesPerView]="'auto'" [centeredSlides]="true" [pagination]="true"
+    [loopFillGroupWithBlank]="true" [loop]="true" [effect]="'fade'" [autoplay]="{
+      delay: 4500,
+      disableOnInteraction: false
+    }" [pagination]="{
+      clickable: true
+    }" *ngIf="isSpotlightAvailable | async">
+    <ng-template class="carousel-container" *ngFor="let anime of spotLight | async" swiperSlide>
+      <div class="carousel">
+        <div class="slider" (click)="setAnime(anime)">
+          <div class="slide-content">
+            <h1 class="movie-title">{{anime.title}}</h1>
+            <p class="movie-des">{{ TruncateSynopsis(anime?.synopsis) }}</p>
+          </div>
+          <img [lazyLoad]="anime.img" [alt]="anime.title">
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+
+  <div fxLayoutAlign.lt-md="center">
+    <app-quick-access (watchLastOpenEvent)="watchLastOpen($event)" (scrollToMustWatchEvent)="scrollToMustWatch($event)">
+    </app-quick-access>
+  </div>
+  <div class="sec" *ngIf="isUser | async">
+    <app-continue-watching></app-continue-watching>
+  </div>
+<!--   <div class="line"></div> -->
+
+<div class="sec must-watch" id="must-watch">
+  <div class="must-watch-title" style="padding-left: 10px;">Recently Updated</div>
+  <mat-tab-group class="gen-tabs" [animationDuration]="150" [disablePagination]="'true'">
+    <mat-tab label="Sub">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="Sub">
+          Sub
+        </div>
+      </ng-template>
+      <app-recently-released [isSubSelected]="true"></app-recently-released>
+    </mat-tab>
+    <mat-tab label="Dub">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="Dub">
+          Dub
+        </div>
+      </ng-template>
+      <app-recently-released [isSubSelected]="false"></app-recently-released>
+    </mat-tab>
+  
+    <mat-tab label="Trending">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="Trending">
+          Trending
+        </div>
+      </ng-template>
+      <app-trending></app-trending>
+    </mat-tab>
+    <mat-tab label="60fps">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="60fps">
+          60fps
+        </div>
+      </ng-template>
+      <app-ai-showcase [type]="'60fps'"></app-ai-showcase>
+    </mat-tab>
+    <mat-tab label="4K">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="4K">
+          4K
+        </div>
+      </ng-template>
+      <app-ai-showcase [type]="'4k'"></app-ai-showcase>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+
+  <!-- <div class="sec recently-added">
+    <app-recently-released></app-recently-released>
+  </div>
+  <div class="sec trending">
+    <app-trending></app-trending>
+  </div>
+  <div class="sec trending">
+    <app-top-of-the-week></app-top-of-the-week>
+  </div>
+  <div class="sec upscaled-content">
+    <app-ai-showcase [type]="'4k'"></app-ai-showcase>
+    <app-ai-showcase [type]="'60fps'"></app-ai-showcase>
+  </div> -->
+
+  <div class="sec upcoming-season">
+    <app-upcoming></app-upcoming>
+  </div>
+
+  <div class="sec must-watch" id="must-watch">
+    <div class="must-watch-title" style="padding-left: 10px;">Must watch</div>
+    <app-must-watch></app-must-watch>
+  </div>
+
+  <!-- <img loading="lazy" [src]="'https://frosty-snyder-1df076.netlify.app/other/wp-no-text-30op-min.webp'" alt="more feature wallpaper"> -->
+  <div class=" sign-up" *ngIf="(isHandset$ | async) === false">
+    <div class="header">Featured 4K Titles</div>
+    <div class="feature-list" fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.xs="start center">
+      <div fxLayoutAlign="start center" fxLayout="column" fxLayout.xs="column">
+        <!-- <div class="item">
+              <div class="content">
+                <div class="content_container">
+                  <div class="content_container_text features">
+                    Download in
+                    </div>
+                    
+                    <ul class="content_container_list">
+                      <li class="content_container_list_item">1080P</li>
+                      <li class="content_container_list_item">720P</li>
+                      <li class="content_container_list_item">480P</li>
+                      <li class="content_container_list_item">360P</li>
+                    </ul>
+                  </div>
+                </div>
+              </div> -->
+        <div class="item latest-4k" fxLayout="column">
+          <div fxLayout="row wrap" fxLayoutAlign="center">
+            <div class="featured-img" (click)="setExperimentAnime('Demon Slayer Mugen Train')">
+              <img loading="lazy" [src]="
+                  'https://frosty-snyder-1df076.netlify.app/spotlight/4k_mugen_train_spotlight.webp'
+                " alt="4k cover art" matTooltip="Kimetsu no Yaiba Movie: Mugen Ressha-hen 4K Ultra HD" />
+            </div>
+            <div class="featured-img" (click)="setExperimentAnime('Your Name')">
+              <img loading="lazy" [src]="
+                  'https://frosty-snyder-1df076.netlify.app/spotlight/4k_your_name.webp'
+                " alt="4k cover art" matTooltip="Your Name Dub 4K Ultra HD" />
+            </div>
+            <div class="featured-img" (click)="setExperimentAnime('Josee to Tora to Sakanatachi')">
+              <img loading="lazy" [src]="
+                  'https://img.animet.site/file/animettv-avatars/other/spotlight/213c213c2j1hrojufhvfd2.jpg'
+                " alt="4k cover art" matTooltip="Josee to Tora to Sakanatachi 4K Ultra HD" />
+            </div>
+          </div>
+        </div>
+        <!--   <div class="header">Enjoy more...</div>
+          <div class="item">
+            <div class="features-header" [routerLink]="['/experiment']" routerLinkActive="router-link-active">
+              Watch A.I upscaled anime in 60fps & 4K
+            </div>
+          </div> -->
+        <!-- <div class="item">
+          <div
+            class="features-header"
+            [routerLink]="['/quick-bites']"
+            routerLinkActive="router-link-active"
+          >
+            Watch AMVs (soon)
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>

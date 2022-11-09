@@ -1,0 +1,9 @@
+<div class="main">
+    <div fxLayoutAlign="center center" class="title"> What Season</div>
+    <div id="seasons" class="season-wrapper animate__animated animate__fadeIn" fxLayout.lt-md="row wrap" fxLayout="row" fxLayoutAlign="center center">
+            <div class="season-card" *ngFor="let SEASONS of SEASONS" fxFlex.lt-md="35%" fxFlex.xs="50%">
+               <div class="season_name">{{SEASONS.season_name}}</div>
+                <img class="img-cover" src='{{SEASONS.path}}' alt="season cover" (click)="selectSeason(SEASONS.season)" />
+            </div>
+    </div>
+</div>

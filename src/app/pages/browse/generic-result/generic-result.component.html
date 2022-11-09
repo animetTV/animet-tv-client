@@ -1,0 +1,92 @@
+<div class="main animate__animated animate__fadeIn animate__fast">
+  <div
+    class="header disable-select"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <div fxLayout="column">
+      <div fxLayout="row">
+        <div class="title">{{ Result_title }}</div>
+        <mat-icon
+          *ngIf="isMovie"
+          [inline]="true"
+          class="title searchBtn"
+          matTooltip="Show me random movies"
+          id="search-icon"
+          (click)="getRandomMovie()"
+          >shuffle</mat-icon
+        >
+      </div>
+      <div fxLayoutAlign="center" class="totalMovies" *ngIf="isMovie">
+        Total: <div class="highlight">&nbsp;{{ totalMovies }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="result">
+    
+    <div
+      class="pagination"
+      *ngIf="showPagination | async"
+      fxLayoutAlign="center"
+    >
+      <pagination-controls
+        [maxSize]="maxSize"
+        class="my-pagination"
+        (pageChange)="pageNumber = $event"
+      ></pagination-controls>
+    </div>
+
+    <div
+      *ngIf="(showMovieSearchbar | async) === false"
+      fxLayout="row wrap"
+      fxLayoutGap="8px"
+      class="result-container"
+      fxLayoutGap.xs="5px"
+      fxLayoutGap.lt-md="25px"
+      fxLayoutAlign="center flex-start"
+    >
+      <app-anime-card
+        *ngFor="
+          let anime of Result 
+            | async
+            | paginate: { itemsPerPage: _itemsPerPage, currentPage: pageNumber }
+        "
+        [ImageSrc]="anime.img_url"
+        [Title]="anime.title"
+      >
+      </app-anime-card>
+    </div>
+    <div
+      *ngIf="showMovieSearchbar | async"
+      fxLayout="row wrap"
+      fxLayoutGap="10px"
+      class="result-container"
+      fxLayoutGap.xs="5px"
+      fxLayoutGap.lt-md="25px"
+      fxLayoutAlign="center flex-start"
+    >
+      <app-anime-card
+        *ngFor="
+          let anime of filteredMovies
+            | async
+            | paginate: { itemsPerPage: 12, currentPage: pageNumber }
+        "
+        [ImageSrc]="anime.img_url"
+        [Title]="anime.title"
+      >
+      </app-anime-card>
+    </div>
+    <div
+      class="pagination"
+      *ngIf="showPagination | async"
+      fxLayoutAlign="center"
+    >
+      <pagination-controls
+        (click)="scrollToTop()"
+        [maxSize]="maxSize"
+        class="my-pagination"
+        (pageChange)="pageNumber = $event"
+      ></pagination-controls>
+    </div>
+  </div>
+</div>

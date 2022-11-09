@@ -1,0 +1,99 @@
+@import "../../@theme/styles/theme.scss";
+
+.main {
+  margin: 3rem;
+  color: #f4f4f4;
+}
+
+.title {
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+.content {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+.header {
+  list-style: 1.8;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.message_section {
+  cursor: default;
+  padding: 2.85rem 0rem;
+
+  .message {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 1rem 0;
+    background-color: #f72765d0;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .header_v2 {
+    list-style: 1.8;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+}
+.buttons {
+  margin: 1rem 0;
+}
+
+.default {
+  background-color: $light-bg-darker-10;
+  padding: 8px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #2358c2;
+}
+
+.default:hover {
+  background-color: $dark-bg-lighter-10;
+  color: white;
+}
+
+.donation-links {
+  padding: 14px 0;
+}
+.donation {
+  cursor: pointer;
+}
+.icons {
+  height: 80px;
+}
+.btc {
+  padding: 14px;
+}
+.icon {
+  cursor: pointer;
+}
+.icon:hover {
+  color: #2358c2;
+}
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 2rem !important;
+  }
+  .header,
+  .header_v2 {
+    font-size: 1.85rem !important;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  .main {
+    margin: 1.25rem 1rem !important;
+  }
+  .message {
+    font-size: 1rem !important;
+  }
+  .content-img {
+    display: none;
+  }
+  .icons {
+    height: 40px;
+  }
+}

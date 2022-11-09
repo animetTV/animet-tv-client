@@ -1,0 +1,69 @@
+@import '../../../@theme/styles/theme.scss';
+$thetransition: all .15s cubic-bezier(.50,.25,0,.75) 0s;
+
+
+.main {
+    margin: 12rem auto;
+}
+.season-wrapper {
+    width: 100%;
+    .season-card {
+        padding: 0.5rem;
+       height: 350px;
+       width: 250px;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .season-card > .img-cover {
+        position: relative;
+        border-radius: 4px;
+        transition: $thetransition;
+        width: 100%;
+    }
+
+    .season_name {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .season-card:hover .img-cover {
+        transform: scale(.95);
+        cursor: pointer;
+    }
+  }
+
+  .season-card:hover > .season_name {
+      color: #bd1f60;
+  }
+.title {
+    font-size: 3rem;
+    font-weight: bolder;
+    margin: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+    .title {
+        font-size: 3rem;
+    }
+    .season-wrapper {
+        margin: 10px;
+    }
+
+    .season-card {
+        height: 200px!important;
+        width: 250px!important;
+    }
+
+    .season_name {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .season-card {
+        width: 200px!important;
+    }
+}
+  

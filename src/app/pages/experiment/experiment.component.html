@@ -1,0 +1,207 @@
+<!-- <div class="adblocker-detected" *ngIf="isAdblockerOn | async">
+  <div class="adb-card">
+    <div class="header">
+      <div class="adb-title">AdBlocker Detected!</div>
+    </div>
+    <div class="adb-container">
+      <div fxLayoutAlign="center center">
+        This page requires you to turn off your AdBlockers sorry, Upscaling is not cheap, thanks.
+      </div>
+    </div>
+    <div class="adb-footer">
+      <div>
+        We only serve banner ads that are SFW, if you want to learn more check
+        out <a href="/donation">about page</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="background-wp"></div>
+<div class="main">
+  <div class="head-title" fxLayout="row" fxLayoutAlign="center center">
+    {{pageTitle | async}}
+    <!-- <div>60FPS&nbsp;</div>
+    <mat-icon [inline]="true">4k</mat-icon> -->
+  </div>
+  <div class="message-wrapper">
+    <div class="message">
+      If episode doesn't play please let us know in our
+      <a href="https://discord.gg/nNY94AqFtK" matTooltip="Open Disocord" target="_blank">Discord Server.</a><br> Support
+      A.I movement ❤️<a href="https://ko-fi.com/animettv" target="_blank"> support.</a>
+    </div>
+  </div>
+
+  <mat-tab-group color="accent" animationDuration="150" (selectedIndexChange)="tabChanged($event)">
+    <mat-tab label="60FPS">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="60 FPS">
+          <!-- <mat-icon [inline]="true">hd</mat-icon>
+          <mat-icon [inline]="true">60fps</mat-icon> -->
+          60FPS
+        </div>
+      </ng-template>
+      <div fxLayout="row wrap" fxLayoutAlign="start space-between" fxLayoutAlign.xs="center center"
+        class="main-content">
+        <div fxLayoutGap="100px" fxLayoutGap.xs="15px" *ngFor="let anime of (FPS_TITLES | async)"
+          fxLayoutAlign="center">
+          <div class="card animate__animated animate__fadeIn animate__faster" (click)="setAnime60fps(anime)"
+            id="search_result_item" fxLayoutAlign.xs="center">
+            <div id="show_bg_2"></div>
+            <div class="card-overlay"></div>
+            <div *ngIf="anime?.isNew" class="new" matTooltip="Not completed">
+              <mat-icon [inline]="true">hourglass_bottom</mat-icon>
+            </div>
+
+            <div fxLayout="column">
+              <img class="img" [src]="anime.cover_img" alt="anime-cover" />
+
+              <div class="title-wrapper">
+                <div class="title" fxLayout="column">
+                  {{ anime.title }}
+                  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" fxLayoutGap.xs="10px">
+                    <mat-icon class="quality-icon" [inline]="true">{{ anime.quality }}</mat-icon>
+                    <div *ngIf="anime.isSub" class="type">SUB</div>
+                    <div *ngIf="anime.isDub" class="type">DUB</div>
+                    <div *ngIf="(anime.isSub) === false && (anime.isDub) === false">RAW</div>
+                    <div *ngIf="anime.isDownload" matTooltip="Download available">
+                      <mat-icon>file_download</mat-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Hentai 60FPS" *ngIf="(FPS_TITLES_HENTAI | async) && (isNSFWClient | async)">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="Hentai 60FPS">
+          Hentai 60FPS
+        </div>
+      </ng-template>
+      <div fxLayout="row wrap" fxLayoutAlign="start space-between" fxLayoutAlign.xs="center center"
+        class="main-content">
+        <div fxLayoutGap="100px" fxLayoutGap.xs="15px" *ngFor="let anime of (FPS_TITLES_HENTAI | async)"
+          fxLayoutAlign="center">
+          <div class="card animate__animated animate__fadeIn animate__faster" (click)="setAnime60fps(anime)"
+            id="search_result_item" fxLayoutAlign.xs="center">
+            <div id="show_bg_2"></div>
+            <div class="card-overlay"></div>
+            <div *ngIf="anime?.isNew" class="new" matTooltip="Not completed">
+              <mat-icon [inline]="true">hourglass_bottom</mat-icon>
+            </div>
+
+            <div fxLayout="column">
+              <img class="img" [src]="anime.cover_img" alt="anime-cover" />
+
+              <div class="title-wrapper">
+                <div class="title" fxLayout="column">
+                  {{ anime.title }}
+                  <div *ngIf="anime.isNSFW" class="type nsfw">XXX</div>
+                  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" fxLayoutGap.xs="10px">
+                    <mat-icon class="quality-icon" [inline]="true">{{ anime.quality }}</mat-icon>
+                    <div *ngIf="anime.isSub" class="type">SUB</div>
+                    <div *ngIf="anime.isDub" class="type">DUB</div>
+                    <div *ngIf="(anime.isSub) === false && (anime.isDub) === false">RAW</div>
+                    <div *ngIf="anime.isDownload" matTooltip="Download available">
+                      <mat-icon>file_download</mat-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="4K">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="4K native">
+          <!-- <mat-icon [inline]="true">4k</mat-icon>
+          <mat-icon [inline]="true">30fps</mat-icon> -->
+          <span *ngIf="(isHandset$ | async) === false">4K UHD</span>
+          <span *ngIf="(isHandset$ | async)">4K UHD</span>
+        </div>
+      </ng-template>
+
+      <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutGap.xs="0px" fxLayoutAlign="start space-between"
+        fxLayoutAlign.xs="center center" class="main-content">
+        <div *ngFor="let anime of (ULTRAHD_TITLES | async)" fxLayoutGap="100px" fxLayoutGap.xs="15px"
+          fxLayoutAlign="center">
+          <div class="card animate__animated animate__fadeIn animate__faster" (click)="setAnime60fps(anime)"
+            id="search_result_item" fxLayoutAlign.xs="center">
+            <div id="show_bg_2"></div>
+            <div class="card-overlay"></div>
+            <div *ngIf="anime?.isNew" class="new">
+              <mat-icon [inline]="true">fiber_new</mat-icon>
+            </div>
+
+            <div fxLayout="column">
+              <img class="img" [src]="anime.cover_img" alt="anime-cover" />
+
+              <div class="title-wrapper">
+                <div class="title" fxLayout="column">
+                  {{ anime.title }}
+                  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" fxLayoutGap.xs="10px">
+                    <mat-icon class="quality-icon" [inline]="true">{{ anime.quality }}</mat-icon>
+                    <div *ngIf="anime?.isSub" class="type">SUB</div>
+                    <div *ngIf="anime?.isDub" class="type">DUB</div>
+                    <div *ngIf="(anime?.isSub) === false && (anime?.isDub) === false" class="type">RAW</div>
+                    <div *ngIf="anime.isDownload" matTooltip="Download available">
+                      <mat-icon>file_download</mat-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="60FPS">
+      <ng-template mat-tab-label>
+        <div class="tab-lable" matTooltip="Old remastered animes">
+          <!-- <mat-icon [inline]="true">hd</mat-icon>
+          <mat-icon [inline]="true">60fps</mat-icon> -->
+          Remastered
+        </div>
+      </ng-template>
+      <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutGap.xs="0px" fxLayoutAlign="start space-between"
+        fxLayoutAlign.xs="center center" class="main-content">
+        <div *ngFor="let anime of (REMASTERED_TITLES | async)" fxLayoutGap="100px" fxLayoutGap.xs="15px"
+          fxLayoutAlign="center">
+          <div class="card animate__animated animate__fadeIn animate__faster" (click)="setAnime60fps(anime)"
+            id="search_result_item" fxLayoutAlign.xs="center">
+            <div id="show_bg_2"></div>
+            <div class="card-overlay"></div>
+            <div *ngIf="anime?.isNew" class="new" matTooltip="Not completed">
+              <mat-icon [inline]="true">fiber_new</mat-icon>
+            </div>
+
+            <div fxLayout="column">
+              <img class="img" [src]="anime.cover_img" alt="anime-cover" />
+
+              <div class="title-wrapper">
+                <div class="title" fxLayout="column">
+                  {{ anime.title }}
+                  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" fxLayoutGap.xs="10px">
+                    <mat-icon class="quality-icon" [inline]="true">{{ anime.quality }}</mat-icon>
+                    <div *ngIf="anime.isSub" class="type">SUB</div>
+                    <div *ngIf="anime.isDub" class="type">DUB</div>
+                    <div *ngIf="(anime.isSub) === false && (anime.isDub) === false">RAW</div>
+                    <div *ngIf="anime.isDownload" matTooltip="Download available">
+                      <mat-icon color="suce">file_download</mat-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

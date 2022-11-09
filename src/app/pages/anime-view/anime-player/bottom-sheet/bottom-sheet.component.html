@@ -1,0 +1,8 @@
+<mat-nav-list>
+  <div>{{DownloadTitle | async}}</div>
+  <a (click)="closeSheet()" *ngFor="let item of DownloadList | async" target="_blank" [href]="(item.url | safe)" mat-list-item >
+      <span mat-line>{{ item?.label}}</span>
+      <span mat-line *ngIf="item.ads">Ads</span>
+      <span mat-line *ngIf="item.ads === false"></span>
+    </a>
+  </mat-nav-list>

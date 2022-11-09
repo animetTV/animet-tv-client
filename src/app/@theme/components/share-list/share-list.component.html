@@ -1,0 +1,44 @@
+
+<div class="main">
+    <div class="header" fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayoutAlign="start center" class="title">
+                <mat-icon 
+                class="link-icon" 
+                fxLayoutAlign="start center">link</mat-icon>
+                &nbsp;
+                Get link
+            </div>
+    </div>
+
+    <section class="content">
+        <div class="list-status" fxLayout="row" fxLayoutAlign="space-between">
+            <div  class="lists-status-txt">
+                List Status: 
+                    <div>{{ listStatus ? 'public ': 'private' }}</div>
+            </div> 
+                <mat-slide-toggle
+          
+                fxLayoutAlign="end"
+                [color]="'#fcfcfc'"
+                [(ngModel)]="listStatus"
+                (change)="setListStatus()">
+            </mat-slide-toggle>
+
+        </div>
+        <div *ngIf="listStatus_Change | async" class="shared-link" fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field class="form-field" >
+                <input  [readonly]="true" matInput type="text" [(ngModel)]="sharedLink">
+            </mat-form-field>
+
+            <a (click)="copyText()">
+                <mat-icon>content_copy</mat-icon>
+            </a>
+        </div>
+    </section>
+
+    <div fxLayoutAlign="end">
+        <button  class="done-btn" mat-button mat-dialog-close cdkFocusInitial>Done</button>
+    </div>
+    
+</div>
+    

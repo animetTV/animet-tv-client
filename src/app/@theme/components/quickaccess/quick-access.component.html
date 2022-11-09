@@ -1,0 +1,138 @@
+<div class="main">
+
+    <div class="wrapper" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="35px" fxLayoutGap.xs="12px"
+        fxLayoutAlign="start">
+        <div *ngIf="(isHandset$ | async) === false && isAvailable">
+            <mat-card class="card continue-watching" (mouseover)="hideElement = false" (mouseleave)="hideElement = true"
+                (click)="onClickLastOpen()">
+
+                <div *ngIf="hideElement === false" class="player_overlay" fxLayout="row" fxLayoutAlign="center">
+                    <div>Continue Watching</div>
+                </div>
+                <div *ngIf="hideElement">
+                    <mat-card-header>
+                        <mat-card-title class="title">Last Watched</mat-card-title>
+                        <mat-card-subtitle class="subtitle"> <span class="animeTitle">{{ lastOpenAnime.animeTitle}}
+                            </span> <span class="animeType"> {{animeType}} </span> <span class="episodeNumber">Ep:
+                                {{lastOpenAnime.episodeNumber}}</span></mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="info ">{{elaspedTime}}</div>
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
+
+        <div *ngIf="(isHandset$ | async) && isAvailable">
+            <mat-card class="card continue-watching">
+                <div>
+                    <mat-card-header>
+                        <mat-card-title class="title">Last Watched</mat-card-title>
+                        <mat-card-subtitle class="subtitle">{{ lastOpenAnime.animeTitle}}
+                            <span class="animeType"> {{animeType}} </span>
+                            <span class="episodeNumber">Ep: {{lastOpenAnime.episodeNumber}}</span>
+                        </mat-card-subtitle>
+                        <div (click)="onClickLastOpen()" fxLayoutAlign="center center" class="player_overlay">
+                            <mat-icon [inline]="true">play_circle</mat-icon>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="info ">{{elaspedTime}}</div>
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
+
+        <div *ngIf="(isHandset$ | async) === false">
+            <mat-card [matBadge]="aiupscalingBadge | async" matBadgeColor="accent" class="card anime-60fps"
+                (click)="goExperiment()">
+                <mat-card-header>
+                    <mat-card-title class="title" fxLayout="row" fxLayoutAlign="start center"
+                        fxLayoutAlign.xs="center center" fxLayoutGap="5px">
+                        <mat-icon>bolt</mat-icon>
+                        <div class="featured-title">Upscaled 4k or 60fps shows</div>
+                    </mat-card-title>
+                </mat-card-header>
+                <div fxLayout="row" fxLayoutAlign="center center" class="anime-60fps-title">
+                    <div>AnimetTV Exclusive</div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="end">
+                    <img src="assets/img/4k-ultra-tag.png" alt="4k ultra tag" width="65">
+                    <img src="assets/img/60fps-tag.png" alt="60fps tag" width="65">
+                </div>
+            </mat-card>
+
+        </div>
+
+        <!-- <div class="daily-must-watch">
+            <mat-card class="card " (click)="onClickMustWatch()">
+                <mat-card-header>
+                    <mat-card-title class="title" fxLayout="row" fxLayoutAlign="start center"
+                        fxLayoutAlign.xs="center center" fxLayoutGap="5px">
+                        <mat-icon>favorite</mat-icon>
+                        <div class="featured-title">Hand picked by the community</div>
+                    </mat-card-title>
+                </mat-card-header>
+                <div fxLayoutAlign="center center" class="watch-random-title">Daily Must Watch</div>
+            </mat-card>
+        </div> -->
+
+
+        <!-- <div *ngIf="(isHandset$ | async) === false">
+        <mat-card
+            class="card anime-4k" 
+        >
+            <div>
+                <mat-card-header>
+                    <mat-card-title class="title">A.I upscaler</mat-card-title>
+                    <mat-card-subtitle >
+                        <div fxLayoutAlign="center center">
+                            <mat-icon class="subtitle-4k" [inline]="true">4k</mat-icon>
+                        </div>
+                    </mat-card-subtitle>
+                    <div fxLayoutAlign="center center" class="anime-4k-title">Anime</div>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="info "></div>
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </div> -->
+
+        <!-- <div *ngIf="(isHandset$ | async) === false">
+        <mat-card
+            class="card watch-random" 
+            (click)="onWatchRandom()"
+        >
+            <div>
+                <mat-card-header>
+                    <mat-card-title class="title"></mat-card-title>
+                    <mat-card-subtitle class="subtitle">
+                        <div fxLayoutAlign="center center" class="player_overlay">
+                            <img src="assets/svg/dice.svg" alt="dice.svg" width="90">
+                        </div>
+                    </mat-card-subtitle>
+                    <div fxLayoutAlign="center center" class="watch-random-title">Watch Random</div>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="info " ></div>
+                </mat-card-content>
+            </div>
+        </mat-card>
+    </div> -->
+
+        <!-- <div *ngIf="(isHandset$ | async) === false">
+        <mat-card
+            class="card">
+            <mat-card-header>
+                <mat-card-title class="title" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <mat-icon>fiber_new</mat-icon>
+                    <div class="featured-title">60fps new episodes added</div>
+                </mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div> -->
+
+    </div>
+
+</div>

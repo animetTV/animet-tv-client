@@ -1,0 +1,30 @@
+@import "../../app/@theme/styles/theme.scss";
+
+.container {
+}
+
+.main-view {
+  height: 100%;
+}
+.removeOnMobile {
+  display: block;
+}
+
+/* navbar offset */
+.main-view {
+  margin-top: 64px;
+  flex: 1;
+}
+
+.navbar {
+  height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .removeOnMobile {
+    display: none;
+  }
+  .main-view {
+    margin-top: 56px !important;
+  }
+}

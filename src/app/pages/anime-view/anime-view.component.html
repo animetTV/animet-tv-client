@@ -1,0 +1,21 @@
+<div class="main-view" fxLayout="column">
+    <app-anime-player id="anime-player-container" (episodeSelected)="episodeSelected($event)"></app-anime-player>
+    <app-anime-detail (changeAnimeTypeEvent)="changeAnimeType($event)"></app-anime-detail>
+
+    <div class="comment-wrapper" style="flex:1;">
+        <div id="disqus-comment-new" style="display: block;" fxLayoutAlign="center start"
+            *ngIf="(selectionMade | async)">
+            <button (click)="showComments()" mat-flat-button id="show-comment-btn" color="info">Show {{commentCount | async}} comments</button>
+        </div>
+
+        <div *ngIf="isDisqusComment | async" fxLayout="column">
+            <div id="commentrule" style="display: block;">If you see a spoiler of future episode please "Flag as
+                inappropriate - Spam"</div>
+
+            <div id="disqus_thread" fxLayoutAlign="start">
+                <disqus [identifier]="disqusIdentifier | async" [url]="disqusIdentifier | async "></disqus>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,94 @@
+@import '../../../@theme/styles/theme.scss';
+$primary: #f70b53;
+$transition: cubic-bezier(0.79, 0.33, 0.14, 0.53);
+$primary-color: #f72765e7;
+
+
+.highlight {
+    color: #f30639;
+    font-weight: 700;
+}
+.main {
+    margin: 0 auto;
+    max-width: 1920px;
+}
+ 
+.title {
+    margin: 1.5rem 2rem;
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bolder;
+}
+
+.result {
+    margin: 0.5rem 5rem;
+}
+
+.pagination { 
+
+}
+.result-container { 
+    min-height: 200px;
+    margin: 0 10rem;
+}
+
+.searchBtn {
+    outline-style:  none;
+    transition: $transition;
+    background-color: $dark-bg-lighter-10;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.searchBtn:hover {
+    color: $primary;
+}
+
+.search-form {
+    min-width: 600px;
+}
+.searchbar {
+    mat-form-field {
+      width: 100%;
+    }
+    #search-label {
+      font-size: 2rem;
+    }
+  
+}
+
+#searchbar {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.highlight {
+    color: $primary;
+}
+
+.totalMovies {
+    color: $light-bg-darker-30;
+    font-size: 1.15rem;
+}
+
+
+@media only screen and (max-width: 600px) { 
+    .title {
+       font-size: 1.80rem;
+       text-align: center;
+       margin: 1rem auto;
+    }
+
+    .search-form {
+        min-width: 80%;
+    }
+    .result {
+        margin: 0.5rem 1rem;
+    }
+
+    .result-container { 
+        min-height: 200px;
+        margin: 0;
+    }
+}

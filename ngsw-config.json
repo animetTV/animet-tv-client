@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "lazy",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ],
+        "urls": [
+          "https://cdn.myanimelist.net/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "dynamicResources",
+      "urls": [
+        "**/images/anime/**",
+        "**/images/anime/**/*.jpg",
+        "**/frosty-snyder-1df076.netlify.app/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 200,
+        "maxAge": "1d"
+      }
+    }
+  ]
+}

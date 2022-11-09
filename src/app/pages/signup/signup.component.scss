@@ -1,0 +1,194 @@
+.wp {
+  position: absolute;
+  height: 100vh;
+  z-index: 0;
+  background-image: url("https://frosty-snyder-1df076.netlify.app/other/login-wp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  color: white;
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .title {
+    font-size: 2em;
+    font-weight: bolder;
+    margin: 2rem auto;
+  }
+
+  .nav {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 100%;
+    z-index: 5;
+  }
+  .logo {
+    cursor: pointer;
+  }
+}
+
+.form-wrapper {
+  background: #1e1e1ebb;
+  border-radius: 15px;
+  width: 500px;
+  min-height: 450px;
+  backdrop-filter: blur(4px);
+  padding-bottom: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+::placeholder {
+  color: #1f1f1f67;
+}
+
+.regular-form {
+  max-width: 400px;
+  .form-item {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+  .input-item {
+    padding: 10px;
+    margin: 2px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #3b3f47;
+    outline: none !important;
+    outline-color: rgb(48, 50, 57);
+    border-radius: 5px;
+    border: 2px solid #f70b5200;
+  }
+  .input-item:focus,
+  .input-item:hover {
+    border: 2px solid #f70b53;
+    box-shadow: 0 0 5px #f70b53;
+  }
+
+  input:focus {
+    outline-offset: 0;
+  }
+
+  .sing-in-btn {
+    width: 100%;
+    margin: 1.2rem auto;
+  }
+  .sing-in-btn > button {
+    width: 100%;
+    min-height: 3.5em;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  .join-link {
+    cursor: pointer;
+    font-size: 14px;
+    color: #007fff;
+  }
+}
+
+.divder-wrapper {
+  .divder {
+    border-top: solid #3b3f47;
+    width: 150px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+.buffer {
+  position: absolute;
+  background: #1e1e1e;
+  border-radius: 10px;
+  width: 50%;
+  height: 50%;
+  z-index: 5;
+
+  #status-txt {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    font-style: italic;
+    font-weight: 600;
+  }
+}
+
+.beta-msg-container {
+  width: 500px;
+  padding: 60px;
+  border-radius: 10px;
+  background: #1e1e1ebb;
+  backdrop-filter: blur(4px);
+
+  .beta-msg {
+    font-size: x-large;
+    font-weight: lighter;
+    line-height: 1.6;
+  }
+  mat-list-item {
+    font-weight: lighter;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #007fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+@media only screen and (max-width: 600px) {
+  .regular-form {
+    .input-item {
+      font-size: 1.2em;
+    }
+  }
+
+  .buffer {
+    height: 70%;
+    width: 100%;
+  }
+  .nav {
+    left: 0%;
+  }
+  .container {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 2rem;
+  }
+
+  .divder {
+    width: 110px !important;
+  }
+
+  .beta-msg-container {
+    width: 100% !important;
+
+    mat-list-item {
+      font-size: small;
+    }
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .beta-msg-container {
+    margin-top: 20px;
+    width: 500px;
+    padding: 30px;
+
+    .beta-msg {
+      font-size: medium;
+      font-weight: normal;
+      line-height: 1.8;
+    }
+  }
+}

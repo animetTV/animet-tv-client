@@ -1,0 +1,220 @@
+@import "../../styles/theme.scss";
+$thetransition: all 0.1s cubic-bezier(0.5, 0.25, 0.75) 0.2ms;
+
+.main {
+  margin: 14px auto;
+  user-select: none;
+  max-width: calc(110rem - 2%);
+  
+}
+
+.wrapper {
+  margin: 0 0.5rem;
+}
+.card {
+  max-width: 350px;
+  width: 350px;
+  height: 100px;
+  border-radius: 20px;
+  transition: $thetransition;
+  border: 4px solid rgba(255, 255, 255, 0);
+}
+.card:hover {
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  inset: 0;
+}
+
+.title {
+  color: #fa2364 !important;
+}
+
+.mat-card-title {
+  font-size: 0.95rem !important;
+  line-height: 1;
+  color: #757575;
+}
+
+.continue-watching {
+  background-color: $dark-bg-lighter-5;
+}
+.animeTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #E1E1E1;
+}
+.subtitle {
+  font-weight: 500;
+  font-size: 1rem;
+  transition: $thetransition;
+  line-height: 1.3;
+
+  .episodeNumber {
+    color: #757575;
+  }
+}
+
+.subtitle-4k {
+  font-size: 5rem;
+}
+
+.info {
+  margin: 0 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #757575;
+  line-height: 1.6;
+}
+
+.player_overlay {
+  text-align: center;
+  width: 100%;
+  font-size: 2.4rem;
+  font-weight: bold;
+  transition: 0.22s ease-in;
+}
+
+.player_overlay:hover {
+  color: #f70b53;
+}
+
+.highlight-txt {
+  color: #f70b53;
+}
+
+.must-watch {
+  transition: 0.15s ease-in;
+}
+.must-watch:hover {
+  background-color: $dark-bg-lighter-10 !important;
+}
+
+.animeType {
+  color: #757575;
+  font-weight: bolder;
+}
+
+.anime-4k {
+  opacity: 0.25;
+}
+.anime-4k-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  transition: $thetransition;
+}
+
+.anime-60fps-title,
+.watch-random-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: $thetransition;
+}
+
+.anime-60fps:focus,
+.anime-60fps:hover,
+.card:hover {
+  color: #f70b53;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 2.7rem;
+}
+
+.daily-must-watch {
+  display: block;
+}
+
+@media only screen and (max-width: 1260px) {
+  .card {
+    max-width: 300px;
+    height: 100px;
+  }
+
+  .mat-card-title {
+    font-size: 0.6rem !important;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1120px) {
+  .card {
+    max-width: 250px;
+    height: 100px;
+  }
+
+  .mat-card-title {
+    font-size: 0.55rem !important;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+  }
+  .watch-random-title,
+  .anime-4k-title,
+  .anime-60fps-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    margin: 0;
+  }
+  .main {
+    margin: 1rem auto;
+  }
+  .card {
+    max-width: calc(100% - 5);
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .info {
+    font-size: 0.65rem;
+  }
+  .daily-must-watch {
+    display: none;
+  }
+
+  .mat-card-title {
+    font-size: 0.6rem !important;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+
+  .player_overlay {
+    width: 30%;
+    mat-icon {
+      font-size: 2rem;
+      color: #f70b53;
+    }
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .watch-random-title {
+    font-size: 1.7rem;
+    height: 50%;
+  }
+
+  .mat-card-actions,
+  .mat-card-subtitle,
+  .mat-card-content {
+    margin-bottom: 0px !important;
+  }
+}
+// iPhone 5/SE
+@media only screen and (max-width: 320px) {
+  .card {
+    max-width: calc(100% - 25px);
+    height: 100px;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+  }
+}

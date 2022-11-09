@@ -1,0 +1,118 @@
+<div class="main">
+  <div class="container">
+
+    <div class="heading animate__animated animate__fadeIn animate__faster">FAQ</div>
+
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="56px">
+          <mat-panel-title class="title">
+            Is it legal to watch anime on AnimetTV ?
+          </mat-panel-title>
+          <mat-panel-description fxLayoutAlign="end">
+            <strong>Yes</strong>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <h2>Watching is legal. We also do not host the anime, we link to them. AnimetTV is more of a google search
+          engine for anime in the web.</h2>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel id="embed-error">
+        <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="56px">
+          <mat-panel-title class="title">
+            External Player / Sandbox Detected (Player not working).
+          </mat-panel-title>
+          <mat-panel-description fxLayoutAlign="end">
+            Only for <strong> &nbsp; Chrome</strong>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="column">
+          <h2>
+            <span style="color:#FFCC00; font-weight: bold;">Troubleshoot player<span style="color: #EA3A34;">
+                error.</span> Only happens in chromium browsers.</span>
+          </h2>
+          <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="25px" class="card">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <img matTooltip="For Chrome Browser" src="assets/logo/chrome_logo.webp" alt="chrome logo" loading="lazy"
+                width="25" fxLayoutAlign="center center" />
+              <img matTooltip="For Edge Browser" src="assets/logo/edge_logo.webp" alt="edge logo" loading="lazy"
+                width="25" fxLayoutAlign="center center" />
+              <img matTooltip="For Brave Browser" src="assets/logo/brave_logo.webp" alt="brave logo" loading="lazy"
+                width="25" fxLayoutAlign="center center" />
+            </div>
+            <div class="steps" fxLayout="column">
+              <div style="font-size: 1rem; margin: 10px auto;">Edite chrome setting -> Download PDFs or Use Firefox or a
+                mobile device.</div>
+              <kbd
+                style="margin: 15px auto; background-color: white; color: #121212; padding: 2px 8px; font-size: 1.2rem; border-radius: 3px;">chrome://settings/content/pdfDocuments</kbd>
+            </div>
+            <img class="gif" src="https://i.imgur.com/Xsdqn20.gif" loading="lazy" alt="how to fix player emebed detect">
+          </div>
+          <span style="margin: 10px 0; font-size: 1rem;">It's because the external player using pdf detection to check
+            if the ads are being block. If the pdf feature disabled, the check will pass, and not block the
+            stream.</span>
+
+          <span style="text-align: center; font-size: 0.7em;" class="message_footer">
+            If problem still presists please use Firefox, any mobile device or DM Admin in our <a
+              href="https://discord.gg/nNY94AqFtK">Discord Server</a> and he/she will guide you fixing the issue. Email
+          </span>
+
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="56px">
+          <mat-panel-title class="title">
+            I can't find my favorite anime, what can I do ?
+          </mat-panel-title>
+          <mat-panel-description fxLayoutAlign="end">
+            Request
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <h2>Please use our <a href="https://discord.gg/nNY94AqFtK">Discord Server</a> to request your anime and we will
+          index these anime for you.</h2>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header collapsedHeight="80px" expandedHeight="56px">
+          <mat-panel-title class="title">
+            Is there AnimetTV app ?
+          </mat-panel-title>
+          <mat-panel-description fxLayoutAlign="end">
+            <strong>Yes</strong>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutAlign.xs="center center">
+          <div fxLayout="column">
+            <h2>Install on IOS</h2>
+            <div class="video-wrapper" fxLayoutAlign="center">
+              <video controls class="videos"
+                src="https://github.com/animet-tv/animet-tv-assets/blob/main/ios_pwa.mp4?raw=true"></video>
+            </div>
+          </div>
+          <div fxLayout="column">
+            <h2>Install on Android</h2>
+            <div class="video-wrapper" fxLayoutAlign="center">
+              <video controls class="videos"
+                src="https://github.com/animet-tv/animet-tv-assets/blob/main/android_pwa.mp4?raw=true"></video>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-benefits">
+          <h3>Benefits of Installing the App</h3>
+          <mat-list role="list" style="margin-bottom: 20px;">
+            <mat-list-item role="listitem">Short loading time</mat-list-item>
+            <mat-list-item role="listitem">Good performance in poor network conditions</mat-list-item>
+            <mat-list-item role="listitem">Low Data Usage</mat-list-item>
+            <mat-list-item role="listitem">Instant updates</mat-list-item>
+            <mat-list-item role="listitem">Native App look (browser window bars removed).</mat-list-item>
+
+          </mat-list>
+        </div>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </div>
+</div>

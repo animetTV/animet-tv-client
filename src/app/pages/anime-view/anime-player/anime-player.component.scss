@@ -1,0 +1,544 @@
+@import '../../../@theme/styles/theme.scss';
+$pirmary: #BF4160;
+$hot-primary: #EC4951;
+$thetransition: all .10s cubic-bezier(.50,.25,0,.75) 0s;
+
+.main { 
+    margin-top: 15px;
+    color: white;
+    margin: 0 auto; 
+    padding: 0rem 0.25rem;
+    max-width:  70%;
+    min-height: 400px;
+    .anime-episode-wrapper {
+        margin: 1.25rem 0;
+        min-width: 700px;
+        min-height: 150px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        background-color:  $dark-bg-lighter-5;
+        border-radius: 15px;
+    }
+
+    .anime-episode {
+        min-height: 100px;
+        margin-top: 10px;
+    } 
+
+    .anime-player-wrapper {
+        margin: 0.75rem 0;
+        min-width: 700px;
+        min-height: 350px;
+    }
+
+    .anime-player {
+       border-radius: 7px;
+       background-color: #0f0e12;
+    }
+    .buffer {
+        width: 100%;
+    }
+    
+}
+
+
+.episode-txt {
+    font-weight: bold;
+}
+.bold {
+    font-weight: bold;
+}
+.anime-episode {
+    margin: 0 auto;
+    padding: 4px;
+    .episode-card {
+        margin:6px;
+        padding: 10px;
+        background-color: $dark-bg-lighter-20;
+        border-radius: 5px;
+        width: 45px;
+        height: 40px;
+        transition:$thetransition;
+        cursor: pointer;
+    }
+
+    .episode-card:hover {
+        background-color: $hot-primary;
+    }
+}
+
+.anime-player-wrapper {
+    .title {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+.anime-player {
+   width: 100%;
+   margin: 0;
+   padding: 0;
+
+}
+
+.external-player {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.player-frame {
+    /* width: 100%;
+    height: 100%; */
+}
+iframe {
+    resize: both;
+  overflow: auto;
+}
+#iframe-wrapper {
+    background-image: url();
+    /* position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; */
+}
+/* iframe {
+    padding-top: 5px;
+} */
+#player2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px; 
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+#player1 {
+    margin-top: 20px;
+}
+.hide {
+    display: hide;
+}
+
+.show {
+    display: block;
+}
+
+.show-absolute {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+}
+
+#episode-heading {
+    color: $pirmary;
+    font-weight: 500;
+}
+
+.filler {
+    background:#5a4944;background:linear-gradient(90deg,#5a4944 0,#645a4b 100%)!important;
+}
+.filler:hover {
+    color: #ff6c00;
+}
+
+.selected {
+    background-color: #F70B53!important;
+}
+
+.unselected {
+    background-color: $dark-bg-lighter-20!important;
+}
+
+.seen {
+    background-color: $pirmary!important;
+}
+
+.external {
+    color: $hot-primary;
+}
+.episode-nav-btn {
+    cursor: pointer;
+    
+    .nav-btn {
+        transition: 0.22s ease-in;
+    }
+
+    .nav-btn:hover {
+        color: $pirmary;
+        background-color: white;
+    }
+    
+    label {
+        cursor: pointer;
+    }
+}
+
+.back-btn {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.buffer {
+    min-height: 400px;
+}
+
+video {
+    object-fit: cover;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+video:focus {
+    outline: none;
+}
+
+.no-episode-available {
+    margin-top: 20px;
+    font-size: x-large;
+    text-align: center;
+    width: 100%;
+
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+.message {
+    font-weight: 600;
+    color: #df7e82;
+    transition: $thetransition;
+    cursor: pointer;
+    border-bottom: 2px solid rgba(255, 255, 255, 0)
+}
+.message:hover, .message:focus {
+    color: $hot-primary;
+    border-bottom: 2px solid $hot-primary;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0rem!important;
+}
+
+a {
+    //text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    color: #007FFF;
+}
+
+
+.animet_intro_wrapper {
+    width:auto;
+    position:relative;
+    transition: 0.11s ease-in;
+    cursor: pointer;
+    video[poster]{
+        object-fit: fill;
+    }
+    .animet_intro_player_controls {
+        width:50%;
+        height:50%;
+        position:absolute;
+        left:0%;
+        right:0%;
+        top:0%;
+        bottom:0%;
+        margin:auto;
+        background-size:contain;
+        background-position: center;
+    }
+
+    .anime_intro_play_icon {
+        font-size: 5.5rem;
+    }
+
+}
+
+.animet_intro_wrapper:hover {
+    color: $hot-primary;
+
+}
+
+.table {
+
+    #item {
+        padding: 10px;
+        font-size: 1.25rem;
+    }
+    margin: 0 1rem;
+    a:hover {
+        background-color: white;
+        color: $pirmary;
+    }
+}
+
+.theater-mode {
+    cursor: pointer;
+    .theater-mode-off {
+        color: white;
+        padding: 10px;
+        border-radius: 5px; 
+        transition: $thetransition;
+    }
+    
+    .theater-mode-on {
+        padding: 10px;
+        color: $pirmary;
+        background: $dark-bg-lighter-10;
+        border-radius: 5px; 
+        transition: $thetransition;
+    }
+    
+    .theater-mode-off:hover {
+        background: white;
+        color: #EC4951;
+    }
+    .theater-mode-on:hover {
+        background: white;
+    }
+}
+
+.theater-sheets {
+  opacity:    0.95; 
+  background: #000; 
+  width:      100%;
+  height:     100%; 
+  z-index:    9;
+  top:        0; 
+  left:       0; 
+  position:   fixed; 
+}
+
+summary > span {
+    cursor: default;
+    user-select: none;
+}
+summary {
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
+    transition: $thetransition;
+}
+summary:hover {
+    color: $hot-primary;
+    border-bottom: 3px solid $hot-primary;
+}
+.summary_expand {
+    line-height: 1.8;
+    width: 70ch;
+    font-size: 1.3em;
+    border: 1px solid #FFCC00;
+    padding: 10px;
+}
+.message_footer >a {
+   color: #007FFF!important;
+}
+
+.card {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $dark-bg-lighter-5;
+} 
+
+.hint {
+    font-size: 0.8rem;
+    color: $light-bg-darker-30;
+}
+
+.tab-lable {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.playerDetail {
+
+    margin-top: 10px;
+    margin-left: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#animeTitle {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+#views {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    opacity: 75%;
+}
+
+.type-player {
+    font-size: 1rem;
+    font-weight:normal;
+    opacity: 70%;
+}
+
+
+.extra-btn {
+    margin-top: 5px;
+}
+
+.serverOptions {
+    margin: 10px 0;
+    .server-btn {
+        cursor: pointer;
+        margin-right: 12px;
+        margin-bottom: 11px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .server-btn > label, mat-icon {
+        cursor: pointer;
+    }
+    
+    .server-btn:hover:not([disabled]) {
+        background-color: #ff2352e8;
+    }
+
+    .server-btn-selected {
+        background-color: #f30639;
+    }
+    
+}
+
+label {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 750px) { 
+    .episode-nav-btn {
+        cursor: pointer;
+        
+        button {
+            padding: 0 10px;
+            line-height: 35px;
+            margin-top: 5px;
+        }
+    }
+
+    .main {
+        max-width: 98%;
+
+        .anime-episode {
+            min-height: 50px;
+        }
+    }
+    .anime-episode-wrapper {
+        margin: 1.25rem .25rem;
+        
+        min-height: 150px!important;
+    }
+    .anime-player-wrapper {
+        min-height: 260px!important;
+        margin: .50rem 0;
+    }
+    .anime-player-wrapper, .anime-episode-wrapper{
+        min-width: 330px!important;
+    }
+    .anime-player {
+        min-width: 330px!important;
+        min-height: auto;
+    }
+    .buffer {
+        object-fit: cover;
+    }
+
+    .watermark {
+        display: none;
+    }
+
+    button {
+        font-size: 1.15rem;
+    }
+
+    .selection-bar {
+        margin-top: 15px;
+    }
+
+    .message, .type-player, .exteral {
+        font-size: 0.75rem;
+    }
+
+    .player-frame {
+        min-height: 260px;
+    } 
+
+    #animeTitle {
+        font-size: 16px;
+        line-height: 1.5rem;
+    }
+
+    .serverOptions {
+        margin: 8px 0;
+        .server-btn {
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+    }
+}
+// landscape mode mobile
+@media only screen and (max-width: 600px) {
+    .main {
+        margin: 0 0;
+        padding: 0 0;
+        max-width: 100%;
+        .anime-player-wrapper {
+            margin-top: 0;
+        }
+        .anime-player {
+            border-radius: 0;
+        }
+    }
+    #player2 {
+        border-radius: 0;
+    }
+    .anime-episode {
+        height: 300px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: 5px;
+        padding-top: 10px;
+        .episode-card {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+            height: 35px;
+            font-weight: 400;
+        }
+    }
+
+   .serverOptions {
+    margin: 8px 0;
+    .server-btn {
+        margin-right: 10px;
+        margin-bottom: 5px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+}
+    .playerDetail {
+        padding: 0 9px 9px;
+    }
+
+    #views  {
+        font-size: 0.8rem;
+    }
+
+    .buffer {
+        min-height: 250px;
+    }
+
+} 
+
+
+

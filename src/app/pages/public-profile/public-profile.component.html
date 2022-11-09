@@ -1,0 +1,93 @@
+<div class="wrapper">
+    <div class="list-wrapper" *ngIf="(isListPublic | async) " fxLayout.xs="column" fxLayoutAlign="center"  fxFlex="row">
+        <app-user-detail [_USER_STATS]="USER_STATS | async">
+        </app-user-detail>
+        <!-- <div class="list-track">
+            <div class="anime-results">
+                <div class="scroll-buttons" fxLayout="row" fxLayoutAlign="space-between">
+                    <div class="center-items" fxLayout="row" fxLayoutGap="10px">
+                        <div class="list-name">Plan to Watch</div>
+                    </div>
+                    <div *ngIf="(isHandset$ | async) === false" fxLayoutGap="5px" class="nav-btn">
+                        <button role="button" mat-raised-button (click)="moveLeft()">
+                            <mat-icon aria-label="Navigate">keyboard_arrow_left</mat-icon>
+                        </button>
+                        <button role="button" mat-raised-button (click)="moveRight()">
+                            <mat-icon aria-label="Navigate">keyboard_arrow_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <drag-scroll #nav>
+                    <div drag-scroll-item class="anime-card" *ngFor="let anime of PLAN_TO_WATCH">
+                        <img class="anime-cover" src="{{ anime.img_url }}"
+                            onerror="this.src='assets/placeholder/404notfound.jpg';" (click)="setAnime(anime.title)" />
+
+                        <div class="anime-title">{{ anime.title }}</div>
+                    </div>
+                </drag-scroll>
+            </div>
+
+        </div>
+
+        <div class="list-track">
+            <div class="anime-results">
+                <div class="scroll-buttons" fxLayout="row" fxLayoutAlign="space-between">
+                    <div class="center-items" fxLayout="row" fxLayoutGap="10px">
+                        <div class="list-name">Completed</div>
+                    </div>
+                    <div *ngIf="(isHandset$ | async) === false" fxLayoutGap="5px" class="nav-btn">
+                        <button role="button" mat-raised-button (click)="moveLeft()">
+                            <mat-icon aria-label="Navigate">keyboard_arrow_left</mat-icon>
+                        </button>
+                        <button role="button" mat-raised-button (click)="moveRight()">
+                            <mat-icon aria-label="Navigate">keyboard_arrow_right</mat-icon>
+                        </button>
+                    </div>
+                </div>
+
+
+                <drag-scroll #nav>
+                    <div drag-scroll-item class="anime-card" *ngFor="let anime of COMPLETED">
+                        <img class="anime-cover" src="{{ anime.img_url }}"
+                            onerror="this.src='assets/placeholder/404notfound.jpg';" (click)="setAnime(anime.title)" />
+
+                        <div class="anime-title">{{ anime.title }}</div>
+                    </div>
+                </drag-scroll>
+            </div>
+
+
+        </div> -->
+        <div  class="list-wrapper" fxLayoutGap="15px" fxLayoutGap.xs="2px" fxLayout="column">
+            <div class="list-track">
+                <app-carousel-list [ListName]="'Currently Watching'" [List]="CONTINUE_WATCHING" [isFinishedBtn]="false"
+                    [isContinueWatch]="true" [publicView]="true" (isBuffering)="isBufferingState($event)">
+                </app-carousel-list>
+            </div>
+            <div class="list-track">
+                <app-carousel-list [ListName]="'Plan to Watch'" [List]="PLAN_TO_WATCH" [isFinishedBtn]="false"
+                    [publicView]="true" (isBuffering)="isBufferingState($event)">
+                </app-carousel-list>
+            </div>
+
+            <div class="list-track">
+                <app-carousel-list [ListName]="'Completed'" [List]="COMPLETED" [isFinishedBtn]="false"
+                    [publicView]="true" (isBuffering)="isBufferingState($event)">
+                </app-carousel-list>
+            </div>
+        </div>
+
+        <div class="list-private" fxLayoutAlign="center center" *ngIf="(isListPublic | async) === false">
+            <div class="message-wrapper" fxLayout="column" fxLayoutAlign="center center">
+                <div class="message">
+                    Sorry this Animet list is <span style="color: #F70B53; font-weight: bold;">private</span>
+                </div>
+                <div class="icon">
+                    <mat-icon [inline]="true" color="accent">lock</mat-icon>
+                </div>
+                <button mat-raised-button color="info" [routerLink]="['/home']" routerLinkActive="router-link-active">Go
+                    Home</button>
+            </div>
+        </div>
+    </div>

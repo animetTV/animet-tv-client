@@ -1,0 +1,101 @@
+@import "../../styles/theme.scss";
+$thetransition: all 0.15s cubic-bezier(0.5, 0.25, 0, 0.75) 0s;
+
+.footer {
+  color: white;
+  display: block;
+}
+
+.absFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer > .tagline {
+  font-size: 0.85rem;
+}
+
+.footer {
+  .taglineTwo,
+  .author,
+  mat-icon {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    text-align: center;
+  }
+  .taglineTwo {
+    width: 95%;
+    margin-top: 2px;
+  }
+  .author {
+    text-decoration: none;
+    color: lightblue;
+  }
+
+  .author:hover {
+    text-decoration: underline;
+  }
+}
+
+.links {
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .donation {
+    cursor: pointer;
+  }
+}
+
+.cp {
+  color: $light-bg-darker-20;
+  font-size: 1rem;
+}
+
+.grey {
+  color: $dark-bg-lighter-30;
+}
+
+.artwork {
+  opacity: 45%;
+}
+.footer-content {
+}
+
+.nav-icon {
+  font-weight: bold;
+}
+.nav-item {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  padding: 16px, 18px !important;
+  mat-icon {
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+  }
+  label {
+    cursor: pointer;
+    transition: $thetransition;
+    border-bottom: 2px solid transparent;
+  }
+}
+
+.nav-item:hover,
+.nav-item:focus {
+  label {
+    border-bottom: 2px solid #f72765e7;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .footer {
+    margin: 3rem 0.1rem;
+  }
+
+  .discord-widget-toggle-wrapper {
+    display: none;
+  }
+}

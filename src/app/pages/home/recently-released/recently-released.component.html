@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="anime-results">
+
+    <div class="buffer" fxLayoutAlign="center center" *ngIf="(isLoaded | async) === false">
+      <mat-spinner color="accent"></mat-spinner>
+    </div>
+    <div *ngIf="isLoaded | async">
+      <div class="scroll-buttons" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center"
+        fxLayoutGap.xs="20px" fxLayoutAlign.xs="space-between">
+        <div fxLayoutAlign="start">
+          <!-- <div *ngIf="(isHandset$ | async) === false" class="title-wrapper">
+            <div class="title" fxLayout="column">
+              <div fxLayoutAlign="start" class="title-name" id="title-name">
+                Recently Updated <div class="type" *ngIf="isSubSelected" class="type">&nbsp; Sub</div>
+                <div class="type" *ngIf="isSubSelected === false">&nbsp; Dub</div>
+              </div>
+              <div *ngIf="(isHandset$ | async) === false" fxLayoutAlign="start" class="sub-title">
+                {{ getSystemDate() }}
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div *ngIf="(isHandset$ | async) === false" fxLayoutAlign="end" fxLayoutGap="5px"
+          fxLayoutAlign.xs="space-between">
+          <button mat-button (click)="setBrowse()" role="button">
+            <label style="font-weight: bold;">More </label>
+            <!-- <mat-icon aria-label="More">more_horiz</mat-icon> -->
+          </button>
+
+          <!--           <div fxLayoutGap="5px" class="nav-btn">
+            <button role="button" mat-raised-button (click)="moveLeft()">
+              <mat-icon aria-label="Navigate">keyboard_arrow_left</mat-icon>
+            </button>
+            <button role="button" mat-raised-button (click)="moveRight()">
+              <mat-icon aria-label="Navigate">keyboard_arrow_right</mat-icon>
+            </button>
+          </div> -->
+        </div>
+      </div>
+
+
+      <div class="overflow-x-hidden grid" *ngIf="isSubSelected" fxLayout="row wrap" fxLayoutAlign="start space-evenly">
+        <div class="anime-card" *ngFor="let anime of subTitles | async; trackBy:trackBy" (click)="setAnime(anime)">
+          <div class="anime-cover-overlay">
+            <span class="episode-number">EP {{ anime.episodeNumber }}</span>
+            <span class="rating" fxFlexx="row" fxLayoutAlign="center center">
+              <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
+            </span>
+          </div>
+          <img class="anime-cover" [lazyLoad]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg'"
+            alt="anime cover" />
+          <div class="anime-title">{{ anime.title }}</div>
+        </div>
+      </div>
+
+      <div class="overflow-x-hidden grid" *ngIf="isSubSelected === false" fxLayout="row wrap"
+        ffxLayoutAlign="start space-evenly">
+        <div class="anime-card" *ngFor="let anime of dubTitles | async; trackBy:trackBy" (click)="setAnime(anime)">
+          <div class="anime-cover-overlay">
+            <span class="episode-number">EP {{ anime.episodeNumber }}</span>
+            <span class="rating" fxFlexx="row" fxLayoutAlign="center center">
+              <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
+            </span>
+          </div>
+          <img class="anime-cover" [lazyLoad]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg'"
+            alt="anime cover" />
+          <div class="anime-title">{{ anime.title }}</div>
+        </div>
+      </div>
+
+      <!-- <mat-tab-group (selectedTabChange)="tabClick($event)" color="accent" animationDuration="250"
+        disablePagination="true">
+        <mat-tab label="SUB">
+          <ng-template mat-tab-label>
+            <div class="tab-lable">Sub</div>
+          </ng-template>
+          <drag-scroll #navSub [snap-duration]="200">
+            <div drag-scroll-item class="anime-card" *ngFor="let anime of subTitles | async; trackBy:trackBy"
+              (click)="setAnime(anime)">
+              <div class="anime-cover-overlay">
+                <span class="episode-number">EP {{ anime.episodeNumber }}</span>
+                <span class="rating" fxFlexx="row" fxLayoutAlign="center center">
+                  <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
+                </span>
+              </div>
+              <img class="anime-cover" [lazyLoad]="anime.img_url"
+                onerror="this.src='assets/placeholder/404notfound.jpg'" alt="anime cover" />
+              <div class="anime-title">{{ anime.title }}</div>
+            </div>
+          </drag-scroll>
+        </mat-tab>
+
+        <mat-tab label="DUB">
+          <ng-template mat-tab-label>
+            <div class="tab-lable">Dub</div>
+          </ng-template>
+          <drag-scroll #navDub [snap-duration]="200">
+            <div drag-scroll-item class="anime-card" *ngFor="let anime of dubTitles | async; trackBy:trackBy"
+              (click)="setAnime(anime)">
+              <div class="anime-cover-overlay">
+                <span class="episode-number">EP {{ anime.episodeNumber }}</span>
+                <span class="rating" fxFlexx="row" fxLayoutAlign="center center">
+                  <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
+                </span>
+              </div>
+              <img class="anime-cover" [lazyLoad]="anime.img_url"
+                onerror="this.src='assets/placeholder/404notfound.jpg'" alt="anime cover" />
+              <div class="anime-title">{{ anime.title }}</div>
+            </div>
+          </drag-scroll>
+        </mat-tab>
+      </mat-tab-group> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="desktop-container">
+    <div class="main-body page-with-header middle em-follow ">
+        <div class="side-bar-container not-drawer middle em-follow">
+        </div>
+
+        <div class="trending-container ">
+            <div class="tt-feed">
+
+                <div class="video-card-big browse-mode animate__animated animate__fadeIn animate__faster">
+                    <div class="video-card-container">
+                        <div class="video-card-browse">
+                            <!-- <video  
+                            disablepictureinpicture
+                            controls
+                            controlsList="nodownload"
+                            preload
+                            [autoplay]="true"
+                            playsinline="true" 
+                            [src]="(currentSource | async | safe)" 
+                            (ended)="videoEnded()"
+                            seektime="0" 
+                            onloadstart="this.volume=0.40"
+                            class="horizontal video-player"></video>
+                            <app-jwplayer
+                                [_file]="(currentSource | async )"
+                                [_type]="'webm'"
+                                [_width]="width"
+                                >
+                            </app-jwplayer> -->
+                            <!-- Plyr Method -->
+                            <div mat-card-image plyr plyrTitle="Youtube source" [plyrSources]="videoSources | async"
+                                [plyrPoster]="'https://img.animet.site/file/animettv-avatars/other/animet-tv_chibi_1.png'"
+                                class="horizontal video-player"></div>
+                        </div>
+
+
+                        <img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/arrow-d87dd7466edf4162275ad393d58d2f40.svg"
+                            class="control-icon arrow-left up-and-down" (click)="prev()">
+                        <img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/arrow-d87dd7466edf4162275ad393d58d2f40.svg"
+                            class="control-icon arrow-right up-and-down" (click)="next()">
+                        <img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/close-2e545f0f69b3639a0a78d69694f61dfa.svg"
+                            class="control-icon close" (click)="close()">
+                            <img src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/arrow-d87dd7466edf4162275ad393d58d2f40.svg"
+                            class="control-icon open-deck" (click)="openContainer()">
+                        <!-- <div class="control-icon detail">test clip: {{counter+1}}/{{maxQuickBites}}</div> -->
+                    </div>
+
+                    <div class="content-container content-container-closed" id="content-container">
+                        <div class="nav-btn animate_animated animate__fadeIn">
+                            <mat-icon matRipple *ngIf="(isContainerOpen | async) === false" (click)="openContainer()"
+                                class="icon-open-content" [inline]="true">keyboard_arrow_left</mat-icon>
+                            <mat-icon matRipple *ngIf="(isContainerOpen | async) === true" (click)="closeContainer()"
+                                class="icon-open-content" [inline]="true">keyboard_arrow_right</mat-icon>
+                        </div>
+                        <div class="detail">
+                            <div class="id"></div>
+                        </div>
+                        <div class="playlist" *ngIf="(isContainerOpen | async) === true">
+                            <div class="video-detail" fxLayout="column" fxLayoutGap="7px">
+                                <div class="title">{{(currentVideo | async).videoTitle}}</div>
+                                <div class="detail" fxLayout="column">
+                                    <div class="stats" fxLayoutGap="5px" fxLayoutAlign="start center">
+                                        <div class="views">{{views|async}} views</div>
+                                        <div class="dot">•</div>
+                                        <div class="date"> {{(currentVideo | async).dateUploaded}}</div>
+                                        <mat-icon fxLayoutAlign="center center" class="like-icon" >favorite</mat-icon>
+                                    </div>
+                                    <div class="avatarBtn"
+                                        matTooltip="User {{(currentVideo | async).uploaderUsername }}"
+                                        fxLayoutAlign="start center" matRipple [matRippleCentered]="true">
+                                        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+                                            fxLayoutGap.xs="5px">
+                                            <img mat-card-avatar id="avatar-image"
+                                                [src]="(currentVideo | async).uploaderAvatar"
+                                                onerror="this.src='assets/logo/animet-tv_chibi_1.webp'"
+                                                alt="avatar img" />
+                                            <div class="avatar-short-name">{{(currentVideo | async).uploaderUsername }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="disqus_thread" fxLayoutAlign="start">
+                                <disqus [identifier]="disqusIdentifier | async" [url]="disqusIdentifier | async ">
+                                </disqus>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

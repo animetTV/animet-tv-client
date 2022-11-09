@@ -1,0 +1,71 @@
+@import '../../../@theme/styles/theme.scss';
+
+.main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 8px;
+    margin-left: 5px;
+}
+
+.avatar-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.avatar-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.email {
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+}
+
+.stats-wrapper {
+    
+}
+
+.stat-item {
+    
+}
+
+.stat-label {
+    color: $light-bg-darker-20;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.stat-data {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.avatar-img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.edit-profile {
+    cursor: pointer;
+}
+
+.edit-profile:hover {
+    color: #f62852;
+}
+.line-breaker {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+@media only screen and (max-width: 600px) {
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    .stat-data {
+        font-size: 1rem;
+    }
+    .email {
+        font-size: 1.3rem;
+    }
+}

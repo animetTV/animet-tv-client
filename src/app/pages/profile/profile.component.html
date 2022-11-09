@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="profile" *ngIf="USER_PROFILE | async" fxLayoutAlign="center" fxFlex="row" >
+    <app-user-detail [_USER_STATS]="USER_STATS | async"> </app-user-detail>
+  </div>
+
+  <div class="list-wrapper" fxLayoutGap="15px" fxLayoutGap.xs="2px" fxLayout="column">
+    <div class="list-track">
+      <app-carousel-list
+        [ListName]="'Currently Watching'"
+        [List]="CONTINUE_WATCHING"
+        [isFinishedBtn]="true"
+        [isContinueWatch]="true"
+        (isBuffering)="isBufferingState($event)"
+      >
+      </app-carousel-list>
+    </div>
+    <div class="list-track">
+      <app-carousel-list
+        [ListName]="'Plan to Watch'"
+        [List]="PLAN_TO_WATCH"
+        [isFinishedBtn]="true"
+        (isBuffering)="isBufferingState($event)"
+      >
+      </app-carousel-list>
+    </div>
+
+    <div class="list-track">
+      <app-carousel-list
+        [ListName]="'Completed'"
+        [List]="COMPLETED"
+        [isFinishedBtn]="false"
+        (isBuffering)="isBufferingState($event)"
+      >
+      </app-carousel-list>
+    </div>
+
+    <!--  <div class="list-track">
+            <div class="new-list" fxLayoutAlign="center center">
+                <mat-icon class="new-list-btn" matTooltip="Create new list"   [matTooltipPosition]="'left'">library_add</mat-icon>
+            </div>
+        </div> -->
+  </div>
+</div>

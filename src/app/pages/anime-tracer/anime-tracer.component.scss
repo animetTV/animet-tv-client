@@ -1,0 +1,266 @@
+.main {
+  margin: 1rem 2rem;
+  padding-bottom: 550px;
+}
+
+.Widget,
+.TransferBox {
+  font-size: 12px;
+  line-height: 18px;
+  position: absolute;
+  top: calc(125px + 8%);
+  left: 80px;
+  margin-bottom: 80px;
+  transition: top 0.2s ease-in-out 0s;
+  z-index: 10;
+}
+
+div.Send {
+  font-size: 12px;
+  line-height: 18px;
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.08), 0 22px 8px 0 rgba(0, 0, 0, 0.5);
+  background-color: #1c1c1c;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 16px;
+}
+
+div.Main {
+  font-size: 12px;
+  line-height: 18px;
+  min-height: 170px;
+  position: relative;
+}
+
+.clickzone-wrapper {
+  font-size: 12px;
+  line-height: 18px;
+  position: relative;
+}
+
+div.clickzone-wrapper > div {
+  font-size: 12px;
+  line-height: 18px;
+  width: 100%;
+  height: 170px;
+}
+.clickzone-wrapper {
+  font-size: 12px;
+  line-height: 18px;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 20px 24px;
+}
+
+input[type="file"] {
+  font-size: 12px;
+  line-height: 18px;
+  -webkit-appearance: none;
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.Clickzone > .clickzone.large .icon-add {
+  margin-top: 26px;
+}
+.Clickzone .icon-add.large,
+.Dropzone .icon-add.large {
+  width: 52px;
+  height: 52px;
+}
+
+.Clickzone .icon-add:after,
+.Clickzone .icon-add:before,
+.Dropzone .icon-add:after,
+.Dropzone .icon-add:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #ff2d55;
+  border-radius: 4px;
+}
+.icon-add:before,
+.Dropzone .icon-add:after,
+.Dropzone .icon-add:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #ff2d55;
+  border-radius: 4px;
+}
+
+.Clickzone .icon-add.large:before,
+.Dropzone .icon-add.large:before {
+  width: 52px;
+  height: 4px;
+  margin: -2px 0 0 -26px;
+}
+
+.Clickzone .icon-add.large:after,
+.Dropzone .icon-add.large:after {
+  height: 52px;
+  width: 4px;
+  margin: -26px 0 0 -2px;
+}
+
+.bold {
+  font-weight: 700;
+}
+.title3 {
+  font-size: 20px;
+  line-height: 26px;
+  color: #f4f4f4;
+}
+.heading,
+.heading > button {
+  color: #f4f4f4;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.heading > .btn {
+  margin-left: 10px;
+}
+
+.info {
+  line-height: 1.7;
+  opacity: 70%;
+  margin: 1rem 0;
+}
+
+.result-wrapper {
+  margin: 15px 0;
+}
+.video-container {
+  width: 100%;
+}
+
+.video {
+  width: 100%;
+}
+
+.details {
+  font-size: large;
+  line-height: 1.5;
+
+  border-radius: 4px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.08), 0 22px 8px 0 rgba(0, 0, 0, 0.5);
+  background-color: #1c1c1c;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 16px;
+  padding: 4px 7px;
+  width: 650px;
+}
+.result-title {
+}
+.similarty {
+  font-size: xx-large;
+  font-weight: 600;
+}
+.episode-detail {
+  .episode {
+  }
+  .timestamp {
+  }
+}
+
+.details > .result-title {
+  color: #ff2d55;
+}
+
+.playlist-item {
+  margin: 5px 0;
+  border: 4px solid rgba(255, 255, 255, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+.playlist-item:hover,
+.playlist-item:active {
+  border: 4px solid rgba(255, 255, 255, 0.8);
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    margin: 0.5rem 1.25rem;
+    padding-bottom: 250px;
+  }
+
+  .file-upload-wrapper {
+    width: 95%;
+  }
+  .Widget,
+  .TransferBox {
+    position: unset;
+    width: 200px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+  }
+
+  div.Send {
+    font-size: 12px;
+    line-height: 18px;
+    width: 200px;
+    height: 100px;
+  }
+
+  .icon-add {
+    display: none;
+  }
+
+  div.clickzone-wrapper > div {
+    height: 45px;
+  }
+  .heading,
+  .heading {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .info {
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+  }
+
+  .details {
+    font-size: medium;
+    min-width: 300px;
+    width: 100%;
+  }
+  .similarty {
+    font-size: large;
+    font-weight: 600;
+  }
+
+  .video {
+    min-width: 300px;
+  }
+
+  .thumbnail-detail {
+    .result-title {
+      font-size: small;
+      overflow-wrap: break-word;
+    }
+    .episode {
+      font-size: x-small;
+    }
+    .timestamp {
+      font-size: x-small;
+    }
+  }
+
+  .thumbnail > img {
+    height: 100px;
+    width: 150px;
+  }
+  .playlist-item {
+    margin: 8px 0;
+  }
+}

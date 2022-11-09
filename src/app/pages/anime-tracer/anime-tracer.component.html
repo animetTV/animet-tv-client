@@ -1,0 +1,80 @@
+<div class="main" fxLayout="column">
+    <div class="heading-wrapper">
+        <div class="heading" fxLayout="row" fxLayoutAlign="start center">
+            <div>Anime Tracer</div>
+            <button fxLayoutAlign="center" class="btn" mat-flat-button *ngIf="(DoneTracing | async)"
+                matTooltip="Try a new IMG" (click)="reset()">
+                <mat-icon>refresh</mat-icon>
+            </button>
+
+        </div>
+        <p class="info">Trace back the scene where an anime screenshots is taken from.<br
+                *ngIf="(isHandset$ | async) === false"> It tells you which anime, which episode, and the exact moment
+            this scene appears.</p>
+    </div>
+    <div fxLayout="column">
+        <div class="file-upload-wrapper" *ngIf="(DoneTracing | async) === false">
+            <div class=" disabled Widget TransferBox" style="transition: top 0.2s ease-in-out 0s;">
+                <div class="Send">
+                    <div class="toast-group"></div>
+                    <div class="Main">
+                        <div class="toast-group"></div>
+                        <div class="clickzone-wrapper" (click)="fileUpload.click()">
+                            <div class="Clickzone large">
+                                <div class="clickzone border-box large">
+                                    <p class="title3 clickzone-text bold"><span fxLayoutAlign="center center">Upload IMG
+                                            <mat-icon>upload_file</mat-icon></span></p>
+                                    <p class="center"><span class="icon-add large"></span></p>
+                                    <input class="choose-file" #fileUpload id="fileInput" name="file" type="file"
+                                        ([value])="(fName)" (change)="fileChanged($event)" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-wrapper" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px">
+            <div class="left-tab" fxLayoutAlign="start" *ngIf="(DoneTracing | async)" fxLayoutAlign="start"
+                fxLayout="column" fxLayoutGap="5px">
+                <div class="details" fxLayout="column" fxLayoutGap="5px" fxLayoutGap.xs="8px" fxLayoutAlign="start">
+                    <div class="result-title">{{ MostSimilar?.filename}}</div>
+                    <div class="episode-detail" fxLayout="column" fxLayoutGap="5px" fxLayoutGap.xs="8px">
+                        <div class="episode">Episode: {{ MostSimilar?.episode}}</div>
+                        <div class="timestamp">Timestamp: {{ secoundsToTimeStamp(MostSimilar?.from)}} - {{
+                            secoundsToTimeStamp(MostSimilar?.to)}}</div>
+                    </div>
+                    <div class="similarty">{{ numToTwoDecimal(MostSimilar?.similarity)}}%</div>
+                </div>
+                <div class="video-container" fxLayoutAlign="start">
+                    <video class="video" [poster]="MostSimilar?.image" [preload]="'auto'" [src]="MostSimilar?.video"
+                        [muted]="'muted'" loop autoplay></video>
+                </div>
+
+
+            </div>
+            <div class="right-tab" fxLayoutAlign="start">
+                <div class="playlist-wrapper">
+                    <div class="playlist-item" 
+                        fxLayout="row" 
+                        fxLayoutGap="10px"
+                        *ngFor="let item of TracerResult | async; let posNumber =index"
+                        (click)="switchMain(posNumber)"
+                        >
+                        <div class="thumbnail">
+                            <img [src]="item.image" alt="" width="150px">
+                        </div>
+                        <div class="thumbnail-detail">
+                            <div class="result-title">{{ item?.filename }}</div>
+                            <div class="episode">Episode: {{ item?.episode}}</div>
+                            <div class="timestamp">Timestamp: {{ secoundsToTimeStamp(item?.from)}} - {{
+                                secoundsToTimeStamp(item?.to)}}</div>
+                            <div class="similarity">{{numToTwoDecimal(item?.similarity)}}%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

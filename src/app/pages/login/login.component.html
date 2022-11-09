@@ -1,0 +1,50 @@
+<div class="container" fxLayoutAlign="center center">
+    <div class="wp"></div>
+  <!--   <div class="nav" fxLayoutAlign.xs="center">
+        <img class="logo"  src="/assets/logo/animet_log.png" height="100" alt="logo" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+    </div> -->
+    
+    <div  class="form-wrapper animate__animated animate__fadeIn  animate__faster" fxLayoutAlign="center center" fxLayout="column">
+        <div class="title"fxFlex="10%">Log In</div>  
+
+       <!--  <div fxFlex="10%">
+            <div class="g-signin2" data-onsuccess="onSignIn" data-width="221" data-height="38" data-longtitle="true"></div>
+        </div>
+
+        <div fxFlex="15%" class="divder-wrapper" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="divder"></div>
+            <div> OR</div>
+            <div class="divder"></div>
+        </div> -->
+        <div class="buffer" *ngIf="isBuffering | async " fxLayoutAlign="center center" fxLayout="column">
+            <mat-spinner color="accent" fxLayoutAlign="center"></mat-spinner>
+            <div id="status-txt" fxLayoutAlign="center">status</div>
+        </div>
+        
+        <form  fxFlex="70%" class="regular-form" fxLayoutAlign="center center" fxLayout="column">
+            <div class="form-item">
+                <input type="email" class="input-item" placeholder="email" id="email">
+            </div>
+            <div class="form-item">
+                <input type="password" class="input-item" placeholder="password" id="password">
+              
+                    <div class="forgot-link" [routerLink]="['/forgot-password']" routerLinkActive="router-link-active" >
+                    Forgot your password?</div>
+               
+            </div> 
+            <div class="sing-in-btn" >
+                <button 
+                mat-raised-button 
+                color="accent" 
+                (click)="onSubmit()"
+                [disabled]= "(isBuffering | async) === true"
+                >Log in</button>
+            </div>
+            <div fxFlex="20%">
+                <div class="join-link" [routerLink]="['/signup']" routerLinkActive="router-link-active" >
+                    Don't have an account? <span style="color: #007FFF;">Register</span></div>
+            </div>
+        </form>
+    </div>
+
+</div>

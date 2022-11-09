@@ -1,0 +1,336 @@
+@import '../../@theme/styles/theme.scss';
+$thetransition: all .15s cubic-bezier(.50,.25,0,.75) 0s;
+
+@function makelongshadow($length,$angle) {
+    $val: 0px 0px transparent;
+    @for $i from 1 through $length {
+      $val: #{$val}, #{$i}px #{$i*$angle}px #121212;
+    }
+    @return $val;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap');
+  
+  body {
+    background: radial-gradient(#121212, #121212);
+    background-color: #0f0f0f;
+    background-size: 100vw 100vh; 
+    overflow: hidden;
+    padding-top: 40vh;
+    user-select: none;
+  }
+  
+  .fourk {
+    font-size: 14vmin; 
+  }
+
+  .nsfw {
+    font-size: x-large; font-weight: bold; color:#f70b53;
+  }
+  
+  @keyframes netflix_style {
+    0% {
+      text-shadow: makelongshadow(100,1);
+      color:#f3f3f3;
+      transform: scale(1.5, 1.5);
+    }
+    10% {
+      text-shadow: makelongshadow(100,1.5);
+      color:#f3f3f3;
+      transform: scale(1.5, 1.5);
+    }
+    15% {
+       color:#f3f3f3;
+    }
+    20% {    
+      color:#F62852;
+      text-shadow: none;
+      transform: scale(1.1, 1.1);
+    }
+    75% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;    
+      color:#F62852;
+      transform: scale(0.85, 0.9);
+    }
+    
+    100% {
+      opacity: 0;
+    }
+  }
+
+.adblocker-detected {
+  margin-top: 10rem;
+  
+  .adb-card {
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #1E1E1E;
+    max-width: 500px;
+    border-radius: 5px;
+  }
+
+  .adb-title {
+    margin: 0.5em;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: rgb(218,37,74);
+    text-align: center;
+  }
+
+  .adb-container {
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .adb-footer {
+    margin-top: 1rem;
+    line-height: 1.6;
+    color: $light-bg-darker-30;
+    a {
+      text-decoration: none;
+      color: #007FFF;
+    }
+  }
+}
+
+.main {
+  color: white;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  padding-bottom: 12rem;
+  user-select: none;
+  max-width: 90rem;
+  .head-title {
+    text-align: center;
+    margin: 1.5rem 3rem;
+    color: white;
+    font-size: 4rem;
+    font-weight: bolder;
+    cursor: default;
+  }
+
+  .header-icon {
+    //font-size: 3.5rem;
+  }
+  
+}
+
+
+.card {
+  width: 250px;
+  margin: 10px 3px;
+  transition: .12s ease-in-out;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;    
+  .title {
+      margin: 5px;
+      padding: 2px 7px;
+      color: white;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
+      line-height: 1.5;
+      font-size: 1.05rem!important;
+      font-weight: bold;
+
+      position: absolute;
+      left: 0;
+      bottom: 0px;
+      z-index: 5;
+  }
+  
+  .img {
+     border-radius: 10px;
+      height: 380px;
+      width: 250px;
+      z-index: 1;
+  }
+
+  .title-wrapper {
+      position: absolute;
+      width: 250px;
+      height: 380px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: #1e1e1e98;
+
+  }
+  .title {
+    width: 100%;
+  }
+}
+.card:hover {
+  .nsfw {
+    color: white;
+  }
+ #show_bg_2 {
+      background: linear-gradient(to bottom, rgba(246, 40, 82, 0) 35%,rgba(246, 40, 82, 0.6) 63%,rgba(246, 40, 82, 0.95) 79%,rgb(246, 40, 82) 94%,rgb(246, 40, 82) 100%);
+ }
+}
+
+.card:empty {
+  display: none;
+}
+
+
+.not_watchable {
+  cursor: default!important;
+  box-shadow: none!important;
+}
+
+.card-overlay {
+  position: absolute;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  color: #f70b53;
+  background: rgba(31, 31, 31, 0.459);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 2px );
+  margin: 10px 3px;
+}
+
+
+#show_bg_2 {
+  transition: $thetransition;
+  position: absolute;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(30,30,30,0) 35%,rgba(30,30,30,0.60) 63%,rgba(30,30,30,0.95) 79%,rgba(30,30,30,1) 94%,rgba(30,30,30,1) 100%);
+  background-size: cover;
+  width: 250px;
+  min-height: 380px;
+  border-radius: 10px;
+}
+
+
+.main-content {
+  margin: 2rem 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #007FFF;
+}
+.message-wrapper {
+  margin: 1.5rem 2rem;
+  .message {
+    height: 4ch;
+    line-height: 1.6;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+}
+
+.background-wp {
+
+}
+
+.quality-icon {
+  font-size: 2rem;
+}
+.type {
+  font-weight: bold;
+}
+
+.new {
+  margin-top: 15px;
+  height: 40px;
+  position: absolute;
+  z-index: 5;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 0 5px;
+  color: #f70b53 ;
+}
+
+.tab-lable {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: white;
+}
+
+.blur-nsfw {
+  filter: blur(10px);
+  overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .tab-lable {
+    font-size: 1.5rem;
+  }
+  .main {
+    padding-bottom: 2rem;
+
+    .head-title {
+      font-size: 2rem;
+    }
+
+  }
+  .message-wrapper {
+
+    .message {
+      height: 5ch;
+      font-size: 0.85rem;
+      margin: 1.8rem 0.5rem;
+    }
+
+  }
+  .main-content {
+    margin: 0rem 1.25rem;
+  }
+
+    #show_bg_2 {
+        width: 150px;
+        min-height: 200px;
+    }
+
+
+    .card {
+      width: 150px!important;
+      height: 200px;
+      margin: 5px 3px;
+      .img {
+          width: 150px!important;
+          height: 200px!important; 
+      }
+
+      .title {
+        margin: 5px;
+        padding: 2px 7px;
+        color: white;
+        font-weight: 500;
+        font-size: 0.90rem!important;
+    }
+  
+      .title-wrapper {
+          width: 150px;
+          height: 200px;
+      }
+  }
+
+  .new {
+    display: none;
+  }
+
+  .quality-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  
+}

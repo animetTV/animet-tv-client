@@ -1,0 +1,206 @@
+<div class="adblocker-detected" *ngIf="isAdblockerOn | async">
+  <div class="adb-card">
+    <div class="adb-header">
+      <div class="adb-title">AdBlocker Detected!</div>
+    </div>
+    <div class="adb-container">
+      <div fxLayoutAlign="center center">
+        This page requires you disable your AdBlockers sorry, HD content
+        consumes alot of bandwidth.
+      </div>
+    </div>
+    <div class="adb-footer">
+      <div>
+        We only serve banner ads that are SFW, if you want to learn more check
+        out <a href="/donation">about page.</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-view" *ngIf="(isAdblockerOn | async) === false" fxLayout="row" fxLayoutAlign="space-evenly">
+  <div class="wrapper-ads" *ngIf="(isHandset$ | async) === false">
+    <ng-adsense [adClient]="'ca-pub-6890066986315850'" [adSlot]="7232638209" [display]="'inline-block'" [width]="250">
+    </ng-adsense>
+  </div>
+  <div class="main-content">
+    <div class="player-wrapper">
+      <div id="player1" *ngIf="showPlayer | async" class="anime-player-wrapper">
+        <!-- <plyr
+          *ngIf="(isHandset$ | async) === false && (isV2) === false && (isIframe === false)"
+          style="display: block"
+          plyrTitle="AnimetTV internal player"
+          [plyrPlaysInline]="true"
+          [plyrSources]="(videoSources | async)"
+          [plyrPoster]="'assets/placeholder/animet_player_preload.png'"
+          [plyrCrossOrigin]="true"
+        >
+        </plyr>
+
+        <plyr
+          *ngIf="isV2 && (isIframe === false)"  
+          style="display: block"
+          [plyrPlaysInline]="true" 
+          [plyrCrossOrigin]="true" 
+          [plyrDriver]="hlsjsDriver1" 
+          [plyrSources]="(videoSources | async)" 
+          [plyrPoster]="'assets/placeholder/animet_player_preload.png'"
+          (plyrInit)="plyr1 = $event"></plyr> -->
+
+        <!-- <video
+          *ngIf="(isHandset$ | async) && (isV2 === false) "
+          width="100%"
+          controls
+          [src]="(safeStreamURL | async) | safe"
+          preload="auto"
+          #video_player
+          controlsList="nodownload"
+          playsinline
+        ></video> -->
+
+        <div *ngIf="(isIframe | async) === false">
+          <app-jwplayer *ngIf="isFirefox === false" [_file]="safeStreamURL | async" [_type]="sourceType | async">
+          </app-jwplayer>
+          <video
+            *ngIf="isFirefox"
+            width="100%"
+            controls
+            [src]="(safeStreamURL | async) | safe"
+            preload="auto"
+            controlsList="nodownload"
+            playsinline
+        ></video>
+        </div>
+        <div *ngIf="(isIframe | async)" class="iframe">
+          <iframe style="
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              overflow: hidden;
+            " frameborder="0" type="text/html" [src]="safeStreamURL | async | safe"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-orientation-lock" width="100%"
+            height="100%" allow="autoplay" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div id="episodes" class="episode-wrapper" isActive="(state | async) === false">
+      <div class="title"></div>
+      <div class="playerDetail" fxLayout="column" fxLayoutAlign="space-between start">
+        <div id="animeTitle">{{ currentTitle }} Ep: {{currentEpisode + 1}}</div>
+
+        <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center">
+          <div id="views">{{ views | async }} views </div>
+          <div *ngIf="isDownload" class="downloadContainer" fxLayoutAlign="end start">
+            
+            <a *ngIf="isUser | async" [href]="safeStreamDownloadURL | async | safe" target="_blank">
+              <button mat-flat-button color="info" matTooltip="Download Ep: {{currentEpisode + 1}}">
+                <mat-icon>file_download</mat-icon>
+              </button>
+            </a>
+            <button *ngIf="(isUser | async) === false" mat-flat-button color="accent" [routerLink]="['/login']"
+              routerLinkActive="router-link-active">
+              <mat-icon>file_download</mat-icon>Login to download
+            </button>
+          </div>
+          <div *ngIf="isDownload === false">
+            <a [href]="'https://discord.gg/nNY94AqFtK'" target="_blank">
+              <button mat-flat-button color="info" matTooltip="Request download for this title on our Discord server">
+                <mat-icon>info</mat-icon><span>Discord</span>
+              </button>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div *ngIf="isLoadingEpisodeSection | async" fxLayoutAlign="center center">
+        <mat-spinner></mat-spinner>
+      </div>
+      <mat-tab-group *ngIf="showEpisodes | async" color="accent">
+        <mat-tab *ngIf="(isIframe | async) === false" label="Episodes / Parts" (click)="switchTabs('false')">
+          <div class="anime-episode" fxLayoutAlign="start center" fxLayoutAlign.xs="center center" fxLayout="row wrap"
+            fxLayoutGap="5px">
+            <div *ngFor="
+                let item of currentTitleData | async;
+                let epNumber = index
+              " class="episode-card" fxLayoutAlign="center center" (click)="setEpisode(epNumber, false)"
+              [id]="getEpisodeID(epNumber)">
+              <div class="episode-txt">{{ epNumber + 1 }}</div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab *ngIf="(isIframe | async)" label="Episodes / Parts" (click)="switchTabs('false')">
+          <div class="anime-episode" fxLayoutAlign="start center" fxLayoutAlign.xs="center center" fxLayout="row wrap"
+            fxLayoutGap="5px" >
+            <div *ngFor="
+                let item of currentTitleData | async;
+                let epNumber = index
+              " class="episode-card" fxLayoutAlign="center center" (click)="setEpisode(epNumber, false)"
+              [id]="getEpisodeID(epNumber)">
+              <div class="episode-txt">{{ epNumber + 1 }}</div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+    <div class="comment-wrapper" style="flex:1;">
+      <div id="disqus-comment-new" style="display: block;" fxLayoutAlign="center start" *ngIf="(selectionMade | async)">
+        <button (click)="showComments()" mat-flat-button id="show-comment-btn" color="info">Show comments</button>
+      </div>
+
+      <div *ngIf="isDisqusComment | async" fxLayout="column">
+        <div id="commentrule" style="display: block;">If you see a spoiler of future episode please "Flag as
+          inappropriate - Spam"</div>
+
+        <div id="disqus_thread">
+          <disqus [identifier]="disqusIdentifier | async" [url]="disqusIdentifier | async "></disqus>
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-main-wrapper" fxLayout="column">
+      <div class="detail-main" fxLayout="column">
+        <div class="anime-detail-card" fxLayout="row" fxLayout.xs="column"
+          fxLayoutAlign="start space-evenly">
+          <div class="anime-img" fxLayout="column" fxLayoutAlign="start center">
+            <img [src]="getSantizeUrl((selectedAnime | async)?.cover_img)"
+              onerror="this.src='assets/placeholder/404notfound.jpg';" alt="anime cover" />
+          </div>
+          <div class="anime-content" fxFlex="60%" fxFlex.xs="100%" fxLayout="column" fxLayoutAlign="space-evenly">
+            <div class="anime-title">{{ (selectedAnime | async)?.title }}</div>
+            <div fxLayout="row">
+              <div class="anime-synopsis item" id="anime-quality">
+                <mat-icon>{{ (selectedAnime | async)?.quality }}</mat-icon>
+              </div>
+          </div>
+          <div class="more-detail" fxLayout="row wrap" fxLayoutGap="10px">
+            <div *ngIf="(selectedAnime | async)?.isDub">DUB</div>
+            <div *ngIf="(selectedAnime | async)?.isSub">SUB</div>
+    
+          </div>
+            <!-- <mat-chip-list>
+              <mat-chip *ngFor="let genere of selectedAnimeGenere | async" (click)="setGenre(genere)">{{ genere }}
+              </mat-chip>
+            </mat-chip-list> -->
+          </div>
+          <div fxLayoutAlign="start center" fxLayoutAlign.xs="center center" fxLayout="column wrap" fxLayout.xs="row wrap">
+            <button class="nav-btn" mat-button matTooltip="Share" (click)="shareCurrentLink()" >
+              <mat-icon [inline]="true" id="reply-icon">reply</mat-icon>
+              <div style="font-size: 14px; font-weight: 500;"> SHARE</div>
+            </button>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper-ads" *ngIf="(isHandset$ | async) === false">
+    <ng-adsense [adClient]="'ca-pub-6890066986315850'" [adSlot]="7232638209" [display]="'inline-block'" [width]="250">
+    </ng-adsense>
+  </div>
+</div>

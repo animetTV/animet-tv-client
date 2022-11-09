@@ -1,0 +1,323 @@
+$thetransition: all .15s cubic-bezier(.50,.25,0,.75) 0s;
+$primary: #f70b53;
+
+.main {
+    margin: 10px 0;
+}
+.desktop-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.main-body.middle {
+    max-width: 1100px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.main-body {
+    width: 100%;
+    background: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.page-with-header {
+    padding-top: 60px;
+}
+
+.side-bar-container {
+    position: relative;
+    -webkit-flex: 0 0 245px;
+    -ms-flex: 0 0 245px;
+    flex: 0 0 245px;
+}
+
+.trending-container {
+    padding: 24px 0;
+    margin-right: 24px;
+    width: 692px;
+    max-width: 692px;
+}
+
+
+/* .video-card-big.browse-mode {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+} */
+.video-card-big.browse-mode {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.video-card-big {
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.video-card-container {
+    background: black;
+    flex: 1 1 896px;
+    position: relative;
+    overflow: hidden;
+}
+
+.browse-mode.video-card-container{
+    padding: 0px 80px;
+}
+
+
+
+.arrow-right,
+.up-and-down {
+    top: 50%!important;
+    right: 60px;
+    transform: rotate(
+    -90deg
+    );
+        margin-top: 20px;
+}
+
+.arrow-left.up-and-down {
+    left: unset;
+    right: 60px;
+    transform: rotate(
+90deg
+);
+    margin-top: -48px;
+}
+
+.close {
+    top: 25px;
+    left: 35px;
+}
+.open-deck {
+    top: 25px;
+    right: 25px;
+    display: none;
+}
+.control-icon{
+    width: 50px;
+    position: absolute;
+    top: 3%;
+    cursor: pointer;
+}
+.detail {
+    width: 200px;
+    color: white;
+    top: 40px;
+    left: 100px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+}
+
+.content-container-opened {
+    flex: 0 0 544px;
+    width: 544px;
+}
+
+.content-container-closed {
+    flex: 0 0 54.4px;
+    width: 54.4px;
+}
+
+.video-card-browse{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: center start / contain no-repeat;
+}
+
+.video-card-browse.video-player {
+    position: absolute;
+    inset: 0px;
+    transform: none;
+}
+
+video.horizontal {
+    object-fit: contain;
+}
+
+video{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// hide fullscreen btn
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
+}
+
+video::-webkit-media-controls-time-remaining-display {
+    display: none;
+}
+
+video::-webkit-media-controls-timeline {
+    color: $primary;    
+}
+
+.nav-btn {
+    margin: 1.5rem 0;
+    .icon-open-content,.icon-close-content {
+        color: white;
+        font-size: 3.5rem;
+        cursor: pointer;
+        transition: $thetransition;
+        user-select: none;
+    }
+    .icon-open-content:hover,.icon-close-content:hover {
+        color: #f70b53;
+    }
+}
+
+.playlist {
+    margin: 0 7px;
+    overflow-y: auto;
+    transition: $thetransition;
+}
+#disqus_thread {
+    margin-top: 1.5rem;
+    opacity: 0.80;
+}
+
+.video-detail {
+    .title {
+        font-size: 1.5rem;
+        font-weight: 500;
+      letter-spacing: 0.01rem;
+    }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats {
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 2rem;
+    opacity: 75%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dot {
+    margin: 0 4px;
+}
+.avatarBtn {
+    cursor: pointer;
+    border: none;
+    padding: 8px 5px;
+    mat-icon {
+      font-size: 2em;
+    }
+}
+
+#avatar-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    margin-right: 8px;
+  }
+
+.avatar-short-name {
+    padding-left: 1ch;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+
+}
+
+.like-icon  {
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: $thetransition;
+}
+
+.like-icon:hover {
+    color: #f70b53;
+}
+
+  @media only screen and (max-width: 600px) {
+    .avatar-short-name {
+      display: none;
+    }
+
+    #disqus_thread {
+        opacity: 0.80;
+    }
+
+    .content-container-opened {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .content-container-closed {
+        flex: 0 0 0;
+        width: 0;
+    }  
+    
+    .open-deck {
+        display: block;
+    }
+  }
+
+// jonpad solution crop yt-videos
+#player-size {
+    /* comment below line for responsive 16:9 full screen */
+    width: 640px;
+    /* only need to specify width since 16:9 ratio is  
+       preserved / automatically applied */
+  }
+  
+  #cropping-div {
+    overflow: hidden;
+  }
+  
+  #div-to-crop {
+    overflow: hidden;
+    margin-top: -51%;
+    margin-bottom: -20%;
+  }
+  
+  #player-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 128.25%;
+  }
+  
+  #player {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 124%;
+    
+  }
