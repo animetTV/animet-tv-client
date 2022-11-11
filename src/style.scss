@@ -22,36 +22,10 @@ body {
 body {
   font-family: "Inter", sans-serif;
   touch-action: manipulation; // ios double zoom
-  cursor: url("./assets/placeholder/cursor-auto.png"), auto;
 }
 
 // cutom cursor 
-button,a,img, .slider, .slide-content, 
-.swiper-pagination-bullet, .nav-item,
-.nav-item>label, mat-chip, .overlay, mat-icon,
-.mat-button-wrapper, mat-card, span, video, iframe
-,td, .mat-form-field-wrapper, #fileInput, .mat-tab-label,
-.Clickzone {
-  cursor: url("./assets/placeholder/cursor-pointer.png"), pointer!important;
-}
-button:active,:active:active, .slider:active, 
-.slide-content:active, .swiper-pagination-bullet:active,
-.nav-item:active,.nav-item>label:active, .mat-chip:active,
-.overlay:active, mat-icon:active, mat-card:active, video:active
-iframe:active, td:active, #fileInput:active, .mat-tab-label:active, .Clickzone:active{
-  cursor: url("./assets/placeholder/cursor-pointer-clicked.png"), pointer;
-}
 
-iframe:hover {
-  cursor: url("./assets/placeholder/cursor-pointer-clicked.png"), pointer;
-}
-
-.anime-title, .message, input, .details>div, .result-title {
-  cursor: url("./assets/placeholder/cursor-text.png"), text;
-}
-.anime-title:active, .message:active, .details>div:active, .result-title:active {
-  cursor: url("./assets/placeholder/cursor-text.png"), text;
-}
 
 ::selection {
   color: #f4f4f4;

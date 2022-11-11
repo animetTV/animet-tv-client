@@ -46,8 +46,6 @@ import { SelectSeasonComponent } from './pages/home/select-season/select-season.
 import { TrendingComponent } from './pages/home/trending/trending.component';
 import { UpcomingComponent } from './pages/home/upcoming/upcoming.component';
 import { ContinueWatchingComponent } from './pages/home/continue-watching/continue-watching.component';
-import { MustWatchComponent } from './pages/home/must-watch/must-watch.component';
-import { RegularCarouselComponent } from './pages/home/must-watch/regular-carousel/regular-carousel.component';
 import { QuickAccessComponent } from './@theme/components/quickaccess/quick-access.component';
 import { TopOfTheWeekComponent } from './pages/home/top-of-the-week/top-of-the-week.component';
 import { GenreDialogComponent } from './@theme/components/genre/genre-dialog.component';
@@ -107,8 +105,6 @@ const COMPONENTS = [
   TopOfTheWeekComponent,
   UpcomingComponent,
   PageNotFoundComponent,
-  MustWatchComponent,
-  RegularCarouselComponent,
   LoginComponent,
   SignupComponent,
   SnackbarMessageComponent,

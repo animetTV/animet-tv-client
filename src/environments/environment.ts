@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3001/',
+  apiUrl: 'http://localhost:3011/',
   streamAPI: 'http://localhost:8080/',
 
   feedLimit: 20,
