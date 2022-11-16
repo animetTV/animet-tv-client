@@ -641,7 +641,11 @@ export class WatchAnimeService {
                                         } else {
                                             source = `${list[Math.floor(Math.random() * list.length)].url}${source}`;
                                         }
-                                        this.vidstreaming_Iframe_URL = `https://internal.animet.site/plyr.html?vidstreaming=${vidstream_url}&nodeURL=${list[Math.floor(Math.random() * list.length)].url}`;
+
+                                        // SHIRO DEAD
+                                        //this.vidstreaming_Iframe_URL = `https://internal.animet.site/plyr.html?vidstreaming=${vidstream_url}&nodeURL=${list[Math.floor(Math.random() * list.length)].url}`;
+                                        
+                                        this.vidstreaming_Iframe_URL = `${environment.animetPlayer}/plyr.html?vidstreaming=${JSON.stringify(localStorage.getItem("currentEpisodeID"))}`
                                         
                                         let nl_2: Link = {
                                             src: this.vidstreaming_Iframe_URL,
