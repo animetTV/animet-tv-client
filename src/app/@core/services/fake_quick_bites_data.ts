@@ -1,4 +1,4 @@
-import { QuickBitsSource } from "src/app/shared/interface";
+import { QuickBitsSource } from "src/app/types/interface";
 
 export const fakeData: QuickBitsSource[] = [
     {

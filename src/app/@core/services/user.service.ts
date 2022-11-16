@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { ContinueWatching_ItemAdd, ItemRequest, Profile, UserLists } from 'src/app/shared/interface';
+import { ContinueWatching_ItemAdd, ItemRequest, Profile, UserLists } from 'src/app/types/interface';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';

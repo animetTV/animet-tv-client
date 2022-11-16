@@ -16,8 +16,6 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 /* import { PublicLinkService } from './@core/services/public-link.service'; */
 import { PublicProfileComponent } from './pages/public-profile/public-profile.component';
 
-import * as Hammer from 'hammerjs';
-
 export class HammerConfig extends HammerGestureConfig {
   overrides = <any>{
     swipe: { direction: Hammer.DIRECTION_ALL }
@@ -30,7 +28,6 @@ import { ThemeModule } from './@theme/theme.module';
 import { CommonModule } from '@angular/common';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { CoreModule } from './@core/core.module';
-import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './@theme/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -124,7 +121,6 @@ const MODULES = [
   BrowserModule,
   CommonModule,
   ThemeModule,
-  SharedModule,
   FlexLayoutModule,
   DragScrollModule,
   CoreModule.forRoot(),

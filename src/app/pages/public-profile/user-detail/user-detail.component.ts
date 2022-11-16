@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { UserStat } from 'src/app/shared/interface';
+import { UserStat } from 'src/app/types/interface';
 import { environment } from 'src/environments/environment';
 
 @Component({

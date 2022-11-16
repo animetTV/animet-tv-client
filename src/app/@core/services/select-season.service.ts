@@ -5,7 +5,7 @@ import {
   GetNewSeason,
   SeasonsDetail,
   TopSeason,
-} from 'src/app/shared/interface';
+} from 'src/app/types/interface';
 import { ApiService } from './api.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
 

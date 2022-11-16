@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { ApiService } from 'src/app/@core/services/api.service';
-import { jwplayerMP4SourceItem } from 'src/app/shared/interface';
+import { jwplayerMP4SourceItem } from 'src/app/types/interface';
 declare var jwplayer: any;
 
 @Component({

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Card } from '../../pages/home/home.component';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { TopSeason, SeasonsDetail, SearchResult, Rating, WatchAnimeResult, EpisodeStream, Genres, RecentlyAddedEntity, Spotlight, RecentlyAdded, Tops, CorsAnyWhereItem, jwplayerMP4SourceItem, PreparedTitle, CommentCount, AllTitles } from '../../shared/interface';
+import { TopSeason, SeasonsDetail, SearchResult, Rating, WatchAnimeResult, EpisodeStream, Genres, RecentlyAddedEntity, Spotlight, RecentlyAdded, Tops, CorsAnyWhereItem, jwplayerMP4SourceItem, PreparedTitle, CommentCount, AllTitles } from '../../types/interface';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, share, shareReplay, timeout } from 'rxjs/operators';

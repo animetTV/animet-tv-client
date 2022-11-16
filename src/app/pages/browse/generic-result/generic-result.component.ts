@@ -8,7 +8,7 @@ import { distinctUntilChanged, map, shareReplay } from 'rxjs/operators';
 import { ApiService } from 'src/app/@core/services/api.service';
 import { BrowseService } from 'src/app/@core/services/browse.service';
 import { SelectSeasonService } from 'src/app/@core/services/select-season.service';
-import { SearchResult } from 'src/app/shared/interface';
+import { SearchResult } from 'src/app/types/interface';
 
 @Component({
   selector: 'app-generic-result',

@@ -25,7 +25,7 @@ import { ShareListComponent } from './@theme/components/share-list/share-list.co
 import { DomSanitizer } from '@angular/platform-browser';
 import { UpdateService } from './@core/services/update.service';
 import { Location } from '@angular/common';
-import { Season, SeasonsDetail, TopSeason } from './shared/interface';
+import { Season, SeasonsDetail, TopSeason } from './types/interface';
 import { SelectSeasonService } from './@core/services/select-season.service';
 declare let ga: Function;
 

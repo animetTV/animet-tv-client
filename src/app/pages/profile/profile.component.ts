@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/@core/services/api.service';
 import { UserService } from 'src/app/@core/services/user.service';
 import { ShareListComponent } from 'src/app/@theme/components/share-list/share-list.component';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { List, Profile, UserStat } from 'src/app/shared/interface';
+import { List, Profile, UserStat } from 'src/app/types/interface';
 
 @Component({
   selector: 'app-profile',

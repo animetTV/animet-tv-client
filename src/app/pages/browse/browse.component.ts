@@ -12,7 +12,7 @@ import {
 import { ApiService } from 'src/app/@core/services/api.service';
 import { BrowseService } from 'src/app/@core/services/browse.service';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
-import { SearchResult } from 'src/app/shared/interface';
+import { SearchResult } from 'src/app/types/interface';
 
 @Component({
   selector: 'app-browse',

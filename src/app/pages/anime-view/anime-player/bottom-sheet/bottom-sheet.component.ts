@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatBottomSheet, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { BehaviorSubject } from 'rxjs';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
-import { Download } from 'src/app/shared/interface';
+import { Download } from 'src/app/types/interface';
 
 @Component({
     selector: 'app-bottom-sheet',

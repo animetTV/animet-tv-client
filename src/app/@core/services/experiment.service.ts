@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { QuickBitsSource } from 'src/app/shared/interface';
+import { QuickBitsSource } from 'src/app/types/interface';
 import { ApiService } from './api.service';
 import { fakeData } from './fake_quick_bites_data';
 

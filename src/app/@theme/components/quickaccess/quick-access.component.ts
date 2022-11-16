@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { ApiService } from 'src/app/@core/services/api.service';
 import { BrowseService } from 'src/app/@core/services/browse.service';
-import { LastOpen } from 'src/app/shared/interface';
+import { LastOpen } from 'src/app/types/interface';
 
 @Component({
   selector: 'app-quick-access',

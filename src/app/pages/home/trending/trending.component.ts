@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/@core/services/api.service';
 import { BrowseService } from 'src/app/@core/services/browse.service';
 import { UserService } from 'src/app/@core/services/user.service';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
-import { TopSeason } from 'src/app/shared/interface';
+import { TopSeason } from 'src/app/types/interface';
 
 @Component({
   selector: 'app-trending',

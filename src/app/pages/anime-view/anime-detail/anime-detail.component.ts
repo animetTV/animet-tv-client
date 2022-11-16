@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 import { UserService } from 'src/app/@core/services/user.service';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { WatchAnimeResult } from 'src/app/shared/interface';
+import { WatchAnimeResult } from 'src/app/types/interface';
 import { Router } from '@angular/router';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { BrowseService } from 'src/app/@core/services/browse.service';

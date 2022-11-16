@@ -3,10 +3,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { BrowseService } from 'src/app/@core/services/browse.service';
-/* import { FeedService } from 'src/app/@core/services/feed.service'; */
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { externalWebsites } from 'src/app/shared/interface';
 
 @Component({
   selector: 'app-anime-card',

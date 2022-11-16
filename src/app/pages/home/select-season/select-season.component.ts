@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SeasonSelect } from '../../../shared/interface';
+import { SeasonSelect } from '../../../types/interface';
 import { SelectSeasonService } from '../../../@core/services/select-season.service';
 import { environment } from 'src/environments/environment';
 

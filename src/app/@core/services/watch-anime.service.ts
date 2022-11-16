@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { ContinueWatching_ItemAdd, EpisodeStream, jwplayerMP4SourceItem, LastOpen, Link, WatchAnimeResult } from 'src/app/shared/interface';
+import { ContinueWatching_ItemAdd, EpisodeStream, jwplayerMP4SourceItem, LastOpen, Link, WatchAnimeResult } from 'src/app/types/interface';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './api.service';
 import { UserService } from './user.service';
@@ -463,9 +463,12 @@ export class WatchAnimeService {
                                 } else {
                                     source = `${list[Math.floor(Math.random() * list.length)].url}${source}`;
                                 }
-
-                                this.vidstreaming_Iframe_URL = `https://internal.animet.site/plyr.html?vidstreaming=${vidstream_url}&nodeURL=${list[Math.floor(Math.random() * list.length)].url}`;
-
+                                
+                                // shiro dead
+                                //this.vidstreaming_Iframe_URL = `${environment.animetPlayer}/plyr.html?vidstreaming=${vidstream_url}&nodeURL=${list[Math.floor(Math.random() * list.length)].url}`;
+                                
+                                // self extract
+                                this.vidstreaming_Iframe_URL = `${environment.animetPlayer}/plyr.html?vidstreaming=${JSON.stringify(localStorage.getItem("currentEpisodeID"))}`
                                 if (type === 'proxy') {
                                     this.apiService.regularGET(source).subscribe(
                                         res2 => {
@@ -569,7 +572,9 @@ export class WatchAnimeService {
                                         } else {
                                             source = `${list[Math.floor(Math.random() * list.length)].url}${source}`;
                                         }
-                                        this.vidstreaming_Iframe_URL = `https://internal.animet.site/plyr.html?vidstreaming=${vidstream_url}&nodeURL=${list[Math.floor(Math.random() * list.length)].url}`;
+                                        // shiro dead
+                                        //this.vidstreaming_Iframe_URL = `${environment.animetPlayer}/plyr.html?vidstreaming=${vidstream_url}&nodeURL=${list[Math.floor(Math.random() * list.length)].url}`;
+                                        this.vidstreaming_Iframe_URL = `${environment.animetPlayer}/plyr.html?vidstreaming=${JSON.stringify(localStorage.getItem("currentEpisodeID"))}`
                                         
                                         let nl_2: Link = {
                                             src: this.vidstreaming_Iframe_URL,

@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/@core/services/api.service';
 import { UserService } from 'src/app/@core/services/user.service';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { ItemRequest, List, TopSeason } from 'src/app/shared/interface';
+import { ItemRequest, List, TopSeason } from 'src/app/types/interface';
 import { environment } from 'src/environments/environment';
 
 @Component({

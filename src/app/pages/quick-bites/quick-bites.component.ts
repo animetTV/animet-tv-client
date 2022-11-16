@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ExperimentService } from 'src/app/@core/services/experiment.service';
 import { Location } from '@angular/common';
-import { QuickBitsSource } from 'src/app/shared/interface';
+import { QuickBitsSource } from 'src/app/types/interface';
 import { PlyrComponent } from 'ngx-plyr';
 import * as Plyr from 'plyr';
 import { ApiService } from 'src/app/@core/services/api.service';

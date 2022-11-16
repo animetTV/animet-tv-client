@@ -15,7 +15,7 @@ export const environment = {
   animettvIMGCDN: 'https://frosty-snyder-1df076.netlify.app/',
   streamSB: `https://streamsb.net/`,
   defaultServer: `client-side-vidstreaming`,
-  animetPlayer: `http://localhost:5500/`,
+  animetPlayer: `http://127.0.0.1:5500/`,
   freeImageAPI: `6d207e02198a847aa98d0a2a901485a5`,
 
   limitedNodes: [

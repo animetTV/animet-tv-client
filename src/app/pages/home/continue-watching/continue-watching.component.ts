@@ -11,7 +11,7 @@ import { BrowseService } from 'src/app/@core/services/browse.service';
 import { UserService } from 'src/app/@core/services/user.service';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { ContinueWatching_ItemAdd, ItemRequest, LastOpen } from 'src/app/shared/interface';
+import { ContinueWatching_ItemAdd, ItemRequest, LastOpen } from 'src/app/types/interface';
 
 @Component({
   selector: 'app-continue-watching',

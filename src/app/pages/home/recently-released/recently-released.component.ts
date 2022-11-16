@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/@core/services/api.service';
 import { BrowseService } from 'src/app/@core/services/browse.service';
 import { UserService } from 'src/app/@core/services/user.service';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
-import { RecentlyAdded, RecentlyAddedEntity } from 'src/app/shared/interface';
+import { RecentlyAdded, RecentlyAddedEntity } from 'src/app/types/interface';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DomSanitizer } from '@angular/platform-browser';
 

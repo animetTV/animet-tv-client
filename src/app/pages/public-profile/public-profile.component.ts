@@ -5,7 +5,7 @@ import { DragScrollComponent } from 'ngx-drag-scroll';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, shareReplay, takeUntil } from 'rxjs/operators';
 import { ApiService } from 'src/app/@core/services/api.service';
-import { List, UserStat } from 'src/app/shared/interface';
+import { List, UserStat } from 'src/app/types/interface';
 import { PublicLinkService } from '../../@core/services/public-link.service';
 import { WatchAnimeService } from '../../@core/services/watch-anime.service';
 

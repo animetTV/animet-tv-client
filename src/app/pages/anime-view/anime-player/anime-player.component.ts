@@ -4,7 +4,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { EpisodesEntity, EpisodeStream, jwplayerMP4SourceItem, Link, /* ServersEntity, */ WatchAnimeResult } from 'src/app/shared/interface';
+import { EpisodesEntity, EpisodeStream, jwplayerMP4SourceItem, Link, /* ServersEntity, */ WatchAnimeResult } from 'src/app/types/interface';
 import { filter, map, shareReplay, skip, take, takeUntil } from 'rxjs/operators'
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { UserService } from 'src/app/@core/services/user.service';

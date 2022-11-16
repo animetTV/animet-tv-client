@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { SynopsisDialogService } from '../../@core/services/synopsis-dialog.service';
 import { MatDialog, } from '@angular/material/dialog';
-import { LastOpen, Spotlight } from '../../shared/interface';
+import { LastOpen, Spotlight } from '../../types/interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
