@@ -1,7 +1,7 @@
 <div *ngIf="showFooter | async" class="footer" id="footer" fxLayout="column" fxLayoutGap="10px"
   fxLayoutAlign="space-between center">
 
-  <div style="margin: 0 auto; max-width: 110rem;">
+<!--   <div style="margin: 0 auto; max-width: 110rem;">
     <div *ngIf="(isHandset$ | async) === false" style="min-width: 800px;" fxLayout="column" fxLayoutAlign="center">
       <ng-adsense></ng-adsense>
     </div>
@@ -9,7 +9,7 @@
     <div *ngIf="isHandset$ | async" fxLayoutAlign="center">
       <ng-adsense [adSlot]="8789808590" [display]="'inline-block'" [width]="300" [height]="50"></ng-adsense>
     </div>
-  </div>
+  </div> -->
 
   <div class="artwork">
     <img src="assets/logo/animet-tv_chibi_1.webp" alt="animet-tv chibi" width="150" height="150" />
@@ -45,7 +45,7 @@
   <div class="footer-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-between">
     <div class="links" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="5px" fxLayoutGap.xs="0px">
       <div class="donation">
-          <a rel="noopener" matTooltip="Donations"  href='https://ko-fi.com/M4M65MUQM' target='_blank'><img height="36px" style='border:0px;' src='https://img.animet.site/file/animettv-avatars/kofi5.png' border='0' alt='Buy Me a Coffee at ko-fi.com' loading="lazy" /></a>
+          <a rel="noopener" matTooltip="Donations"  href='https://ko-fi.com/M4M65MUQM' target='_blank'><img height="36px" style='border:0px;' src='https://img.animet.site/file/animettv-avatars/kofi5.png' border='0' alt='Buy Me a Coffee at ko-fi.com'  /></a>
       </div>
       <div class="donation">
         <a rel="noopener" (click)="copyBTCaddress()" class="btc" matTooltip="Donations are welcomed">
@@ -109,7 +109,7 @@
       <span class="cp">AnimetTV ©2022 All Rights Reserved.</span>
       <span class="grey">&nbsp; Disclaimer: AnimetTV does not store any files on our server, we
         only linked to the media which is hosted on 3rd party services. <a style="color: #646464;" href="https://www.dmca.com/FAQ/What-is-a-DMCA-Takedown" target="_blank">DMCA</a> &nbsp;<a style="color: #646464;" [routerLink]="['/info/terms-of-use']" routerLinkActive="router-link-active" >Terms of Use</a></span>
-      <span>Version: 2.5.0</span>
+      <span>Version: 2.5.1</span>
     </div>
     <br />
   </div>

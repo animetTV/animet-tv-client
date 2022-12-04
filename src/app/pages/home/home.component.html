@@ -23,7 +23,7 @@
             <h1 class="movie-title">{{anime.title}}</h1>
             <p class="movie-des">{{ TruncateSynopsis(anime?.synopsis) }}</p>
           </div>
-          <img [lazyLoad]="anime.img" [alt]="anime.title">
+          <img [src]="anime.img" [alt]="anime.title">
         </div>
       </div>
     </ng-template>
@@ -104,7 +104,7 @@
   <div class="sec upcoming-season">
     <app-upcoming></app-upcoming>
   </div>
-  <!-- <img loading="lazy" [src]="'https://frosty-snyder-1df076.netlify.app/other/wp-no-text-30op-min.webp'" alt="more feature wallpaper"> -->
+  <!-- <img  [src]="'https://frosty-snyder-1df076.netlify.app/other/wp-no-text-30op-min.webp'" alt="more feature wallpaper"> -->
   <div class=" sign-up" *ngIf="(isHandset$ | async) === false">
     <div class="header">Featured 4K Titles</div>
     <div class="feature-list" fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.xs="start center">
@@ -128,17 +128,17 @@
         <div class="item latest-4k" fxLayout="column">
           <div fxLayout="row wrap" fxLayoutAlign="center">
             <div class="featured-img" (click)="setExperimentAnime('Demon Slayer Mugen Train')">
-              <img loading="lazy" [src]="
+              <img  [src]="
                   'https://frosty-snyder-1df076.netlify.app/spotlight/4k_mugen_train_spotlight.webp'
                 " alt="4k cover art" matTooltip="Kimetsu no Yaiba Movie: Mugen Ressha-hen 4K Ultra HD" />
             </div>
             <div class="featured-img" (click)="setExperimentAnime('Your Name')">
-              <img loading="lazy" [src]="
+              <img  [src]="
                   'https://frosty-snyder-1df076.netlify.app/spotlight/4k_your_name.webp'
                 " alt="4k cover art" matTooltip="Your Name Dub 4K Ultra HD" />
             </div>
             <div class="featured-img" (click)="setExperimentAnime('Josee to Tora to Sakanatachi')">
-              <img loading="lazy" [src]="
+              <img  [src]="
                   'https://img.animet.site/file/animettv-avatars/other/spotlight/213c213c2j1hrojufhvfd2.jpg'
                 " alt="4k cover art" matTooltip="Josee to Tora to Sakanatachi 4K Ultra HD" />
             </div>

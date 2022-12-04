@@ -87,6 +87,7 @@ export class TrendingComponent {
     return item.title;
   }
   setAnime(animeTitle: string) {
+
     localStorage.setItem('sourceType', 'gogoanime');
     this.browseService.currentSourceType.next('gogoanime');
     this.watchAnimeService.isContinueWatchSelected.next(false);

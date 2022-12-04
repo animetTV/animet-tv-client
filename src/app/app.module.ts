@@ -31,10 +31,7 @@ import { CoreModule } from './@core/core.module';
 import { MaterialModule } from './@theme/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { LazyLoadImageModule } from 'ng-lazyload-image'; // <-- import it
 import { SwiperModule } from 'swiper/angular';
-import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
-import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 import { HomeComponent, SafePipe } from './pages/home/home.component';
 import { PagesComponent } from './pages/pages.component';
@@ -64,9 +61,8 @@ import { DISQUS_SHORTNAME } from 'ngx-disqus';
 /* import * as Sentry from "@sentry/angular";
 import { Integrations } from "@sentry/tracing"; */
 import { RecentlyReleasedComponent } from './pages/home/recently-released/recently-released.component';
-import { ShareButtonsComponent } from './@theme/components/share-buttons/share-buttons.component';
 import { FormsModule } from '@angular/forms';
-import { AdsenseModule } from 'ng2-adsense';
+/* import { AdsenseModule } from 'ng2-adsense'; */
 import { CustomLayoutGapStyleBuilder } from './gapBuilder';
 /* Sentry.init({
   dsn: "https://ccd0606c30d14baf94cdad079c60d7fe@o610195.ingest.sentry.io/5747854",
@@ -109,7 +105,6 @@ const COMPONENTS = [
   QuickAccessComponent,
   GenreDialogComponent,
   ShareListComponent,
-  ShareButtonsComponent,
   PublicProfileComponent,
   PasswordResetComponent,
   DialogMessageComponent,
@@ -134,15 +129,12 @@ const MODULES = [
   SwiperModule,
   RouterModule.forRoot(APP_ROUTES, { relativeLinkResolution: 'legacy' }),
   /* GtagModule.forRoot({ trackingId: 'G-E10E0LJ5RB', trackPageviews: true }), */
-  LazyLoadImageModule,
   ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' }),
-  ShareButtonsModule,
-  ShareIconsModule,
   FormsModule,
-  AdsenseModule.forRoot({
+ /*  AdsenseModule.forRoot({
     adClient: 'ca-pub-6890066986315850',
     adSlot: 3419288807,
-  }),
+  }), */
 ];
 
 /* export class SentryErrorHandler implements ErrorHandler {

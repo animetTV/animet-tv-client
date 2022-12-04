@@ -11,7 +11,6 @@ import { Location } from '@angular/common';
 import { ApiService } from 'src/app/@core/services/api.service';
 import { AuthService } from 'src/app/@core/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ShareButtonsComponent } from 'src/app/@theme/components/share-buttons/share-buttons.component';
 
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
@@ -148,13 +147,7 @@ export class Anime60FpsComponent implements OnInit {
     }
 
     shareCurrentLink() {
-        this.dialog.open(ShareButtonsComponent, {
-          data: {
-            ShareTitle: this.currentTitle,
-            ShareLink: window.location.href,
-            ShareContainerTitle: 'Share This Anime'
-          }
-        });
+
       }
 
     ngOnInit(): void {

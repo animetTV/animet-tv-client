@@ -7,7 +7,6 @@ import { AnimePlayerComponent, SafePipe } from './anime-player/anime-player.comp
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../../@theme/material.module';
 import { JwplayerComponent} from './anime-player/jwplayer/jwplayer.component';
-import { PlyrModule } from 'ngx-plyr';
 import { DisqusModule } from 'ngx-disqus';
 import { BottomSheetComponent } from './anime-player/bottom-sheet/bottom-sheet.component';
 const COMPONENTS = [
@@ -25,7 +24,6 @@ const MODULES = [
     MaterialModule,
     FlexLayoutModule,
     DisqusModule,
-    PlyrModule
 ];
 
 @NgModule({

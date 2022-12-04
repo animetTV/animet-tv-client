@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { BrowseService } from 'src/app/@core/services/browse.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ShareButtonsComponent } from 'src/app/@theme/components/share-buttons/share-buttons.component';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -236,13 +235,7 @@ export class AnimeDetailComponent implements OnInit {
   }
 
   shareCurrentLink() {
-    this.dialog.open(ShareButtonsComponent, {
-      data: {
-        ShareTitle: localStorage.getItem('animeTitle'),
-        ShareLink: window.location.href,
-        ShareContainerTitle: 'Share This Anime'
-      }
-    });
+
   }
 
 

@@ -6,7 +6,7 @@ import { ExperimentComponent } from './experiment.component';
 import { Anime60FpsComponent } from './anime-60fps/anime-60fps.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SafePipe } from '../experiment/anime-60fps/anime-60fps.component';
-import { AdsenseModule } from 'ng2-adsense';
+/* import { AdsenseModule } from 'ng2-adsense'; */
 import { JwplayerComponent } from './anime-60fps/jwplayer/jwplayer.component';
 import { DisqusModule } from 'ngx-disqus';
 
@@ -17,10 +17,10 @@ import { DisqusModule } from 'ngx-disqus';
         ExperimentRoutingModule, 
         MaterialModule,
         FlexLayoutModule, 
-        AdsenseModule.forRoot({
+       /*  AdsenseModule.forRoot({
             adClient: 'ca-pub-6890066986315850',
             adSlot: 7232638209,
-          }),
+          }), */
           DisqusModule
         ],
     exports: [],

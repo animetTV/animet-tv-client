@@ -5,12 +5,11 @@ import { BrowseRoutingModule } from './browse-all-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../../@theme/material.module';
 import { AnimeCardComponent } from './anime-card/anime-card.component';
-import { LazyLoadImageModule } from 'ng-lazyload-image'; // <-- import it
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GenricResultComponent } from './generic-result/generic-result.component';
-import { AdsenseModule } from 'ng2-adsense';
-
+/* import { AdsenseModule } from 'ng2-adsense';
+ */
 const COMPONENTS = [
     BrowseComponent,
     AnimeCardComponent,
@@ -22,15 +21,14 @@ const MODULES = [
     BrowseRoutingModule,
     FlexLayoutModule,
     MaterialModule,
-    LazyLoadImageModule,
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
-    AdsenseModule.forRoot({
+    /* AdsenseModule.forRoot({
         adClient: 'ca-pub-6890066986315850',
         adSlot: 4272829140,
         adFormat: 'Display'
-      })
+      }) */
 ];
 
 @NgModule({

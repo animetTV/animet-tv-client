@@ -20,7 +20,6 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { distinctUntilChanged, map, shareReplay } from 'rxjs/operators';
 import { GenreDialogComponent } from './@theme/components/genre/genre-dialog.component';
-import { ShareButtonsComponent } from './@theme/components/share-buttons/share-buttons.component';
 import { ShareListComponent } from './@theme/components/share-list/share-list.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UpdateService } from './@core/services/update.service';
@@ -379,13 +378,7 @@ export class AppComponent {
   }
 
   shareCurrentLink() {
-    this.dialog.open(ShareButtonsComponent, {
-      data: {
-        ShareTitle: '',
-        ShareLink: window.location.href,
-        ShareContainerTitle: 'Share AnimetTV',
-      },
-    });
+
   }
 
   setYear(year: number) {

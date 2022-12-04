@@ -38,13 +38,13 @@
 
 
     <div class="overflow-x-hidden grid" fxLayout="row wrap" fxLayoutAlign="start space-evenly" >
-      <div class="anime-card grid" *ngFor="let anime of TRENDING_ANIME; trackBy:trackBy" (click)="setAnime(anime)">
+      <div class="anime-card grid" *ngFor="let anime of TRENDING_ANIME; trackBy:trackBy" (click)="setAnime(anime.title)">
         <div class="anime-cover-overlay">
           <span class="rating" fxFlexx="row" fxLayoutAlign="center center">
             <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
           </span>
         </div>
-        <img class="anime-cover" [lazyLoad]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg'"
+        <img class="anime-cover" [src]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg'"
           alt="anime cover" />
         <div class="anime-title">{{ anime.title }}</div>
       </div>

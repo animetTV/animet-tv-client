@@ -45,7 +45,7 @@
             <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
           </span>
         </div>
-        <img class="anime-cover" [lazyLoad]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg';"
+        <img class="anime-cover" [src]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg';"
           (click)="setAnime(anime.title)" alt="anime cover" />
         <div class="anime-title">{{ anime.title }}</div>
       </div>
@@ -58,7 +58,7 @@
             <mat-icon fxLayoutAlign="center center">star</mat-icon>{{anime.score}}
           </span>
         </div>
-        <img class="anime-cover" [lazyLoad]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg';"
+        <img class="anime-cover" [src]="anime.img_url" onerror="this.src='assets/placeholder/404notfound.jpg';"
           (click)="setAnime(anime.title)" alt="anime cover" />
         <div class="anime-title">{{ anime.title }}</div>
       </div>

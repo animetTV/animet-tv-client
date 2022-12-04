@@ -47,8 +47,8 @@
             <div matTooltip="comming soon." drag-scroll-item class="anime-card" *ngFor="let anime of UPCOMING_ANIME; trackBy:trackBy" >
                 <img 
                     class="anime-cover"
-                    [lazyLoad]="anime.img_url"
-                    loading="lazy"
+                    [src]="anime.img_url"
+                    
                     onerror="this.src='assets/placeholder/404notfound.jpg';"
                     alt="anime cover"
                     />

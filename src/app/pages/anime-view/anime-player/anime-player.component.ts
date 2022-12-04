@@ -102,7 +102,7 @@ export class AnimePlayerComponent implements OnDestroy {
   /* player: Plyr;
   hlsjsDriver = new HlsjsPlyrDriver(true); */
   sourceType: BehaviorSubject<string> = new BehaviorSubject(null);
-  videoSources: BehaviorSubject<Plyr.Source[]> = new BehaviorSubject(null);
+  /* videoSources: BehaviorSubject<Plyr.Source[]> = new BehaviorSubject(null); */
   //isShowAdsChecked: boolean = this.getShowAdsState();
   //@ViewChild('episode_number') episode_number: ElementRef;  animet_intro_player
   @Output() episodeSelected = new EventEmitter<Number>();
@@ -512,7 +512,7 @@ export class AnimePlayerComponent implements OnDestroy {
   }
 
   public setEpisode(index: number, type: boolean) {
-    this.videoSources.next(null);
+   /*  this.videoSources.next(null); */
     /* this.currentServer = 0;
     this.showAnimetIntro.next(true); */
     this.showInternalPlayer2.next(false);

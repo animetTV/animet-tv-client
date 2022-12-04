@@ -19,10 +19,10 @@
 </div>
 
 <div class="main-view" *ngIf="(isAdblockerOn | async) === false" fxLayout="row" fxLayoutAlign="space-evenly">
-  <div class="wrapper-ads" *ngIf="(isHandset$ | async) === false">
+  <!-- <div class="wrapper-ads" *ngIf="(isHandset$ | async) === false">
     <ng-adsense [adClient]="'ca-pub-6890066986315850'" [adSlot]="7232638209" [display]="'inline-block'" [width]="250">
     </ng-adsense>
-  </div>
+  </div> -->
   <div class="main-content">
     <div class="player-wrapper">
       <div id="player1" *ngIf="showPlayer | async" class="anime-player-wrapper">
@@ -199,8 +199,8 @@
     </div>
   </div>
 
-  <div class="wrapper-ads" *ngIf="(isHandset$ | async) === false">
+  <!-- <div class="wrapper-ads" *ngIf="(isHandset$ | async) === false">
     <ng-adsense [adClient]="'ca-pub-6890066986315850'" [adSlot]="7232638209" [display]="'inline-block'" [width]="250">
     </ng-adsense>
-  </div>
+  </div> -->
 </div>

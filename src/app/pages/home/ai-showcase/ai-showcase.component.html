@@ -49,7 +49,7 @@
           <span class="sub-icon" *ngIf="anime.isSub">SUB</span>
         </div>
 
-        <img class="anime-cover" [lazyLoad]="anime.cover_img" onerror="this.src='assets/placeholder/404notfound.jpg'"
+        <img class="anime-cover" [src]="anime.cover_img" onerror="this.src='assets/placeholder/404notfound.jpg'"
           alt="anime-cover" />
         <div class="anime-title">{{ anime.title }}</div>
       </div>

@@ -53,10 +53,7 @@ export const APP_ROUTES: Routes = [
         path: 'info',
         loadChildren: () => import('./pages/regular-pages/regular-pages.module').then(m => m.RegularPagesModule),
       },
-      {
-        path:'quick-bites',
-        loadChildren: () => import('./pages/quick-bites/quick-bites.module').then(m => m.QuickBitesModule),
-      },
+
       {
         path:'faq',
         loadChildren: () => import('./pages/faq/faq.module').then(m => m.FAQModule),
