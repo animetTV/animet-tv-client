@@ -1,116 +1,50 @@
-<div *ngIf="showFooter | async" class="footer" id="footer" fxLayout="column" fxLayoutGap="10px"
-  fxLayoutAlign="space-between center">
-
-<!--   <div style="margin: 0 auto; max-width: 110rem;">
-    <div *ngIf="(isHandset$ | async) === false" style="min-width: 800px;" fxLayout="column" fxLayoutAlign="center">
-      <ng-adsense></ng-adsense>
-    </div>
-
-    <div *ngIf="isHandset$ | async" fxLayoutAlign="center">
-      <ng-adsense [adSlot]="8789808590" [display]="'inline-block'" [width]="300" [height]="50"></ng-adsense>
-    </div>
-  </div> -->
-
-  <div class="artwork">
-    <img src="assets/logo/animet-tv_chibi_1.webp" alt="animet-tv chibi" width="150" height="150" />
+<!-- <footer class="p-4 bg-stone sm:p-6 dark:bg-gray-900">
+  <div class="md:flex md:justify-between">
+      <div class="mb-6 md:mb-0">
+          <a href="https://animet.tv/" class="flex items-center">
+              <img src="assets/logo/animet-tv_chibi_1.webp" class="mr-3 h-8" alt="AnimetTV Logo" />
+              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">AnimetTV</span>
+          </a>
+      </div>
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div>
+              <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+              <ul class="text-gray-600 dark:text-gray-400">
+                  <li class="mb-4">
+                      <a [routerLink]="['/info/about']" href="/info/about" class="hover:underline">About Us</a>
+                  </li>
+                  <li>
+                      <a href="https://ko-fi.com/M4M65MUQM" class="hover:underline">Donate</a>
+                  </li>
+              </ul>
+          </div>
+          <div>
+              <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+              <ul class="text-gray-600 dark:text-gray-400">
+                  <li class="mb-4">
+                      <a [href]="'https://discord.gg/nNY94AqFtK'" class="hover:underline">Discord</a>
+                  </li>
+              </ul>
+          </div>
+          <div>
+              <ul class="text-gray-600 dark:text-gray-400">
+                  <li>
+                      <a  [routerLink]="['/info/terms-of-use']"  class="hover:underline">Terms &amp; Conditions</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
   </div>
-
-  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="18px">
-    <!-- <div
-      class="nav-item"
-      fxLayoutAlign="start center"
-      fxLayoutGap="5px"
-      [routerLink]="['/quick-bites']"
-      routerLinkActive="router-link-active"
-    >
-      <img
-        class="nav-icon"
-        src="/assets/icons/quick-bites-icon.png"
-        alt="quick bites icon"
-      />
-      <label>AMV</label>
-    </div> -->
-    <div class="nav-item" fxLayoutAlign="center center" fxLayoutGap="8px" [routerLink]="['/faq']"
-      routerLinkActive="router-link-active" id="faq">
-      <mat-icon [inline]="true" class="nav-icon">help_outline</mat-icon>
-      <label>FAQ</label>
-    </div>
-    <div class="nav-item" fxLayoutAlign="center center" fxLayoutGap="8px" [routerLink]="['/info/about']"
-      routerLinkActive="router-link-active" id="faq">
-      <mat-icon [inline]="true" class="nav-icon">volunteer_activism</mat-icon>
-      <label>ABOUT</label>
-    </div>
+  <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+  <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline">AnimetTV</a>. All Rights Reserved.<br>
+        Disclaimer: AnimetTV does not store any files on our server, we only linked to the media which is hosted on 3rd party services.
+      </span>
+      <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+          <a href="https://twitter.com/animet_tv" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+              <span class="sr-only">Twitter page</span>
+          </a>
+      </div>
   </div>
-
-  <div class="footer-content" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-between">
-    <div class="links" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="5px" fxLayoutGap.xs="0px">
-      <div class="donation">
-          <a rel="noopener" matTooltip="Donations"  href='https://ko-fi.com/M4M65MUQM' target='_blank'><img height="36px" style='border:0px;' src='https://img.animet.site/file/animettv-avatars/kofi5.png' border='0' alt='Buy Me a Coffee at ko-fi.com'  /></a>
-      </div>
-      <div class="donation">
-        <a rel="noopener" (click)="copyBTCaddress()" class="btc" matTooltip="Donations are welcomed">
-          <svg xmlns="http://www.w3.org/2000/svg" width="55" height="32" viewBox="0.004 0 63.993 64">
-            <path
-              d="M63.04 39.741c-4.274 17.143-21.638 27.575-38.783 23.301C7.12 58.768-3.313 41.404.962 24.262 5.234 7.117 22.597-3.317 39.737.957c17.144 4.274 27.576 21.64 23.302 38.784z"
-              fill="#f7931a" />
-            <path
-              d="M46.11 27.441c.636-4.258-2.606-6.547-7.039-8.074l1.438-5.768-3.512-.875-1.4 5.616c-.922-.23-1.87-.447-2.812-.662l1.41-5.653-3.509-.875-1.439 5.766c-.764-.174-1.514-.346-2.242-.527l.004-.018-4.842-1.209-.934 3.75s2.605.597 2.55.634c1.422.355 1.68 1.296 1.636 2.042l-1.638 6.571c.098.025.225.061.365.117l-.37-.092-2.297 9.205c-.174.432-.615 1.08-1.609.834.035.051-2.552-.637-2.552-.637l-1.743 4.02 4.57 1.139c.85.213 1.683.436 2.502.646l-1.453 5.835 3.507.875 1.44-5.772c.957.26 1.887.5 2.797.726L27.504 50.8l3.511.875 1.453-5.823c5.987 1.133 10.49.676 12.383-4.738 1.527-4.36-.075-6.875-3.225-8.516 2.294-.531 4.022-2.04 4.483-5.157zM38.087 38.69c-1.086 4.36-8.426 2.004-10.807 1.412l1.928-7.729c2.38.594 10.011 1.77 8.88 6.317zm1.085-11.312c-.99 3.966-7.1 1.951-9.083 1.457l1.748-7.01c1.983.494 8.367 1.416 7.335 5.553z"
-              fill="#fff" />
-          </svg>
-        </a>
-      </div>
-
-      <div class="social">
-        <a rel="noopener" target="_blank" id="join-discord-btn" [href]="'https://discord.gg/nNY94AqFtK'"
-          matTooltip="Join our discord server for bug reports and requests">
-          <svg width="55" height="32" viewBox="0 0 256 293" xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid">
-            <path
-              d="M226.011 0H29.99C13.459 0 0 13.458 0 30.135v197.778c0 16.677 13.458 30.135 29.989 30.135h165.888l-7.754-27.063 18.725 17.408 17.7 16.384L256 292.571V30.135C256 13.458 242.542 0 226.011 0zm-56.466 191.05s-5.266-6.291-9.655-11.85c19.164-5.413 26.478-17.408 26.478-17.408-5.998 3.95-11.703 6.73-16.823 8.63-7.314 3.073-14.336 5.12-21.211 6.291-14.044 2.633-26.917 1.902-37.888-.146-8.339-1.61-15.507-3.95-21.504-6.29-3.365-1.317-7.022-2.926-10.68-4.974-.438-.293-.877-.439-1.316-.732-.292-.146-.439-.292-.585-.438-2.633-1.463-4.096-2.487-4.096-2.487s7.022 11.703 25.6 17.261c-4.388 5.56-9.801 12.142-9.801 12.142-32.33-1.024-44.617-22.235-44.617-22.235 0-47.104 21.065-85.285 21.065-85.285 21.065-15.799 41.106-15.36 41.106-15.36l1.463 1.756C80.75 77.53 68.608 89.088 68.608 89.088s3.218-1.755 8.63-4.242c15.653-6.876 28.088-8.777 33.208-9.216.877-.147 1.609-.293 2.487-.293a123.776 123.776 0 0 1 29.55-.292c13.896 1.609 28.818 5.705 44.031 14.043 0 0-11.556-10.971-36.425-18.578l2.048-2.34s20.041-.44 41.106 15.36c0 0 21.066 38.18 21.066 85.284 0 0-12.435 21.211-44.764 22.235zm-68.023-68.316c-8.338 0-14.92 7.314-14.92 16.237 0 8.924 6.728 16.238 14.92 16.238 8.339 0 14.921-7.314 14.921-16.238.147-8.923-6.582-16.237-14.92-16.237m53.394 0c-8.339 0-14.922 7.314-14.922 16.237 0 8.924 6.73 16.238 14.922 16.238 8.338 0 14.92-7.314 14.92-16.238 0-8.923-6.582-16.237-14.92-16.237"
-              fill="#7289DA" />
-          </svg>
-        </a>
-      </div>
-      <div class="social">
-        <a rel="noopener" target="_blank" [href]="'https://www.instagram.com/animet.tv/'"
-          matTooltip="Animet.tv Instagram">
-          <svg width="55" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient cx="-578.95" cy="-837.6" gradientTransform="matrix(.75 0 0 .75 499.5 629.5)"
-                gradientUnits="userSpaceOnUse" id="radial-gradient" r="197.06">
-                <stop offset="0" stop-color="#f9ed32" />
-                <stop offset=".36" stop-color="#ee2a7b" />
-                <stop offset=".44" stop-color="#d22a8a" />
-                <stop offset=".6" stop-color="#8b2ab2" />
-                <stop offset=".83" stop-color="#1b2af0" />
-                <stop offset=".88" stop-color="#002aff" />
-              </radialGradient>
-              <style>
-                .cls-2 {
-                  fill: #fff;
-                }
-              </style>
-            </defs>
-            <g data-name="3-instagram" id="_3-instagram">
-              <rect height="60" rx="11.2" ry="11.2" transform="rotate(180 32 32)" width="64"
-                fill="url(#radial-gradient)" />
-              <path class="cls-2"
-                d="M44 56H20A12 12 0 018 44V20A12 12 0 0120 8h24a12 12 0 0112 12v24a12 12 0 01-12 12zM20 12.8a7.21 7.21 0 00-7.2 7.2v24a7.21 7.21 0 007.2 7.2h24a7.21 7.21 0 007.2-7.2V20a7.21 7.21 0 00-7.2-7.2z" />
-              <path class="cls-2"
-                d="M32 45.6A13.6 13.6 0 1145.6 32 13.61 13.61 0 0132 45.6zm0-22.4a8.8 8.8 0 108.8 8.8 8.81 8.81 0 00-8.8-8.8z" />
-              <circle class="cls-2" cx="45.6" cy="19.2" r="2.4" />
-            </g>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="taglineTwo" fxLayout="column" fxLayoutAlign="center center">
-      <span class="cp">AnimetTV ©2022 All Rights Reserved.</span>
-      <span class="grey">&nbsp; Disclaimer: AnimetTV does not store any files on our server, we
-        only linked to the media which is hosted on 3rd party services. <a style="color: #646464;" href="https://www.dmca.com/FAQ/What-is-a-DMCA-Takedown" target="_blank">DMCA</a> &nbsp;<a style="color: #646464;" [routerLink]="['/info/terms-of-use']" routerLinkActive="router-link-active" >Terms of Use</a></span>
-      <span>Version: 2.5.1</span>
-    </div>
-    <br />
-  </div>
-</div>
+</footer> -->
