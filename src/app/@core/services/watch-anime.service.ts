@@ -246,10 +246,10 @@ export class WatchAnimeService {
     setEpisode(episodeID: string, type: string, setSource: boolean = true) {
         localStorage.setItem('currentEpisodeID', episodeID);
        if ( type === "client-side-vidstreaming") {
-            this.getAnimeEpisodeExternalAPI(episodeID,`https://lite-api.animemate.xyz/Episode/`,`vidstreaming`, setSource);
+            this.getAnimeEpisodeExternalAPI(episodeID,environment.streamAPI,`vidstreaming`, setSource);
 
         } else if (type === "client-side-proxy") {
-            this.getAnimeEpisodeExternalAPI(episodeID,`https://lite-api.animemate.xyz/Episode/`,`proxy`, setSource);
+            this.getAnimeEpisodeExternalAPI(episodeID, environment.streamAPI,`proxy`, setSource);
         } else if (type === "server-side") {
             this.getAnimeEpisode(episodeID);
         }
@@ -406,13 +406,8 @@ export class WatchAnimeService {
         let _title = title[0];
 
         const externalAPI_URL = externalApi;
-        let proxy_list = this.apiService.cached_CorsAnyWhereList.value;
         let externalPayloadURL = ``;
-        if (proxy_list.length > 0) {
-            externalPayloadURL = `${proxy_list[Math.floor(Math.random() * proxy_list.length)].url}${externalAPI_URL}${_title}/${_episodeNumber}`
-        } else {
-            externalPayloadURL = `https://cors-anywhere.demonking.workers.dev/?${externalAPI_URL}${_title}/${_episodeNumber}`
-        }
+        externalPayloadURL = `${externalAPI_URL}${_title}/${_episodeNumber}`
         
         // fetch client side external sources
         this.apiService.regularGET(externalPayloadURL).subscribe(
@@ -676,13 +671,8 @@ export class WatchAnimeService {
         let _title = title[0];
 
         const externalAPI_URL = externalApi;
-        let proxy_list = this.apiService.cached_CorsAnyWhereList.value;
         let externalPayloadURL = ``;
-        if (proxy_list.length > 0) {
-            externalPayloadURL = `${proxy_list[Math.floor(Math.random() * proxy_list.length)].url}${externalAPI_URL}${_title}/${_episodeNumber}`
-        } else {
-            externalPayloadURL = `https://cors-anywhere-hermes.noreply5262.workers.dev/?${externalAPI_URL}${_title}/${_episodeNumber}`
-        }
+        externalPayloadURL = `${externalAPI_URL}${_title}/${_episodeNumber}`
         
         // fetch client side external sources
         this.apiService.regularGET(externalPayloadURL).subscribe(
