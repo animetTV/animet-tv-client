@@ -4,7 +4,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { WatchAnimeService } from 'src/app/@core/services/watch-anime.service';
 import { SnackbarMessageComponent } from 'src/app/@theme/components/snackbar-message/snackbar-message.component';
-import { EpisodesEntity, EpisodeStream, jwplayerMP4SourceItem, Link, /* ServersEntity, */ WatchAnimeResult } from 'src/app/types/interface';
+import { EpisodesEntity, jwplayerMP4SourceItem, Link, /* ServersEntity, */ WatchAnimeResult } from 'src/app/types/interface';
 import { filter, map, shareReplay, skip, take, takeUntil } from 'rxjs/operators'
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { UserService } from 'src/app/@core/services/user.service';
@@ -34,8 +34,6 @@ export class SafePipe implements PipeTransform {
 })
 export class AnimePlayerComponent implements OnDestroy {
   selectedAnime: BehaviorSubject<WatchAnimeResult[]> = new BehaviorSubject(null);
-  // selectedEpisodeServers: BehaviorSubject<ServersEntity[]> = new BehaviorSubject(null);
-  selectedEpisodeServers: BehaviorSubject<EpisodeStream> = new BehaviorSubject(null);
   episodeServers: BehaviorSubject<Link[]> = new BehaviorSubject(null);
 
   episodes_dub: BehaviorSubject<EpisodesEntity[]> = new BehaviorSubject<EpisodesEntity[]>(null);
@@ -267,7 +265,6 @@ export class AnimePlayerComponent implements OnDestroy {
             this.switchToExternalPlayer();
           }, (10));
         } else if (EpisodeResult !== null) { // Set Internal Player
-          // this.selectedEpisodeServers.next(EpisodeResult);
           // set default server  
           this.showPlayer.next(true);
 
@@ -292,7 +289,7 @@ export class AnimePlayerComponent implements OnDestroy {
           // ORDER HLS -> HDP -> IFRAME
           if (HLS_SRC.length > 0 && HLS_SRC.includes("m3u8")) {
             this.defaultServerURL = HLS_SRC;
-            this.sourceType.next("hls");
+            this.sourceType.next("hls-regular");
             this.showPlayer1.next(true);
           } else if (MP4_SRC.length > 0) {
             this.defaultServerURL = MP4_SRC;
@@ -404,12 +401,6 @@ export class AnimePlayerComponent implements OnDestroy {
       }
     );
 
-    // ios double tap zoom hack
-/*     document.addEventListener('touchstart', () => { });
-    document.addEventListener('touchend', () => { });
-    document.addEventListener('touchcancel', () => { });
-    document.addEventListener('touchmove', () => { }); */
-
     // buffer episode section while switching sourceType
     this.watchAnimeService.disableEpisodeSelect.pipe(takeUntil(this.destroy$)).subscribe(
       state => {
@@ -512,9 +503,6 @@ export class AnimePlayerComponent implements OnDestroy {
   }
 
   public setEpisode(index: number, type: boolean) {
-   /*  this.videoSources.next(null); */
-    /* this.currentServer = 0;
-    this.showAnimetIntro.next(true); */
     this.showInternalPlayer2.next(false);
     this.episodeSelected.emit(index);
     this.playerBuffering.next(true);
@@ -524,15 +512,6 @@ export class AnimePlayerComponent implements OnDestroy {
     this.CurrentEpisodeNumber = this.currentEpisode + 1;
     this.currentEpisodeView.next(this.CurrentEpisodeNumber);
     this.addEpisodeHighlight(this.currentEpisode, type);
-    /* this.updateEpisodeTitle(index);  */
-
-    if (this.getSourceType() === 'streamani') {
-      this.showPlayer1.next(false);
-      this.showPlayer2.next(true);
-    } else if (this.getSourceType() === 'gogoanime') {
-      this.showPlayer1.next(true);
-      this.showPlayer2.next(false);
-    }
 
     this.watchAnimeService.currentEp = index + 1;
     localStorage.setItem("lastSelectedEpisode", `${String(index)} `);
@@ -544,7 +523,6 @@ export class AnimePlayerComponent implements OnDestroy {
           if (CRID && CRID.length > 0 && !type ) {
             let animeDetail = this.selectedAnime.getValue();
             this.watchAnimeService.intialGetSourcesID(animeDetail[0].episodes[index].id);
-            //this.watchAnimeService.setEpisode(animeDetail[0].episodes[index].id, "client-side-vidstreaming", false);
             this.switchType(false);
             setTimeout(() => {
               this.setCRplayer();
@@ -553,11 +531,9 @@ export class AnimePlayerComponent implements OnDestroy {
             let animeDetail = this.selectedAnime.getValue();
             if (type) {
               this.watchAnimeService.intialGetSourcesID(animeDetail[1].episodes[index].id);
-              //this.watchAnimeService.setEpisode(animeDetail[1].episodes[index].id, "client-side-vidstreaming");
               this.switchType(true);
             } else if (!type) {
               this.watchAnimeService.intialGetSourcesID(animeDetail[0].episodes[index].id);
-              //this.watchAnimeService.setEpisode(animeDetail[0].episodes[index].id, "client-side-vidstreaming");
               this.switchType(false);
             }   
             this.setInternalVidStreaming();
@@ -1007,155 +983,6 @@ export class AnimePlayerComponent implements OnDestroy {
 
   numberWithCommas(x: Number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-  async sbAnime() {
-    this.sandboxOn.next(true);
-    this.playerBuffering.next(true);
-    this.delay(5);
-    let url = `https://animepl.xyz/v/${this.watchAnimeService.fembedID}`
-
-    this.defaultServerURL = url;
-
-    // hide animetTV JWPlayer if it exists
-    let el = (<HTMLElement>document.getElementById('player'));
-    if (el) {
-      el.style.display = 'block';
-    }
-
-    this.showPlayer2.next(true);
-
-    this.showAnimetIntro.next(false);
-    this.safeStreamURL.next(null);
-    this.snackbarMessage('Switching to Internal Player 3 (NO ADS)', 2000, 'right', 'bottom');
-
-
-    let playerFrame = (<HTMLElement>document.getElementById('player-frame'));
-    if (playerFrame) {
-      playerFrame.classList.add('external-player');
-    }
-
-    let JWPlayer = (<HTMLElement>document.getElementById('player'));
-    if (JWPlayer) {
-      JWPlayer.style.display = 'none';
-      // stop session
-      jwplayer('player').stop();
-    }
-
-    this.showPlayer1.next(false);
-    this.showPlayer2.next(true);
-    this.showServerOptions.next(false);
-    this.safeStreamURL.next(this.defaultServerURL);
-    await this.delay(5);
-    this.playerBuffering.next(false);
-    this.showInternalPlayer2.next(true);
-  }
-
-  async gdriveplayer() {
-    this.sandboxOn.next(true);
-    this.playerBuffering.next(true);
-    this.delay(5);
-
-    let url = `https://gdriveplayer.xyz/embed2/?id=https%3A%2F%2Ffembed.com%2Fv%${this.watchAnimeService.fembedID}&aid=https%3A%2F%2Fstreamsb.net%${this.watchAnimeService.streamSB_ID}&poster=https%3A%2F%2Fimg.animet.site%2Ffile%2Fanimettv-avatars%2Fother%2Fanimet-tv_chibi_1.png&lang%5B0%5D=Default&sub%5B0%5D=&host=fembed&ahost=streamsb`;
-    this.defaultServerURL = url;
-
-    // hide animetTV JWPlayer if it exists
-    let el = (<HTMLElement>document.getElementById('player'));
-    if (el) {
-      el.style.display = 'block';
-    }
-
-    this.showPlayer2.next(true);
-
-     this.showAnimetIntro.next(false);
-    this.safeStreamURL.next(null);
-    this.snackbarMessage('Switching to Internal Player 3 (NO ADS)', 2000, 'right', 'bottom');
-
-
-    let playerFrame = (<HTMLElement>document.getElementById('player-frame'));
-    if (playerFrame) {
-      playerFrame.classList.add('external-player');
-    }
-
-    let JWPlayer = (<HTMLElement>document.getElementById('player'));
-    if (JWPlayer) {
-      JWPlayer.style.display = 'none';
-      // stop session
-      jwplayer('player').stop();
-    }
-
-    this.showPlayer1.next(false);
-    this.showPlayer2.next(true);
-    this.showServerOptions.next(false);
-    this.safeStreamURL.next(this.defaultServerURL);
-    await this.delay(5);
-    this.playerBuffering.next(false);
-    this.showInternalPlayer2.next(true);
-  }
-  async internalPlayer2() {
-    this.watchAnimeService.isBuffering.next(true);
-    this.showPlayer2.next(false);
-    this.showPlayer.next(false);
-    await this.delay(5);
-    this.playerBuffering.next(true)
-    this.watchAnimeService.getAnime2().subscribe(
-      source => {
-        this.showPlayer.next(true);
-        if (source && typeof source !== 'undefined') {
-          let src = source[0].file;
-          this.sandboxOn.next(false);
-          this.playerBuffering.next(true);
-          this.delay(5);
-          let url = `https://internal.animet.site/?m3u8=${src}`
-
-          this.defaultServerURL = url;
-
-          // hide animetTV JWPlayer if it exists
-          let el = (<HTMLElement>document.getElementById('player'));
-          if (el) {
-            el.style.display = 'block';
-          }
-
-          this.showPlayer2.next(true);
-
-          this.showAnimetIntro.next(false);
-          this.safeStreamURL.next(null);
-          this.snackbarMessage('Switching to Internal Player 2 (NO ADS)', 2000, 'right', 'bottom');
-
-
-          let playerFrame = (<HTMLElement>document.getElementById('player-frame'));
-          if (playerFrame) {
-            playerFrame.classList.add('external-player');
-          }
-
-          let JWPlayer = (<HTMLElement>document.getElementById('player'));
-          if (JWPlayer) {
-            JWPlayer.style.display = 'none';
-            // stop session
-            jwplayer('player').stop();
-          }
-
-          this.showPlayer1.next(false);
-          this.showPlayer2.next(true);
-          this.showServerOptions.next(false);
-          this.safeStreamURL.next(url);
-          this.playerBuffering.next(false);
-          this.showInternalPlayer2.next(true);
-          this.watchAnimeService.isBuffering.next(false);
-
-        } else {
-          this.watchAnimeService.isBuffering.next(false);
-          this.snackbarMessage('Internal 2 faild switching to 1');
-          this.setInternalProxy();
-        }
-      }, error => {
-        this.watchAnimeService.isBuffering.next(false);
-        this.snackbarMessage('Internal 2 faild switching to 1');
-        this.setInternalProxy();
-      }
-    )
-
-    await this.delay(2);
   }
 
   openBottomSheetDownload(): void {

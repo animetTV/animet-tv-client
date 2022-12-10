@@ -1,19 +1,5 @@
-<!-- <div class="theater-sheets hide" id="theater-sheets" (click)="changeTheaterMode()"></div> -->
 <div class="main">
     <div id="player-wrapper" class="anime-player-wrapper" *ngIf="showEpisodes | async">
-       <!--  <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
-            <div id="player-title" class="type-player"
-                *ngIf="(showPlayer2 | async) && (showInternalPlayer2 | async) === false" fxLayoutAlign="center center">
-                Internal Player 3</div>
-            <div class="type-player" *ngIf="(showPlayer2 | async) && (showInternalPlayer2 | async)">Internal Player 2
-            </div>
-            <div  class="type-player" *ngIf="(showPlayer1 | async) && (showInternalPlayer2 | async) === false "
-                fxLayoutAlign="center center">Internal Player 1</div>
-            <div class="type-player" *ngIf="(showPlayer1 | async) && (showInternalPlayer2 | async) "
-                fxLayoutAlign="center center">Internal Player 2</div>
-            <div fxLayout="row" fxLayoutAlign="center center">
-            </div>
-        </div> -->
 
         <div class="anime-player">
             <div fxFlex="row" fxLayoutAlign="center center">
@@ -48,82 +34,17 @@
                                     [plyrPoster]="'https://img.animet.site/file/animettv-avatars/other/animet-tv_chibi_1.png'" 
                                     [plyrDriver]="hlsjsDriver"
                                     ></plyr> -->
-
-                            <!-- <video 
-                                    *ngIf="(isHandset$ | async)"
-                                    width="100%"
-                                    controls
-                                    [src]="(safeStreamURL | async | safe)" 
-                                    preload="auto"
-                                    #video_player
-                                    controlsList="nodownload"
-                                    playsinline
-                                >
-                                </video> -->
                         </div>
 
                     </div>
 
-
-
-                    <!-- NATIVE HTML5 PLAYER -->
-                    <!-- Animet Intro player -->
-                    <!-- <div class="animet_intro_wrapper" id="animet_intro_wrapper" (click)="onClickIntroPlayer()" *ngIf="showAnimetIntro | async">
-                        <video 
-                            id="animet_intro"
-                            width="100%"
-                            src="https://frosty-snyder-1df076.netlify.app/video/animet_tv_intro_2.mp4"
-                            type="video/mp4"
-                            (ended)="introEnded()"
-                            (loadeddata)="onIntroPlayerLoad()"
-                            preload="auto"
-                            playsinline
-                            #animet_intro_player
-                            poster="../../../../assets/placeholder/animet_player_preload.png"
-                        >
-                        </video>
-                        <div class="animet_intro_player_controls" fxLayoutAlign="center center">
-                            <mat-icon matTooltip="Play" class="anime_intro_play_icon" id="play_icon" fxLayoutAlign="center center" [inline]="true" (click)="onClickIntroPlayer()">play_circle_filled</mat-icon>
-                        </div>
-                    
-                    </div>
-
-                    <video 
-                        *ngIf="(showPlayer1 | async)"
-                        id='player1'
-                        class="hide"
-                        width="100%"
-                        controls
-                        [src]="(safeStreamURL | async | safe)" 
-                        [autostart]="true"
-                        preload="auto"
-                        (timeupdate)="onCurrentTime($event)"
-                        (volumechange)="onVolumeChange($event)"
-                        #video_player
-                        controlsList="nodownload"
-                        playsinline
-                        (ended)="vidEnded()"
-                    >
-                    </video> -->
                 </div>
             </div>
         </div>
 
 
         <div *ngIf="showPlayer | async" fxLayout="column" fxLayout.xs="column" fxLayoutAlign="start">
-            <!-- <div fxLayout.xs="column" fxLayoutGap="50px" fxLayoutAlign="start center">
-                <div class="extra-player-controls">
-                    <div class="autoplay" *ngIf="(showPlayer1 | async)">
-                        Autoplay &nbsp;
-                        <mat-slide-toggle
-                            color="info"
-                            [checked]="autoPlay"
-                            (change)="changeAutoPlayState()"
-                            >
-                        </mat-slide-toggle>
-                    </div>
-                </div>
-            </div> -->
+
             <div class="playerDetail" fxLayout="column" fxLayoutAlign="space-between start">
                 <div id="animeTitle">{{ animeTitle }} Ep - <span style="
                     color: #EC4951;">{{CurrentEpisodeNumber}}</span></div>
@@ -149,18 +70,6 @@
                             <mat-icon>skip_next</mat-icon>
                             <label>Next</label>
                         </button>
-                        <!-- <div fxLayoutAlign.xs="center" fxLayoutAlign="center" class="selection-bar" >
-                                    <mat-form-field *ngIf="showServerOptions | async" appearance="outline" matTooltip="Try other stream options">
-                                        <mat-label>Server</mat-label>
-                                        <mat-select 
-                                            (selectionChange)="changeServer($event)"
-                                            value="High Speed"
-                                            >
-                                            <mat-option *ngFor="let item of episodeServers | async" [value]="item.size">{{item.size}}</mat-option>
-                                        </mat-select>
-                                      </mat-form-field>
-                                </div> -->
-                        <!-- <div fxLayoutAlign.xs="center" #episode_number>Ep: 1 </div> -->
                     </div>
                 </div>
                 <div style="margin: 2px 0px; font-size: small; opacity: 0.65; font-weight: 500;"
@@ -214,17 +123,17 @@
                     color="info">
                         <mat-progress-bar mode="buffer"></mat-progress-bar>
                     </button>
-                    <button *ngIf="(isBuffering | async) === false" id="internal-2" class="nav-btn server-btn" mat-raised-button color="info"
+                  <!--   <button *ngIf="(isBuffering | async) === false" id="internal-2" class="nav-btn server-btn" mat-raised-button color="info"
                         (click)="sbAnime()">
                         <mat-icon>play_arrow</mat-icon>&nbsp;
                         <label *ngIf="(isHandset$ | async) === false">External 1</label>
                         <label *ngIf="(isHandset$ | async)">Ext.1</label>
-                    </button>
+                    </button> -->
                     <button id="internal-2" class="nav-btn server-btn" mat-raised-button color="info"
                         (click)="setEpisodeServerSide()">
                         <mat-icon>play_arrow</mat-icon>&nbsp;
-                        <label *ngIf="(isHandset$ | async) === false">External 2 (Ads)</label>
-                        <label *ngIf="(isHandset$ | async)">Ext.2 Ad</label>
+                        <label *ngIf="(isHandset$ | async) === false">External 1 (Ads)</label>
+                        <label *ngIf="(isHandset$ | async)">Ext.1 Ad</label>
                     </button>
                 </div>
             </div>
