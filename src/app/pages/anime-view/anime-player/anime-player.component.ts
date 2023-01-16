@@ -953,7 +953,7 @@ export class AnimePlayerComponent implements OnDestroy {
         if (proxy_list.length > 0) {
           proxyNode = `${proxy_list[Math.floor(Math.random() * proxy_list.length)].url}`
         } else {
-          proxyNode = `https://cors-anywhere-zeuz-na.herokuapp.com/`
+          proxyNode = `https://cors-daddy.onrender.com/`
         }
     this._bottomSheet.open(BottomSheetComponent, {
       data: [
