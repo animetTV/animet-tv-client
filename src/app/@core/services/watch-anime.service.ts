@@ -185,53 +185,6 @@ export class WatchAnimeService {
     );
   }
 
-  findWorkingSrc() {
-    console.log('call gapi external');
-
-    /* // switch back to gogoanime source if exists anime and exists episode set it 
-        this.changeSourceType('gogoanime');
-        this.animeResult_Change.subscribe(
-            animeResult => {
-                if (animeResult.length === 1) {
-                    // check if currentEpisode exists
-                    let lastSelectedEpisode = localStorage.getItem('lastSelectedEpisode');
-                    let lastSelectedAnimeType = (localStorage.getItem('lastSelectedAnimeType') === 'true');
-                    
-                    // check if dubbed && subbed exists
-                    if (animeResult.length > 1) {
-                        if (lastSelectedAnimeType) {
-                            if (animeResult[0].episodes.length > Number(lastSelectedEpisode)) {
-                                console.log(animeResult[0].episodes[lastSelectedEpisode]);
-                            }
-                        } else if (!lastSelectedAnimeType) {
-                            if (animeResult[1].episodes.length > Number(lastSelectedEpisode)) {
-                                console.log(animeResult[1].episodes[lastSelectedEpisode]);
-                            }
-                        }
-                    } else { // only subbed exists
-                        if (animeResult[0].episodes.length > Number(lastSelectedEpisode) && !lastSelectedAnimeType) {
-                            console.log(animeResult[0].episodes[lastSelectedEpisode]);
-                        }
-                    }
-                }
-                
-                
-            }
-        ) */
-    let currentEpisodeID = localStorage.getItem('currentEpisodeID');
-    this.apiService.getExternalPlayer(currentEpisodeID).subscribe(
-      (episodeLink) => {
-        if (episodeLink) {
-          this.episodeResult_Change.next(episodeLink);
-        }
-      },
-      (error) => {
-        console.log(error);
-        this.snackbarMessage('External player failed', 5000);
-      }
-    );
-  }
-
   setCurrnetAnime(animeTitle: string) {
     this.isBuffering.next(true);
     this.animeTitle = animeTitle;
@@ -446,7 +399,7 @@ export class WatchAnimeService {
 
               // self extract
               const EPISODE_ID = localStorage.getItem('currentEpisodeID');
-              const GOGO_EXTRACTOR_URL = `${environment.streamAPI}//Episode/gogo-extractor?episode_id=${EPISODE_ID}`;
+              const GOGO_EXTRACTOR_URL = `${environment.streamAPI}Episode/gogo-extractor?episode_id=${EPISODE_ID}`;
 
               this.apiService.regularGET(GOGO_EXTRACTOR_URL).subscribe(
                 (res) => {

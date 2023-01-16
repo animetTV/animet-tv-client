@@ -36,7 +36,8 @@
       "urls": [
         "**/images/anime/**",
         "**/images/anime/**/*.jpg",
-        "**/frosty-snyder-1df076.netlify.app/**"
+        "**/frosty-snyder-1df076.netlify.app/**",
+        "s4.anilist.co/**"
       ],
       "cacheConfig": {
         "maxSize": 200,

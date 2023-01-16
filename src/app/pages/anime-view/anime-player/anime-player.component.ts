@@ -518,27 +518,15 @@ export class AnimePlayerComponent implements OnDestroy {
     localStorage.setItem("lastSelectedAnimeType", `${String(type)}`);
     this.isDownload_available.next(true);
     
-      this.CRID.subscribe(
-        CRID => {
-          if (CRID && CRID.length > 0 && !type ) {
-            let animeDetail = this.selectedAnime.getValue();
-            this.watchAnimeService.intialGetSourcesID(animeDetail[0].episodes[index].id);
-            this.switchType(false);
-            setTimeout(() => {
-              this.setCRplayer();
-            },10)
-          } else {
-            let animeDetail = this.selectedAnime.getValue();
-            if (type) {
-              this.watchAnimeService.intialGetSourcesID(animeDetail[1].episodes[index].id);
-              this.switchType(true);
-            } else if (!type) {
-              this.watchAnimeService.intialGetSourcesID(animeDetail[0].episodes[index].id);
-              this.switchType(false);
-            }   
-            this.setInternalVidStreaming();
-          }
-        })
+    let animeDetail = this.selectedAnime.getValue();
+    if (type) {
+      this.watchAnimeService.intialGetSourcesID(animeDetail[1].episodes[index].id);
+      this.switchType(true);
+    } else if (!type) {
+      this.watchAnimeService.intialGetSourcesID(animeDetail[0].episodes[index].id);
+      this.switchType(false);
+    }   
+    this.setInternalVidStreaming();
        
       setTimeout(() => {
         this.scrollTo('player-wrapper');
@@ -714,32 +702,6 @@ export class AnimePlayerComponent implements OnDestroy {
 
 
 
-
-  // DOES NOT FULLY WORK BREAKING
-  /* async findAndswitchToExternalPlayer() {
-    this.showAnimetIntro.next(false);
-    this.safeStreamURL.next(null);
-    this.snackbarMessage('Switching to external player', 3200, 'center', 'top');
-    
-     document.getElementById('player-frame').classList.add('external-player');
-
-    this.showPlayer1.next(false);
-    this.showPlayer2.next(true);
-    this.showServerOptions.next(false);
-    this.watchAnimeService.findWorkingSrc();
-    this.watchAnimeService.episodeResult.subscribe(
-      result => {
-        // check if its external link
-        if (result !== null && (result.links[0].src.includes('gogo-play.net'))) {
-          this.defaultServerURL = result.links[0].src;
-          this.safeStreamURL.next(this.defaultServerURL);
-        }
-      }
-    )
-    await this.delay(10);
-    this.scrollTo('player');
-    //this.checkExternalPlayerStatus();
-  } */
 
   async switchToExternalPlayer() {
     this.sandboxOn.next(false);

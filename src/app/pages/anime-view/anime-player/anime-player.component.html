@@ -83,13 +83,13 @@
                         <mat-progress-bar mode="buffer"></mat-progress-bar>
                     </button>
                     <button *ngIf="(isCrunchyRoll_available | async) === false" id="internal-1" class="highlight nav-btn server-btn"
-                        mat-raised-button color="info" (click)="setIframePlayer2()">
+                        mat-raised-button color="info" (click)="setIframePlayer2()" >
                         <mat-icon>play_arrow</mat-icon>&nbsp;
                         <label *ngIf="(isHandset$ | async) === false">Internal 1</label>
                         <label *ngIf="(isHandset$ | async)">Int..1</label>
                     </button>
                     <button *ngIf="(isCrunchyRoll_available | async) === true" id="internal-1" class="highlight nav-btn server-btn"
-                        mat-raised-button color="info" (click)="setCRplayer()" style="color:#F47521;">
+                        mat-raised-button color="info" (click)="setCRplayer()" style="color:#F47521; opacity: 50%;" disabled>
                         <mat-icon>play_arrow</mat-icon>&nbsp;
                         <label *ngIf="(isHandset$ | async) === false">Internal 1 (CR)</label>
                         <label *ngIf="(isHandset$ | async)">Int..1</label>
