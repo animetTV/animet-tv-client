@@ -24,7 +24,7 @@ const MODULES = [
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
-    /* AdsenseModule.forRoot({
+  /*   AdsenseModule.forRoot({
         adClient: 'ca-pub-6890066986315850',
         adSlot: 4272829140,
         adFormat: 'Display'

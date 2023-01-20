@@ -1,5 +1,6 @@
 import {
   Component,
+  Inject,
   Input,
   Pipe,
   PipeTransform,
@@ -13,7 +14,7 @@ import { UserService } from './@core/services/user.service';
 import { WatchAnimeService } from './@core/services/watch-anime.service';
 import { BrowseService } from './@core/services/browse.service';
 import { ExperimentService } from './@core/services/experiment.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AuthService } from './@core/services/auth.service';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -27,6 +28,8 @@ import { Location } from '@angular/common';
 import { Season, SeasonsDetail, TopSeason } from './types/interface';
 import { SelectSeasonService } from './@core/services/select-season.service';
 declare let ga: Function;
+
+
 
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
@@ -42,6 +45,7 @@ export class SafePipe implements PipeTransform {
   templateUrl: 'app.component.html',
 })
 export class AppComponent {
+
   title = 'AnimetTV';
   isMobile: boolean = false;
   isBuffering: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -104,7 +108,7 @@ export class AppComponent {
     public watchAnimeService: WatchAnimeService,
     public serviceWorker: UpdateService,
     private location: Location,
-    private selectSeason: SelectSeasonService
+    private selectSeason: SelectSeasonService,
   ) {
     this.userService.setUserContinent();
 
@@ -193,6 +197,18 @@ export class AppComponent {
     this.userService.isNSFWClient.subscribe((newState) => {
       this.isChecked.next(newState);
     });
+
+    // imporatant notice dialog open if sessionOpen is true
+   /*  if (localStorage.getItem('sessionOpen') === 'true') {
+      this.openImportantNoticeDialog();
+    } */
+
+  }
+
+  openImportantNoticeDialog() {
+    this.dialog.open(ImportantNoticeDialog, {
+
+    });
   }
 
   setAvatarShortEmail(email: string) {
@@ -204,18 +220,26 @@ export class AppComponent {
     this.location.back();
   }
 
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    localStorage.setItem('sessionOpen', 'false');
+  }
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
 
     // tmp use gogoanime source by default
-
     this.apiService.initalLoad();
     localStorage.setItem('sourceType', 'gogoanime');
     this.experimentService.getQuickBits();
     //this.apiService.initalLoad();
     this.userService.verifyToken();
 
+    // set sessionOpen to true in local storage
+    localStorage.setItem('sessionOpen', 'true');
+    
     const getSeason = (d) => Math.floor((d.getMonth() / 12) * 4) % 4;
     this.SEASON = ['Winter', 'Spring', 'Summer', 'Fall'][getSeason(new Date())];
     this.YEAR = new Date().getFullYear();
@@ -394,4 +418,12 @@ export class AppComponent {
     this.sidenav.close();
     this.router.navigate(['/browse/season']);
   }
+}
+
+@Component({
+  selector: 'important-notice-dialog',
+  templateUrl: 'important-notice-dialog.html',
+})
+export class ImportantNoticeDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any ) {}
 }

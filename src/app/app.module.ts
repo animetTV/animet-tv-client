@@ -131,7 +131,7 @@ const MODULES = [
   /* GtagModule.forRoot({ trackingId: 'G-E10E0LJ5RB', trackPageviews: true }), */
   ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' }),
   FormsModule,
- /*  AdsenseModule.forRoot({
+/*   AdsenseModule.forRoot({
     adClient: 'ca-pub-6890066986315850',
     adSlot: 3419288807,
   }), */
